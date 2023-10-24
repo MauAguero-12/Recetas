@@ -25,7 +25,8 @@ export class DashboardComponent {
       return this.recipes[-1]
     }
   }
-
+  
+  // FALTA BORRAR
   addNew(){
     this.addRecipe('Nueva Receta', 'asdfgh', 'url', ['1', '2', '3'])
   }

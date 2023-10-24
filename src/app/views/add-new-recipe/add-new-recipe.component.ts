@@ -69,6 +69,7 @@ export class AddNewRecipeComponent{
 
 
 
+  // FALTA BORRAR
   print(){
     console.log(this.getRecipes())
   }
