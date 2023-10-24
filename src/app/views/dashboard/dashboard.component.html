@@ -4,20 +4,32 @@
         <!-- if no recipes -->
         <div *ngIf="recipes.length == 0">
             <p>no hay recetas</p>
+            <!-- go to add recipe -->
+            <div>
+                <button class="addBtn" routerLink="add">Agregar Receta</button>
+            </div>
         </div>
 
         <!-- if at least one recipe -->
-        <div *ngIf="recipes.length > 0">
+        <div *ngIf="recipes.length > 0" class="mt-4">
             <div *ngFor="let recipe of getAllRecipes().reverse(); let i = index">
                 <!-- latest recipe -->
-                <div class="recipeCardNewest row p-4" *ngIf="i == 0">
-                    <img class="recipeImageNewest" [src]="recipe.image">
-
-                    <div class="col-12">
-                        <h2>{{recipe.title}}</h2>
-                        <p>{{recipe.description}}</p>
+                <div *ngIf="i == 0">
+                    <div class="recipeCardNewest row p-4" >
+                        <img class="recipeImageNewest" [src]="recipe.image">
+                        <div class="col-12">
+                            <h2>{{recipe.title}}</h2>
+                            <p>{{recipe.description}}</p>
+                        </div>
+                    </div>
+                    <!-- go to add recipe -->
+                    <div class="mt-3">
+                        <button class="addBtn" routerLink="add">Agregar Receta</button>
                     </div>
                 </div>
+            </div>
+
+            <div *ngFor="let recipe of getAllRecipes().reverse(); let i = index">
 
                 <!-- other recipes -->
                 <div class="recipeCard row pt-3" *ngIf="i > 0">
@@ -30,11 +42,6 @@
                     </div>
                 </div>
             </div>
-        </div>
-
-        <!-- go to add recipe -->
-        <div>
-            <button routerLink="add">Agregar Receta</button>
         </div>
     </div>
     <div class="col-1"></div>

@@ -8,6 +8,19 @@
     max-height: 100%;
 }
 
+.addBtn{
+    border: 1px solid #76C893;
+    border-radius: 15%;
+    padding: 3px;
+    background-color: #76C893;
+    
+}
+.addBtn:hover{
+    color: white;
+    background-color: #2a5e4e;
+    border: 1px solid #265547;
+}
+
 .recipeCardNewest{
     height: auto;
     background-color: lightgray;

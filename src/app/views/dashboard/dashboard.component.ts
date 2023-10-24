@@ -24,10 +24,6 @@ export class DashboardComponent implements OnInit {
     return this.recipes
   }
 
-  getAllRecipesInverse(): Recipe[]{
-    return []
-  }
-
   getLastRecipe(): Recipe | void {
     if (this.recipes.length > 0) {
       return this.recipes[-1]
