@@ -1,0 +1,14 @@
+.form-label{
+    width: 100%;
+}
+
+
+#addIngredientBtn{
+    width: 100%;
+    background-color: transparent;
+    border: var(--bs-border-width) solid var(--bs-border-color);
+    border-radius: var(--bs-border-radius);
+    min-height: 1.5rem;
+    padding: 6px 12px;
+    /*  */
+}

@@ -1,0 +1,32 @@
+<!-- if no recipes -->
+<div *ngIf="recipes.length == 0">
+    <p>no hay recetas</p>
+</div>
+
+<!-- if at least one recipe -->
+<div *ngIf="recipes.length > 0">
+    <div *ngFor="let recipe of getAllRecipes(); let i = index">
+        <!-- latest recipe -->
+        <div *ngIf="i == 0">
+            <h2>{{recipe.title}}</h2>
+            <p>{{recipe.description}}</p>
+        </div>
+
+        <!-- other recipes -->
+        <div class="pt-3" *ngIf="i != 0">
+            <h4>{{recipe.title}}</h4>
+            <p>{{recipe.description}}</p>
+        </div>
+        
+    </div>
+</div>
+
+
+<div>
+    <button (click)="addNew()">add new</button>
+</div>
+
+
+<div>
+    <button routerLink="add">Agregar Receta</button>
+</div>

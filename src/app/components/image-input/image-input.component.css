@@ -1,0 +1,17 @@
+input{
+    display: none;
+}
+
+.imageInputDiv{
+    min-height: 1.5rem;
+    height: 1.5rem;
+}
+.imageInputBtn{
+    width: 100%;
+    border: var(--bs-border-width) solid var(--bs-border-color);
+    border-radius: var(--bs-border-radius);
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    padding: 6px 12px;
+}
