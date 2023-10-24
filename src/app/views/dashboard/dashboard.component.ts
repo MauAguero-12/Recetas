@@ -1,33 +1,42 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Recipe } from 'src/app/interfaces/recipe';
+import { RecipesService } from 'src/app/services/recipes.service';
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })
-export class DashboardComponent {
+export class DashboardComponent implements OnInit {
   // ATRIBUTES
-  recipes:Recipe[] = []
+  recipes: Recipe[] = []
 
   // METHODS
-  addRecipe(title: string, description: string, image: string, ingredients: string[]): void{
-    let newRecipe:Recipe = {title: title, description: description, image: image, ingredients: ingredients}
-    this.recipes.push(newRecipe)
+  constructor(private recipeService: RecipesService) {
+
   }
 
-  getAllRecipes(): Recipe[]{
+  ngOnInit(): void {
+    this.recipes = this.recipeService.getRecipes()
+  }
+
+  getAllRecipes(): Recipe[] {
     return this.recipes
   }
 
-  getLastRecipe(): Recipe|void{
-    if (this.recipes.length != 0){
+  getAllRecipesInverse(): Recipe[]{
+    return []
+  }
+
+  getLastRecipe(): Recipe | void {
+    if (this.recipes.length > 0) {
       return this.recipes[-1]
     }
   }
-  
-  // FALTA BORRAR
-  addNew(){
-    this.addRecipe('Nueva Receta', 'asdfgh', 'url', ['1', '2', '3'])
+  getAllButLastRecipes():Recipe[] | void {
+    let n = this.recipes.length
+    if (n > 0) {
+      return this.recipes.slice(0, -1)
+    }
   }
 }

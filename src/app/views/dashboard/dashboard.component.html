@@ -1,33 +1,41 @@
-<!-- if no recipes -->
-<div *ngIf="recipes.length == 0">
-    <p>no hay recetas</p>
-</div>
-
-<!-- if at least one recipe -->
-<div *ngIf="recipes.length > 0">
-    <div *ngFor="let recipe of getAllRecipes(); let i = index">
-        <!-- latest recipe -->
-        <div *ngIf="i == 0">
-            <h2>{{recipe.title}}</h2>
-            <p>{{recipe.description}}</p>
+<div class="row">
+    <div class="col-1"></div>
+    <div class="col-10">
+        <!-- if no recipes -->
+        <div *ngIf="recipes.length == 0">
+            <p>no hay recetas</p>
         </div>
 
-        <!-- other recipes -->
-        <div class="pt-3" *ngIf="i != 0">
-            <h4>{{recipe.title}}</h4>
-            <p>{{recipe.description}}</p>
+        <!-- if at least one recipe -->
+        <div *ngIf="recipes.length > 0">
+            <div *ngFor="let recipe of getAllRecipes().reverse(); let i = index">
+                <!-- latest recipe -->
+                <div class="recipeCardNewest row p-4" *ngIf="i == 0">
+                    <img class="recipeImageNewest" [src]="recipe.image">
+
+                    <div class="col-12">
+                        <h2>{{recipe.title}}</h2>
+                        <p>{{recipe.description}}</p>
+                    </div>
+                </div>
+
+                <!-- other recipes -->
+                <div class="recipeCard row pt-3" *ngIf="i > 0">
+                    <div class="col-2">
+                        <img class="recipeImageNewest" [src]="recipe.image">
+                    </div>
+                    <div class="col-10">
+                        <h2>{{recipe.title}}</h2>
+                        <p>{{recipe.description}}</p>
+                    </div>
+                </div>
+            </div>
         </div>
-        
+
+        <!-- go to add recipe -->
+        <div>
+            <button routerLink="add">Agregar Receta</button>
+        </div>
     </div>
-</div>
-
-
-<!-- FALTA BORRAR -->
-<div>
-    <button (click)="addNew()">add new</button>
-</div>
-
-
-<div>
-    <button routerLink="add">Agregar Receta</button>
+    <div class="col-1"></div>
 </div>

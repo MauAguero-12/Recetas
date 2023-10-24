@@ -26,7 +26,7 @@ export class AddNewRecipeComponent{
   }
 
   addIngredient(): void{
-    let newIngredient = this.fb.control('', Validators.required);
+    let newIngredient = this.fb.control('');
     this.getIngredientsForm().push(newIngredient);
   }
 
@@ -63,14 +63,5 @@ export class AddNewRecipeComponent{
     else{
       // error
     }
-  }
-
-
-
-
-
-  // FALTA BORRAR
-  print(){
-    console.log(this.getRecipes())
   }
 }
