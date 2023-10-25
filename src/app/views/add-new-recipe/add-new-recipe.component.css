@@ -12,6 +12,16 @@ button{
     width: 100%;
     min-height: 1.5rem;
     padding: 6px 12px;
+    color: #486d28;
+    border: var(--bs-border-width) solid #486d28;
+    border-radius: var(--bs-border-radius);
+    transition: all 0.2s ease-in;
+}
+
+#addIngredientBtn:hover{
+    color: white;
+    background-color: #486d28;
+    transition: all 0.2s ease-in;
 }
 
 .row,.col-1, .col-11{
