@@ -12,15 +12,15 @@ button{
     width: 100%;
     min-height: 1.5rem;
     padding: 6px 12px;
-    color: #486d28;
-    border: var(--bs-border-width) solid #486d28;
+    color: #386641;
+    border: var(--bs-border-width) solid #386641;
     border-radius: var(--bs-border-radius);
     transition: all 0.2s ease-in;
 }
 
 #addIngredientBtn:hover{
     color: white;
-    background-color: #486d28;
+    background-color: #386641;
     transition: all 0.2s ease-in;
 }
 
@@ -35,8 +35,8 @@ button{
     align-items: center;
     width: 100%;
     height: 100%;
-    color: #c3352c;
-    border: var(--bs-border-width) solid #c3352c;
+    color: #BC4749;
+    border: var(--bs-border-width) solid #BC4749;
     border-radius: var(--bs-border-radius);
     transition: all 0.2s ease-in;
 
@@ -44,7 +44,7 @@ button{
 
 .removeIngredientIcon:hover{
     color: white;
-    background-color: #c3352c;
+    background-color: #BC4749;
     border: var(--bs-border-width) solid var(--bs-border-color);
     transition: all 0.3s ease-in;
 }
@@ -56,9 +56,9 @@ button{
 }
 
 .saveBtn{
-    color: #456a1c;
+    color: #386641;
     background-color: #ddbb6a;
-    border: var(--bs-border-width) solid #456a1c;
+    border: var(--bs-border-width) solid #386641;
     width: 40%;
     transition: all 0.3s ease-in;
 }
