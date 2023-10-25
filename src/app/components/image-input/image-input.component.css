@@ -54,22 +54,18 @@ input{
 }
 
 #imageDisplayRemoveIcon{
-    /* background-color: lightgray; */
+    background-color: lightgray;
     color: #59585e;
     height: 20px;
     width: 20px;
     border-radius: 50%;
     display: flex;
     justify-content: center;
+    align-items: center;
 
 }
 #imageDisplayRemoveIcon:hover{
     color: white;
     background-color: #8c9096;
     transition: all 0.2s ease-in;
-}
-:host {
-    .fa-x{
-        transform: translateY(10%);
-    }
 }
