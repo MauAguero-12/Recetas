@@ -1,10 +1,12 @@
 <input type="file" accept="image/*" id="imageInput" (change)="newImage($event)">
 
 <!-- no image selected -->
-<div *ngIf="selectedImageURL == ''" class="imageInputDiv">
-    <label for="imageInput" class="imageInputBtn">
-        Seleccione una Imagen
-    </label>
+<div *ngIf="selectedImageURL == ''">
+    <button id="imageInputBtn" class="btn btn-outline-dark">
+        <label for="imageInput" class="imageInputLbl">
+            Seleccione una Imagen
+        </label>
+    </button>
 </div>
 
 <!-- image selected -->

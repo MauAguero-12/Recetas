@@ -2,12 +2,20 @@ input{
     display: none;
 }
 
-.imageInputDiv{
-    min-height: 1.5rem;
-    height: 1.5rem;
-}
-.imageInputBtn{
+#imageInputBtn{
+    background-color: transparent;
+    border: none;
     width: 100%;
+    padding: 0;
+    cursor: default;
+}
+#imageInputBtn:hover,
+#imageInputBtn:focus{
+    color: black;
+}
+.imageInputLbl{
+    width: 100%;
+    height: 100%;
     border: var(--bs-border-width) solid var(--bs-border-color);
     border-radius: var(--bs-border-radius);
     cursor: pointer;
