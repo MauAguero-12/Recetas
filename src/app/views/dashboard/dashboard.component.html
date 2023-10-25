@@ -11,30 +11,31 @@
                 </div>
             </div>
 
-            <!-- if at least one recipe -->
-            <div *ngIf="recipes.length > 0" class="mt-4">
-                <div *ngFor="let recipe of getAllRecipes().reverse(); let i = index">
-                    <!-- latest recipe -->
-                    <div *ngIf="i == 0">
-                        <div class="recipeCardNewest row p-4">
-                            <img class="recipeImageNewest" [src]="recipe.image">
-                            <div class="col-12">
-                                <h2>{{recipe.title}}</h2>
-                                <p>{{recipe.description}}</p>
-                            </div>
-                        </div>
-                        <!-- go to add recipe -->
-                        <div class="my-4">
-                            <button class="addBtn" routerLink="add">Agregar Receta</button>
+            <!-- at least one recipe -->
+            <div *ngFor="let recipe of getAllRecipesReverse(); let i = index">
+                <!-- latest recipe -->
+                <div *ngIf="i == 0">
+                    <div class="recipeCardNewest row p-4">
+                        <img class="recipeImageNewest" [src]="recipe.image">
+                        <div class="col-12">
+                            <h2>{{recipe.title}}</h2>
+                            <p>{{recipe.description}}</p>
                         </div>
                     </div>
+                    <!-- go to add recipe -->
+                    <div class="my-4">
+                        <button class="addBtn" routerLink="add">Agregar Receta</button>
+                    </div>
+                </div>
+            </div>
 
+            <div class="recipeCol" *ngFor="let recipe of getAllButLastRecipes().reverse(); let i = index">
+                <!-- if at least one recipe -->
+                <div class="mt-4">
                     <!-- other recipes -->
-                    <div class="recipeCard mt-3" *ngIf="i > 0">
+                    <div class="recipeCard mt-3">
                         <div class="col-12">
                             <img class="recipeImage" [src]="recipe.image">
-                            <!-- </div> -->
-                            <!-- <div class="col-12"> -->
                             <h2>{{recipe.title}}</h2>
                             <!-- <p>{{recipe.description}}</p> -->
                         </div>

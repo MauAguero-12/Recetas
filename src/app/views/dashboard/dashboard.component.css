@@ -1,6 +1,8 @@
 .row,
 .col-1,
 .col-2,
+.col-4,
+.col-6
 .col-10,
 .col-12 {
     margin: 0;
@@ -44,6 +46,15 @@
 }
 
 /* Other Recipe Card */
+.recipeCol{
+    width: 33.3%;
+}
+@media only screen and (max-width: 426px) {
+    .recipeCol{
+        width: 50%;
+    }
+}
+
 .recipeCard{
     height: 25%;
     width: 25%;
