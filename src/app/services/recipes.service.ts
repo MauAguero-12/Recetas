@@ -52,6 +52,6 @@ export class RecipesService implements OnInit {
 
   addRecipe(recipe: Recipe){
     this.recipes.push(recipe)
-    this.add_session_recipe(recipe)
+    // this.add_session_recipe(recipe)
   }
 }
