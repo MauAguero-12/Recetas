@@ -21,7 +21,7 @@
                     <input type="text" class="form-control" [id]="'ingredientInput' + i" [formControlName]="i">
                 </div>
                 <div class="col-1">
-                    <fa-icon [icon]="iconX" class="removeIngredientBtn"></fa-icon>
+                    <fa-icon [icon]="iconX" class="removeIngredientIcon"></fa-icon>
                 </div>
             </div>
 
@@ -31,9 +31,9 @@
         </div>
 
         <!-- Save Button -->
-        <div>
-            <button (click)="saveRecipe()">Guardar Receta</button>
-            <button routerLink="">Atrás</button>
+        <div class="row saveBtnRow pt-5">
+            <button class="saveBtn" (click)="saveRecipe()">Guardar Receta</button>
+            <button class="saveBtn" routerLink="">Atrás</button>
         </div>
     </form>
 </div>

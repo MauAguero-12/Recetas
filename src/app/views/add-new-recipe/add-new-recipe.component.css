@@ -2,12 +2,14 @@
     width: 100%;
 }
 
-
-#addIngredientBtn{
-    width: 100%;
+button{
     background-color: transparent;
     border: var(--bs-border-width) solid var(--bs-border-color);
     border-radius: var(--bs-border-radius);
+}
+
+#addIngredientBtn{
+    width: 100%;
     min-height: 1.5rem;
     padding: 6px 12px;
 }
@@ -17,7 +19,7 @@
     padding: 0;
 }
 
-.removeIngredientBtn{
+.removeIngredientIcon{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -30,9 +32,27 @@
 
 }
 
-.removeIngredientBtn:hover{
+.removeIngredientIcon:hover{
     color: white;
     background-color: #c3352c;
     border: var(--bs-border-width) solid var(--bs-border-color);
+    transition: all 0.3s ease-in;
+}
+
+/* Save Button */
+.saveBtnRow{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.saveBtn{
+    color: #456a1c;
+    background-color: #ddbb6a;
+    border: var(--bs-border-width) solid #456a1c;
+    width: 40%;
+    transition: all 0.3s ease-in;
+}
+.saveBtn:hover{
+    transform: scale(1.1);
     transition: all 0.3s ease-in;
 }
