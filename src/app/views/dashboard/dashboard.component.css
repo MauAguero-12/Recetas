@@ -72,8 +72,8 @@
 }
 
 .recipeCard{
-    height: 25%;
-    width: 25%;
+    /* height: 25%;
+    width: 25%; */
     /* background-color: #386641; */
     border: var(--bs-border-width) solid var(--bs-border-color);
     border-radius: var(--bs-border-radius);

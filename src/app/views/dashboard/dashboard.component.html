@@ -12,7 +12,7 @@
             </div>
 
             <!-- at least one recipe -->
-            <div class="forDiv" *ngFor="let recipe of getAllRecipesReverse(); let i = index">
+            <div class="forDiv" *ngFor="let recipe of getLastRecipe(); let i = index">
                 <!-- latest recipe -->
                 <div *ngIf="i == 0">
                     <div class="recipeCardNewest row p-4">
@@ -29,17 +29,12 @@
                 </div>
             </div>
 
-            <div class="recipeCol" *ngFor="let recipe of getAllButLastRecipes().reverse(); let i = index">
-                <!-- if at least one recipe -->
-                <div class="mt-4">
-                    <!-- other recipes -->
-                    <div class="recipeCard mt-3">
-                        <div class="col-12">
-                            <img class="recipeImage" [src]="recipe.image">
-                            <h2>{{recipe.title}}</h2>
-                            <!-- <p>{{recipe.description}}</p> -->
-                        </div>
-                    </div>
+            <!-- other recipes -->
+            <div class="recipeCol mt-4" *ngFor="let recipe of getAllButLastRecipes().reverse(); let i = index">
+                <div class="recipeCard mt-3">
+                    <img class="recipeImage" [src]="recipe.image">
+                    <h2>{{recipe.title}}</h2>
+                    <!-- <p>{{recipe.description}}</p> -->
                 </div>
             </div>
         </div>

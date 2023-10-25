@@ -30,11 +30,11 @@ export class DashboardComponent implements OnInit {
     return reversedRecipes.reverse()
   }
 
-  getLastRecipe(): Recipe {
+  getLastRecipe(): Recipe[]{
     if (this.recipes.length > 0) {
-      return this.recipes[-1]
+      return this.recipes.slice(-1)
     }
-    return this.recipes[-1]
+    return []
   }
   getAllButLastRecipes():Recipe[] {
     let n = this.recipes.length
