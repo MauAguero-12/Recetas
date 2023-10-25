@@ -25,22 +25,28 @@ export class DashboardComponent implements OnInit {
     return recipesList
   }
 
-  getAllRecipesReverse(): Recipe[]{
+  getAllRecipesReverse(): Recipe[] {
     let reversedRecipes = this.recipes.slice()
     return reversedRecipes.reverse()
   }
 
-  getNewestRecipe(): Recipe[]{
+  getNewestRecipe(): Recipe[] {
     if (this.recipes.length > 0) {
       return this.recipes.slice(-1)
     }
     return []
   }
-  getOtherRecipes():Recipe[] {
+  getOtherRecipes(): Recipe[] {
     let n = this.recipes.length
+    let array: Recipe[] = []
     if (n > 0) {
-      return this.recipes.slice(0, -1)
+      array = this.recipes.slice(0, -1)
+      while((n-1)%3 != 0){
+        let dummy: Recipe = {title: '', description: '', image: '', ingredients: []}
+        array.unshift(dummy)
+        n++;
+      }
     }
-    return []
+    return array
   }
 }
