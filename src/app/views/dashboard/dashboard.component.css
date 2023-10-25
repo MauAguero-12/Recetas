@@ -2,14 +2,29 @@
 .col-1,
 .col-2,
 .col-4,
-.col-6
+.col-6,
 .col-10,
-.col-12 {
+.col-12,
+.forDiv {
     margin: 0;
     padding: 0;
+}
+
+.row,
+.col-1,
+.col-2,
+.col-4,
+.col-6
+.col-10,
+.col-12,
+.forDiv {
     max-height: 100%;
 }
 
+
+/* .colXd{
+    padding: 0;
+} */
 /* Add New Recipe Button */
 .addBtn{
     border: 1px solid #76C893;
@@ -48,6 +63,7 @@
 /* Other Recipe Card */
 .recipeCol{
     width: 33.3%;
+    padding: 0;
 }
 @media only screen and (max-width: 426px) {
     .recipeCol{
