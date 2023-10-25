@@ -24,10 +24,11 @@ export class DashboardComponent implements OnInit {
     return this.recipes
   }
 
-  getLastRecipe(): Recipe | void {
+  getLastRecipe(): Recipe {
     if (this.recipes.length > 0) {
       return this.recipes[-1]
     }
+    return this.recipes[-1]
   }
   getAllButLastRecipes():Recipe[] | void {
     let n = this.recipes.length

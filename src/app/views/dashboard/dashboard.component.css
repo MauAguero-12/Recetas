@@ -8,6 +8,7 @@
     max-height: 100%;
 }
 
+/* Add New Recipe Button */
 .addBtn{
     border: 1px solid #76C893;
     border-radius: 15%;
@@ -21,9 +22,12 @@
     border: 1px solid #265547;
 }
 
+/* Newest Recipe Card */
 .recipeCardNewest{
     height: auto;
-    background-color: lightgray;
+    background-color: #386641;
+    border-radius: var(--bs-border-radius);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .recipeImageDivNewest{
@@ -35,5 +39,29 @@
     width: 100%;
     height: 300px;
     object-fit: cover;
+    border: 5px solid #A7C957;
+    border-radius: var(--bs-border-radius);
 }
 
+/* Other Recipe Card */
+.recipeCard{
+    height: 25%;
+    width: 25%;
+    /* background-color: #386641; */
+    border: var(--bs-border-width) solid var(--bs-border-color);
+    border-radius: var(--bs-border-radius);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.recipeImageDiv{
+    height: auto;
+}
+
+.recipeImage {
+    padding: 0;
+    width: 100%;
+    /* height: 300px; */
+    object-fit: cover;
+    border: 5px solid #A7C957;
+    border-radius: var(--bs-border-radius);
+}

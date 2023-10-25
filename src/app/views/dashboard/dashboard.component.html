@@ -1,41 +1,43 @@
 <div class="row">
     <div class="col-1"></div>
     <div class="col-10">
-        <!-- if no recipes -->
-        <div *ngIf="recipes.length == 0">
-            <p>no hay recetas</p>
-            <!-- go to add recipe -->
-            <div>
-                <button class="addBtn" routerLink="add">Agregar Receta</button>
+        <div class="row">
+            <!-- if no recipes -->
+            <div class="col-12" *ngIf="recipes.length == 0">
+                <p>no hay recetas</p>
+                <!-- go to add recipe -->
+                <div>
+                    <button class="addBtn" routerLink="add">Agregar Receta</button>
+                </div>
             </div>
-        </div>
 
-        <!-- if at least one recipe -->
-        <div *ngIf="recipes.length > 0" class="mt-4">
-            <div *ngFor="let recipe of getAllRecipes().reverse(); let i = index">
-                <!-- latest recipe -->
-                <div *ngIf="i == 0">
-                    <div class="recipeCardNewest row p-4">
-                        <img class="recipeImageNewest" [src]="recipe.image">
-                        <div class="col-12">
-                            <h2>{{recipe.title}}</h2>
-                            <p>{{recipe.description}}</p>
+            <!-- if at least one recipe -->
+            <div *ngIf="recipes.length > 0" class="mt-4">
+                <div *ngFor="let recipe of getAllRecipes().reverse(); let i = index">
+                    <!-- latest recipe -->
+                    <div *ngIf="i == 0">
+                        <div class="recipeCardNewest row p-4">
+                            <img class="recipeImageNewest" [src]="recipe.image">
+                            <div class="col-12">
+                                <h2>{{recipe.title}}</h2>
+                                <p>{{recipe.description}}</p>
+                            </div>
+                        </div>
+                        <!-- go to add recipe -->
+                        <div class="my-4">
+                            <button class="addBtn" routerLink="add">Agregar Receta</button>
                         </div>
                     </div>
-                    <!-- go to add recipe -->
-                    <div class="mt-3">
-                        <button class="addBtn" routerLink="add">Agregar Receta</button>
-                    </div>
-                </div>
 
-                <!-- other recipes -->
-                <div class="recipeCard row pt-3" *ngIf="i > 0">
-                    <div class="col-2">
-                        <img class="recipeImageNewest" [src]="recipe.image">
-                    </div>
-                    <div class="col-10">
-                        <h2>{{recipe.title}}</h2>
-                        <p>{{recipe.description}}</p>
+                    <!-- other recipes -->
+                    <div class="recipeCard mt-3" *ngIf="i > 0">
+                        <div class="col-12">
+                            <img class="recipeImage" [src]="recipe.image">
+                            <!-- </div> -->
+                            <!-- <div class="col-12"> -->
+                            <h2>{{recipe.title}}</h2>
+                            <!-- <p>{{recipe.description}}</p> -->
+                        </div>
                     </div>
                 </div>
             </div>
