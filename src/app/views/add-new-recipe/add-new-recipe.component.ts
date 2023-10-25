@@ -1,5 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { FormArray, FormBuilder, Validators } from '@angular/forms';
+import { faX } from '@fortawesome/free-solid-svg-icons';
 import { ImageInputComponent } from 'src/app/components/image-input/image-input.component';
 import { Recipe } from 'src/app/interfaces/recipe';
 import { RecipesService } from 'src/app/services/recipes.service';
@@ -64,4 +65,7 @@ export class AddNewRecipeComponent{
       // error
     }
   }
+
+  // Icons
+  iconX = faX
 }
