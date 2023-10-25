@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
+import { faX } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-image-input',
@@ -31,4 +32,7 @@ export class ImageInputComponent {
   getImage(){
     return this.selectedImageURL
   }
+
+  // Icons
+  iconX = faX
 }

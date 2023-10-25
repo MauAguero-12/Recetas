@@ -9,10 +9,17 @@
     </button>
 </div>
 
-<!-- image selected -->
-<div *ngIf="selectedImageURL != ''" class="imageDisplayDiv">
-    <label for="imageInput" class="imageDisplayLbl">
-        <img [src]="selectedImageURL" class="imageDisplay">
-    </label>
+<!-- selected image -->
+<div *ngIf="selectedImageURL != ''" class="row imageDisplayDiv">
+    <div class="col-1"></div>
+    <!-- image display -->
+    <div class="col-10">
+        <label for="imageInput" class="imageDisplayLbl">
+            <img [src]="selectedImageURL" class="imageDisplay">
+        </label>
+    </div>
+    <!-- remove image button -->
+    <div class="col-1 imageDisplayRemoveDiv">
+        <fa-icon id="imageDisplayRemoveIcon" [icon]="iconX" (click)="resetImage()"></fa-icon>
+    </div>
 </div>
-
