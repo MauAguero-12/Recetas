@@ -31,7 +31,6 @@ export class AddNewRecipeComponent {
         ingredientsArray.push(ingredient)
       }
     })
-    // console.log(ingredientsArray)
     return ingredientsArray
   }
   getIngredientsForm(): FormArray {
@@ -51,12 +50,6 @@ export class AddNewRecipeComponent {
   @ViewChild(ImageInputComponent) imageInputComp: ImageInputComponent = new ImageInputComponent();
   getImage(): string {
     return this.imageInputComp.getImage()
-  }
-
-
-
-  getRecipes() {
-    return this.recipeService.getRecipes()
   }
 
   saveRecipe(): void {
@@ -80,9 +73,4 @@ export class AddNewRecipeComponent {
 
   // Icons
   iconX = faX
-
-
-  print(){
-    console.log(this.recipeService.getRecipes())
-  }
 }
