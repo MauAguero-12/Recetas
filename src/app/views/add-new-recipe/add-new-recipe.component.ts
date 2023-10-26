@@ -10,10 +10,10 @@ import { RecipesService } from 'src/app/services/recipes.service';
   templateUrl: './add-new-recipe.component.html',
   styleUrls: ['./add-new-recipe.component.css']
 })
-export class AddNewRecipeComponent{
+export class AddNewRecipeComponent {
   // Reactive Form
   recipeForm;
-  constructor(private recipeService: RecipesService, private fb: FormBuilder){
+  constructor(private recipeService: RecipesService, private fb: FormBuilder) {
     this.recipeForm = this.fb.group({
       title: ['', Validators.required],
       description: ['', Validators.required],
@@ -22,50 +22,67 @@ export class AddNewRecipeComponent{
     })
   }
 
-  getIngredientsForm(): FormArray{
+  getIngredientsArray(): string[] {
+    let ingredientsArray: string[] = []
+    let userIngredientsArray: string[] = this.recipeForm.value.ingredients as string[]
+    userIngredientsArray.forEach((ingredient, index) => {
+      ingredient = ingredient.trim()
+      if (ingredient != '') {
+        ingredientsArray.push(ingredient)
+      }
+    })
+    // console.log(ingredientsArray)
+    return ingredientsArray
+  }
+  getIngredientsForm(): FormArray {
     return this.recipeForm.controls['ingredients'] as FormArray
   }
 
-  addIngredient(): void{
+  addIngredient(): void {
     let newIngredient = this.fb.control('');
     this.getIngredientsForm().push(newIngredient);
   }
 
   // Image Input
-  newImage(event: string){
-    this.recipeForm.patchValue({image: event})
+  newImage(event: string) {
+    this.recipeForm.patchValue({ image: event })
   }
 
   @ViewChild(ImageInputComponent) imageInputComp: ImageInputComponent = new ImageInputComponent();
-  getImage(): string{
+  getImage(): string {
     return this.imageInputComp.getImage()
   }
 
 
 
-  getRecipes(){
+  getRecipes() {
     return this.recipeService.getRecipes()
   }
 
-  saveRecipe(): void{
-    if (this.recipeForm.valid){
+  saveRecipe(): void {
+    if (this.recipeForm.valid) {
       let title = this.recipeForm.get('title')?.value
       let description = this.recipeForm.get('description')?.value
       let image = this.recipeForm.get('image')?.value
-      let ingredients = this.recipeForm.get('ingredients')?.value
+      let ingredients: string[] = this.getIngredientsArray()
 
-      if (title && description && image && ingredients){
+      if (title && description && image && ingredients.length != 0) {
         let recipe: Recipe = {
-          title: title, description: description, image: image, ingredients: []
+          title: title, description: description, image: image, ingredients: ingredients
         }
         this.recipeService.addRecipe(recipe)
       }
     }
-    else{
+    else {
       // error
     }
   }
 
   // Icons
   iconX = faX
+
+
+  print(){
+    console.log(this.recipeService.getRecipes())
+  }
 }
