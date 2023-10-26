@@ -1,10 +1,10 @@
-<div class="row">
+<div id="background" class="row">
     <div class="col-1"></div>
     <div class="col-10">
         <div class="row">
             <!-- if no recipes -->
-            <div class="col-12" *ngIf="recipes.length == 0">
-                <p>no hay recetas</p>
+            <div class="col-12 noRecipeCol" *ngIf="recipes.length == 0">
+                <h2 class="noRecipeText">De momento no tenemos recetas disponibles</h2>
                 <!-- go to add recipe -->
                 <div>
                     <button class="addBtn" routerLink="add">Agregar Receta</button>

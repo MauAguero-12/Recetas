@@ -8,41 +8,49 @@
 .forDiv {
     margin: 0;
     padding: 0;
-}
-
-.row,
-.col-1,
-.col-2,
-.col-4,
-.col-6
-.col-10,
-.col-12,
-.forDiv {
     max-height: 100%;
 }
 
+#background{
+    background-color: #6BAA75;
+    min-height: 100vh;
+}
+/* FALTA BORRAR? */
+#background.hidden{
+    background-color: white;
+}
 
-/* .colXd{
-    padding: 0;
-} */
+/* No Recipes */
+.noRecipeCol{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.noRecipeText{
+    color: #5A3C32;
+}
+
 /* Add New Recipe Button */
 .addBtn{
-    border: 1px solid #76C893;
-    border-radius: 15%;
     padding: 3px;
-    background-color: #76C893;
-    
+    color: #D1B490;
+    background-color: #5A3C32;
+    border: var(--bs-border-width) solid #5A3C32;
+    border-radius: var(--bs-border-radius);
+    transition: all 0.3s;
 }
 .addBtn:hover{
-    color: white;
-    background-color: #2a5e4e;
-    border: 1px solid #265547;
+    transform: scale(1.2);
+    transition: transform 0.5s;
 }
 
 /* Newest Recipe Card */
 .recipeCardNewest{
     height: auto;
-    background-color: #386641;
+    background-color: #6BAA75;
     border-radius: var(--bs-border-radius);
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }

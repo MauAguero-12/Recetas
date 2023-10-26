@@ -18,6 +18,14 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
     this.recipes = this.recipeService.getRecipes()
+    // this.applyStyles()
+  }
+
+  applyStyles(): void {
+    if (this.recipes.length > 0) {
+      let background = document.getElementById('background')
+      background?.classList.add('hidden')
+    }
   }
 
   getAllRecipes(): Recipe[] {
@@ -41,8 +49,8 @@ export class DashboardComponent implements OnInit {
     let array: Recipe[] = []
     if (n > 0) {
       array = this.recipes.slice(0, -1)
-      while((n-1)%3 != 0){
-        let dummy: Recipe = {title: '', description: '', image: '', ingredients: []}
+      while ((n - 1) % 3 != 0) {
+        let dummy: Recipe = { title: '', description: '', image: '', ingredients: [] }
         array.unshift(dummy)
         n++;
       }
