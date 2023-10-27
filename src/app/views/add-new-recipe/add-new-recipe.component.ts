@@ -43,6 +43,10 @@ export class AddNewRecipeComponent {
     this.getIngredientsForm().push(newIngredient);
   }
 
+  removeIngredient(i: number): void {
+    this.getIngredientsForm().removeAt(i)
+  }
+
   // Image Input
   newImage(event: string) {
     this.recipeForm.patchValue({ image: event })
@@ -66,21 +70,27 @@ export class AddNewRecipeComponent {
           title: title, description: description, image: image, ingredients: ingredients
         }
         this.recipeService.addRecipe(recipe)
+        this.headerText = 'La receta fue guardada con éxito'
+        this.bodyText = 'Va a ser redirigido a la página principal'
+        this.showModal()
       }
     }
     else {
-      // error
+      this.headerText = 'Hubo un error'
+      this.bodyText = 'La información ingresada es incorrecta'
+      this.showModal()
     }
   }
 
+  // Modal
+  headerText: string = 'Add New Recipe'
+  bodyText: string = '...'
   @ViewChild(ModalComponent) modalComp: ModalComponent = new ModalComponent();
-  headerText:string = 'aaa'
-  showModal(){
-    this.headerText = 'abc'
+  showModal() {
     this.modalComp.showModal()
   }
 
-  modalClosed(){
+  modalClosed() {
     console.log('X click')
   }
 

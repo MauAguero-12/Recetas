@@ -21,7 +21,7 @@
                     <input type="text" class="form-control" [id]="'ingredientInput' + i" [formControlName]="i">
                 </div>
                 <div class="col-1">
-                    <fa-icon [icon]="iconX" class="removeIngredientIcon"></fa-icon>
+                    <fa-icon [icon]="iconX" class="removeIngredientIcon" (click)="removeIngredient(i)"></fa-icon>
                 </div>
             </div>
 
@@ -35,10 +35,11 @@
             <button class="saveBtn" (click)="saveRecipe()">Guardar Receta</button>
             <button class="saveBtn" routerLink="">Atrás</button>
         </div>
+        <div>
+            <button (click)="showModal()">click</button>
+            <app-modal [headerText]="headerText" [bodyText]="bodyText" (closed)="modalClosed()"></app-modal>
+        </div>
     </form>
 
-    <div>
-        <button (click)="showModal()">click</button>
-        <app-modal [headerText]="headerText" (closed)="modalClosed()"></app-modal>
-    </div>
+    
 </div>
