@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { Recipe } from 'src/app/interfaces/recipe';
 import { RecipesService } from 'src/app/services/recipes.service';
 
@@ -7,19 +7,34 @@ import { RecipesService } from 'src/app/services/recipes.service';
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })
-export class DashboardComponent implements OnInit {
+export class DashboardComponent implements OnInit, AfterViewInit {
   // ATRIBUTES
   recipes: Recipe[] = []
 
   // METHODS
-  constructor(private recipeService: RecipesService) {
-
-  }
+  constructor(private recipeService: RecipesService) { }
 
   ngOnInit(): void {
+    // get recipes from service
     this.recipes = this.recipeService.getRecipes()
   }
 
+  ngAfterViewInit(): void {
+    // add click event to recipe cards
+    let recipeCards = document.getElementsByClassName('recipeCards')
+    let n = recipeCards.length
+    for (let i = 0; i < n; i++){
+      let card = recipeCards[i] as HTMLElement
+      if (card){
+        card.onclick = () => {
+          let recipeIndex = n - 1 - i
+          this.recipeService.setSelectedRecipe(recipeIndex)
+        }
+      }
+    }
+  }
+
+  // Get Recipe Methods
   getAllRecipes(): Recipe[] {
     let recipesList = this.recipes
     return recipesList
@@ -48,5 +63,14 @@ export class DashboardComponent implements OnInit {
       }
     }
     return array.reverse()
+  }
+
+  // Cards
+  getCardId(i: number): string {
+    let idString = 'recipeCard'
+    if (i < this.recipes.length - 1) {
+      return idString + i
+    }
+    return ''
   }
 }
