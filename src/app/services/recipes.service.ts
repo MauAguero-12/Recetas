@@ -4,18 +4,11 @@ import { Recipe } from '../interfaces/recipe';
 @Injectable({
   providedIn: 'root'
 })
-export class RecipesService implements OnInit {
+export class RecipesService {
   constructor() { }
 
   // Session Storage
   sessionStorageInUse = false
-  ngOnInit(): void {
-      // if (!this.sessionStorageInUse){
-      //   console.log('ngOnInit')
-      //   this.sessionStorageInUse = true
-      //   this.recipes = this.get_session_recipes()
-      // }
-  }
 
   private count_session_recipes(): number{
     let i: number = 0
