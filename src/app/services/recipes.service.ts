@@ -54,11 +54,9 @@ export class RecipesService {
   }
 
   setSelectedRecipe(i: number): void {
-    console.log('set ' + i)
     this.selectedRecipe = i
   }
   getSelectedRecipe(): Recipe | void {
-    console.log('get ' + this.selectedRecipe)
     if (this.selectedRecipe > -1 && this.selectedRecipe < this.recipes.length) {
       return this.recipes[this.selectedRecipe]
     }

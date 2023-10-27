@@ -20,7 +20,6 @@ export class ViewRecipeComponent implements OnInit {
   updateSelectedRecipe() {
     let newRecipe = this.recipeService.getSelectedRecipe()
     if (newRecipe) {
-      console.log('updated')
       this.recipe = newRecipe
     }
   }
