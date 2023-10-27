@@ -12,15 +12,15 @@ button{
     width: 100%;
     min-height: 1.5rem;
     padding: 6px 12px;
-    color: #5B8266;
-    border: var(--bs-border-width) solid #5B8266;
+    color: #32936F;
+    border: var(--bs-border-width) solid #32936F;
     border-radius: var(--bs-border-radius);
     transition: all 0.2s ease-in;
 }
 
 #addIngredientBtn:hover{
     color: white;
-    background-color: #5B8266;
+    background-color: #32936F;
     transition: all 0.2s ease-in;
 }
 
@@ -57,8 +57,8 @@ button{
 
 .saveBtn{
     color: #D1B490;
-    background-color: #5A3C32;
-    border: var(--bs-border-width) solid #5B8266;
+    background-color: #280A00;
+    border: var(--bs-border-width) solid #32936F;
     width: 40%;
     transition: all 0.3s ease-in;
     padding: 6px 12px;

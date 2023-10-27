@@ -11,17 +11,13 @@
     max-height: 100%;
 }
 
-#background{
-    background-color: #5b8266;
+#background {
+    background-color: #EBEBEB;
     min-height: 100vh;
-}
-/* FALTA BORRAR? */
-#background.hidden{
-    background-color: white;
 }
 
 /* No Recipes */
-.noRecipeCol{
+.noRecipeCol {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -29,34 +25,35 @@
     height: 100vh;
 }
 
-.noRecipeText{
-    color: #280a00;
+.noRecipeText {
+    color: #280A00;
 }
 
 /* Add New Recipe Button */
-.addBtn{
+.addBtn {
     padding: 3px;
     color: #D1B490;
-    background-color: #280a00;
-    border: var(--bs-border-width) solid #280a00;
+    background-color: #280A00;
+    border: var(--bs-border-width) solid #280A00;
     border-radius: var(--bs-border-radius);
     transition: all 0.3s;
 }
-.addBtn:hover{
+
+.addBtn:hover {
     transform: scale(1.2);
     transition: transform 0.5s;
 }
 
 /* Newest Recipe Card */
-.recipeCardNewest{
+.recipeCardNewest {
     height: auto;
-    color: #ebebeb;
-    background-color: #280a00;
+    color: #EBEBEB;
+    background-color: #32936F;
     border-radius: var(--bs-border-radius);
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-.recipeImageDivNewest{
+.recipeImageDivNewest {
     height: auto;
 }
 
@@ -65,32 +62,33 @@
     width: 100%;
     height: 300px;
     object-fit: cover;
-    border: 5px solid #D1B490;
+    border: 5px solid #280A00;
     border-radius: var(--bs-border-radius);
 }
 
 /* Other Recipe Card */
-.recipeCol{
+.recipeCol {
     width: 33.3%;
     padding: 0;
 }
+
 @media only screen and (max-width: 426px) {
-    .recipeCol{
+    .recipeCol {
         width: 50%;
     }
 }
 
-.recipeCard{
+.recipeCard {
     width: 80%;
     margin: auto;
     height: 270px;
-    background-color: #ebebeb;
+    background-color: #EBEBEB;
     border: 0;
     border-radius: var(--bs-border-radius);
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-.recipeImageDiv{
+.recipeImageDiv {
     height: auto;
 }
 
@@ -100,5 +98,4 @@
     height: 175px;
     object-fit: cover;
     border: 5px solid #280A00;
-    border-radius: var(--bs-border-radius);
 }

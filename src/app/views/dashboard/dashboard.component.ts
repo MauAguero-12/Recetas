@@ -18,14 +18,6 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
     this.recipes = this.recipeService.getRecipes()
-    // this.applyStyles()
-  }
-
-  applyStyles(): void {
-    if (this.recipes.length > 0) {
-      let background = document.getElementById('background')
-      background?.classList.add('hidden')
-    }
   }
 
   getAllRecipes(): Recipe[] {
