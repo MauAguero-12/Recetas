@@ -35,8 +35,9 @@
             <button class="saveBtn" (click)="saveRecipe()">Guardar Receta</button>
             <button class="saveBtn" routerLink="">Atrás</button>
         </div>
+
+        <!-- Modal -->
         <div>
-            <button (click)="showModal()">click</button>
             <app-modal [headerText]="headerText" [bodyText]="bodyText" (closed)="modalClosed()"></app-modal>
         </div>
     </form>

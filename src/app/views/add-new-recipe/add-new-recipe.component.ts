@@ -76,7 +76,7 @@ export class AddNewRecipeComponent {
       }
     }
     else {
-      this.headerText = 'Hubo un error'
+      this.headerText = 'Se ha presentado un error'
       this.bodyText = 'La información ingresada es incorrecta'
       this.showModal()
     }
