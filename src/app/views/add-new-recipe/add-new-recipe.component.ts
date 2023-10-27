@@ -2,6 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { FormArray, FormBuilder, Validators } from '@angular/forms';
 import { faX } from '@fortawesome/free-solid-svg-icons';
 import { ImageInputComponent } from 'src/app/components/image-input/image-input.component';
+import { ModalComponent } from 'src/app/components/modal/modal.component';
 import { Recipe } from 'src/app/interfaces/recipe';
 import { RecipesService } from 'src/app/services/recipes.service';
 
@@ -52,6 +53,7 @@ export class AddNewRecipeComponent {
     return this.imageInputComp.getImage()
   }
 
+  // Saving Recipe
   saveRecipe(): void {
     if (this.recipeForm.valid) {
       let title = this.recipeForm.get('title')?.value
@@ -69,6 +71,11 @@ export class AddNewRecipeComponent {
     else {
       // error
     }
+  }
+
+  @ViewChild(ModalComponent) modalComp: ModalComponent = new ModalComponent();
+  openModal(){
+    this.modalComp.showModal()
   }
 
   // Icons
