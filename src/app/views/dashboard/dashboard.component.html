@@ -15,7 +15,7 @@
             <div class="forDiv" *ngFor="let recipe of getNewestRecipe(); let i = index">
                 <!-- latest recipe -->
                 <div *ngIf="i == 0">
-                    <div id="recipeCardNewest" class="recipeCardNewest recipeCards row p-4" routerLink="view">
+                    <div id="recipeCardNewest" class="recipeCardNewest recipeCards row p-4">
                         <img class="recipeImageNewest" [src]="recipe.image">
                         <div class="col-12">
                             <h2>{{recipe.title}}</h2>
@@ -31,7 +31,7 @@
 
             <!-- other recipes -->
             <div class="recipeCol my-4" *ngFor="let recipe of getOtherRecipes(); let i = index">
-                <div *ngIf="i < recipes.length - 1" [id]="getCardId(i)" class="recipeCard recipeCards mt-3" routerLink="view">
+                <div *ngIf="i < recipes.length - 1" [id]="getCardId(i)" class="recipeCard recipeCards mt-3">
                     <h2>{{recipe.title}}</h2>
                     <img class="recipeImage" [src]="recipe.image">
                 </div>

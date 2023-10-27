@@ -49,7 +49,7 @@ export class RecipesService {
   addRecipe(recipe: Recipe) {
     this.recipes.push(recipe)
     if (this.useSessionStorage) {
-      // this.add_session_recipe(recipe)
+      this.add_session_recipe(recipe)
     }
   }
 
@@ -58,6 +58,7 @@ export class RecipesService {
     this.selectedRecipe = i
   }
   getSelectedRecipe(): Recipe | void {
+    console.log('get ' + this.selectedRecipe)
     if (this.selectedRecipe > -1 && this.selectedRecipe < this.recipes.length) {
       return this.recipes[this.selectedRecipe]
     }

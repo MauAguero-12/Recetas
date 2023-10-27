@@ -1,4 +1,5 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Recipe } from 'src/app/interfaces/recipe';
 import { RecipesService } from 'src/app/services/recipes.service';
 
@@ -12,7 +13,7 @@ export class DashboardComponent implements OnInit, AfterViewInit {
   recipes: Recipe[] = []
 
   // METHODS
-  constructor(private recipeService: RecipesService) { }
+  constructor(private router: Router, private recipeService: RecipesService) { }
 
   ngOnInit(): void {
     // get recipes from service
@@ -29,6 +30,7 @@ export class DashboardComponent implements OnInit, AfterViewInit {
         card.onclick = () => {
           let recipeIndex = n - 1 - i
           this.recipeService.setSelectedRecipe(recipeIndex)
+          this.router.navigateByUrl('view')
         }
       }
     }
