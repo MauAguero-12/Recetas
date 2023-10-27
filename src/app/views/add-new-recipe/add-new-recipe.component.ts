@@ -74,8 +74,14 @@ export class AddNewRecipeComponent {
   }
 
   @ViewChild(ModalComponent) modalComp: ModalComponent = new ModalComponent();
-  openModal(){
+  headerText:string = 'aaa'
+  showModal(){
+    this.headerText = 'abc'
     this.modalComp.showModal()
+  }
+
+  modalClosed(){
+    console.log('X click')
   }
 
   // Icons

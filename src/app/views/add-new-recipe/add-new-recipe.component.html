@@ -38,7 +38,7 @@
     </form>
 
     <div>
-        <button (click)="openModal()">click</button>
-        <app-modal></app-modal>
+        <button (click)="showModal()">click</button>
+        <app-modal [headerText]="headerText" (closed)="modalClosed()"></app-modal>
     </div>
 </div>
