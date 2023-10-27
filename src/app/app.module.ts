@@ -10,6 +10,7 @@ import { ImageInputComponent } from './components/image-input/image-input.compon
 
 import { ReactiveFormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { ModalComponent } from './components/modal/modal.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     AddNewRecipeComponent,
     ViewRecipeComponent,
     ImageInputComponent,
+    ModalComponent,
   ],
   imports: [
     BrowserModule,
