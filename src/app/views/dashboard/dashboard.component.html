@@ -30,11 +30,10 @@
             </div>
 
             <!-- other recipes -->
-            <div class="recipeCol my-4" *ngFor="let recipe of getOtherRecipes().reverse(); let i = index">
+            <div class="recipeCol my-4" *ngFor="let recipe of getOtherRecipes(); let i = index">
                 <div *ngIf="i < recipes.length - 1" class="recipeCard mt-3">
                     <h2>{{recipe.title}}</h2>
                     <img class="recipeImage" [src]="recipe.image">
-                    <h4>{{recipe.description}}</h4>
                 </div>
             </div>
         </div>

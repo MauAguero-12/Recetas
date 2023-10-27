@@ -47,6 +47,6 @@ export class DashboardComponent implements OnInit {
         n++;
       }
     }
-    return array
+    return array.reverse()
   }
 }

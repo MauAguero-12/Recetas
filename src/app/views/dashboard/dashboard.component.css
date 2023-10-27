@@ -82,7 +82,7 @@
 .recipeCard {
     width: 80%;
     margin: auto;
-    height: 270px;
+    min-height: auto;
     background-color: #EBEBEB;
     border: 0;
     border-radius: var(--bs-border-radius);
