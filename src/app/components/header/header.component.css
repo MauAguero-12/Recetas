@@ -5,10 +5,20 @@
 
 /* Header */
 .header{
-    min-height: 70px;
+    min-height: 4rem;
     background-color: #32936F;
     display: flex;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+}
+
+.headerOption{
+    width: auto;
+    padding: 0;
+}
+
+.spacing{
+    width: 1rem;
+    padding: 0;
 }
 
 p{
