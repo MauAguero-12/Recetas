@@ -1,4 +1,9 @@
 <p>{{recipe.title}}</p>
 <p>{{recipe.description}}</p>
 <p>{{recipe.image}}</p>
-<p>{{recipe.ingredients}}</p>
+<div *ngFor="let ingredient of recipe.ingredients; let i = index">
+    <input [id]="getInputId(i)" type="checkbox" (change)="updateLabel(i)">
+    <label [for]="getInputId(i)" class="ingredientLbl" [ngClass]="{'checkedLbl': checkedLabels[i]}">
+        {{ingredient}}
+    </label>
+</div>

@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Recipe } from 'src/app/interfaces/recipe';
 import { RecipesService } from 'src/app/services/recipes.service';
 
@@ -15,12 +15,28 @@ export class ViewRecipeComponent implements OnInit {
 
   ngOnInit(): void {
     this.updateSelectedRecipe()
+    for (let i = 0; i < this.recipe.ingredients.length; i++) {
+      this.checkedLabels.push(false)
+    }
   }
 
-  updateSelectedRecipe() {
+  updateSelectedRecipe(): void {
     let newRecipe = this.recipeService.getSelectedRecipe()
     if (newRecipe) {
       this.recipe = newRecipe
     }
   }
+
+  //
+  checkedLabels: boolean[] = [];
+
+  getInputId(i: number): string {
+    return 'ingredient' + i;
+  }
+
+  updateLabel(i: number): void {
+    this.checkedLabels[i] = !this.checkedLabels[i];
+  }
 }
+
+
