@@ -16,8 +16,8 @@
 
         <!-- Ingredients -->
         <div *ngFor="let ingredient of recipe.ingredients; let i = index">
-            <input [id]="getInputId(i)" type="checkbox" (change)="updateLabel(i)">
-            <label [for]="getInputId(i)" class="ingredientLbl" [ngClass]="{'checkedLbl': checkedLabels[i]}">
+            <label class="ingredientLbl" [ngClass]="{'checkedLbl': checkedLabels[i]}">
+                <input [id]="'ingredient' + i" type="checkbox" (change)="updateLabel(i)">
                 {{ingredient}}
             </label>
         </div>

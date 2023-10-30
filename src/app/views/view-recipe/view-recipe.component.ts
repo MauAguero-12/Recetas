@@ -30,10 +30,6 @@ export class ViewRecipeComponent implements OnInit {
   //
   checkedLabels: boolean[] = [];
 
-  getInputId(i: number): string {
-    return 'ingredient' + i;
-  }
-
   updateLabel(i: number): void {
     this.checkedLabels[i] = !this.checkedLabels[i];
   }
