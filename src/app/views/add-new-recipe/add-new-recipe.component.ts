@@ -85,8 +85,8 @@ export class AddNewRecipeComponent {
   }
 
   // Modal
-  headerText: string = 'Add New Recipe'
-  bodyText: string = '...'
+  headerText: string = 'Añadir nueva receta'
+  bodyText: string = ''
   validInputs: boolean = false
   @ViewChild(ModalComponent) modalComp: ModalComponent = new ModalComponent();
   showModal() {
