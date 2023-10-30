@@ -31,8 +31,15 @@
 }
 
 /* Add New Recipe Button */
+.addBtnDiv{
+    display: flex;
+    justify-content: center;
+}
+
 .addBtn {
     padding: 3px;
+    width: 100%;
+    height: 7vh;
     color: #D1B490;
     background-color: #280A00;
     border: var(--bs-border-width) solid #280A00;
