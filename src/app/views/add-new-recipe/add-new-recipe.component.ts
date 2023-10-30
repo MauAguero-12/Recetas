@@ -1,5 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { FormArray, FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { faMinus } from '@fortawesome/free-solid-svg-icons';
 import { ImageInputComponent } from 'src/app/components/image-input/image-input.component';
 import { ModalComponent } from 'src/app/components/modal/modal.component';
@@ -14,7 +15,7 @@ import { RecipesService } from 'src/app/services/recipes.service';
 export class AddNewRecipeComponent {
   // Reactive Form
   recipeForm;
-  constructor(private recipeService: RecipesService, private fb: FormBuilder) {
+  constructor(private router: Router, private recipeService: RecipesService, private fb: FormBuilder) {
     this.recipeForm = this.fb.group({
       title: ['', Validators.required],
       description: ['', Validators.required],
@@ -72,13 +73,13 @@ export class AddNewRecipeComponent {
         this.recipeService.addRecipe(recipe)
         this.headerText = 'La receta fue guardada con éxito'
         this.bodyText = 'Va a ser redirigido a la página principal'
+        this.validInputs = true
         this.showModal()
       }
     }
     else {
       this.headerText = 'Se ha presentado un error'
       this.bodyText = 'La información ingresada es incorrecta'
-      this.confirmButtons = 'true'
       this.showModal()
     }
   }
@@ -86,14 +87,17 @@ export class AddNewRecipeComponent {
   // Modal
   headerText: string = 'Add New Recipe'
   bodyText: string = '...'
-  confirmButtons: string = 'false'
+  validInputs: boolean = false
   @ViewChild(ModalComponent) modalComp: ModalComponent = new ModalComponent();
   showModal() {
     this.modalComp.showModal()
   }
 
+
   modalClosed() {
-    console.log('Closed')
+    if (this.validInputs) {
+      this.router.navigateByUrl('')
+    }
   }
 
   // Icons
