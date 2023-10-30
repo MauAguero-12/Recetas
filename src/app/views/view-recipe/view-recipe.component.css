@@ -1,3 +1,28 @@
+.row,
+.col-1,
+.col-10 {
+    margin: 0;
+    padding: 0;
+}
+
+/* Title */
+.titleDiv{
+    display: flex;
+    justify-content: center;
+}
+
+/* Image */
+.imageDiv {
+    display: flex;
+    justify-content: center;
+    height: 70vh;
+
+    .recipeImage {
+        width: 100%;
+        object-fit: cover;
+    }
+}
+
 /* Ingredients */
 .checkedLbl {
     text-decoration: line-through;

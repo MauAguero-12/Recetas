@@ -1,11 +1,25 @@
-<p>{{recipe.title}}</p>
-<div *ngIf="recipe.image != ''">
-    <img [src]="recipe.image">
-</div>
-<p>{{recipe.description}}</p>
-<div *ngFor="let ingredient of recipe.ingredients; let i = index">
-    <input [id]="getInputId(i)" type="checkbox" (change)="updateLabel(i)">
-    <label [for]="getInputId(i)" class="ingredientLbl" [ngClass]="{'checkedLbl': checkedLabels[i]}">
-        {{ingredient}}
-    </label>
+<div class="row">
+    <div class="col-1"></div>
+    <div class="col-10">
+        <!-- Title -->
+        <div class="titleDiv">
+            <h1>{{recipe.title}}</h1>
+        </div>
+
+        <!-- Image -->
+        <div class="imageDiv" *ngIf="recipe.image != ''">
+            <img class="recipeImage" [src]="recipe.image">
+        </div>
+
+        <!-- Description -->
+        <p>{{recipe.description}}</p>
+
+        <!-- Ingredients -->
+        <div *ngFor="let ingredient of recipe.ingredients; let i = index">
+            <input [id]="getInputId(i)" type="checkbox" (change)="updateLabel(i)">
+            <label [for]="getInputId(i)" class="ingredientLbl" [ngClass]="{'checkedLbl': checkedLabels[i]}">
+                {{ingredient}}
+            </label>
+        </div>
+    </div>
 </div>
