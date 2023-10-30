@@ -5,14 +5,10 @@
             <!-- if no recipes -->
             <div class="col-12 noRecipeCol" *ngIf="recipes.length == 0">
                 <h2 class="noRecipeText">De momento no tenemos recetas disponibles</h2>
-                <!-- go to add recipe -->
-                <div>
-                    <button class="addBtn" routerLink="add">Agregar Receta</button>
-                </div>
             </div>
 
             <!-- at least one recipe -->
-            <div class="forDiv mt-3" *ngFor="let recipe of getNewestRecipe(); let i = index">
+            <div class="forDiv my-3" *ngFor="let recipe of getNewestRecipe(); let i = index">
                 <!-- latest recipe -->
                 <div *ngIf="i == 0">
                     <div id="recipeCardNewest" class="recipeCardNewest recipeCards row p-4">
@@ -21,10 +17,6 @@
                             <h2>{{recipe.title}}</h2>
                             <p>{{recipe.description}}</p>
                         </div>
-                    </div>
-                    <!-- go to add recipe -->
-                    <div class="addBtnDiv my-4">
-                        <button class="addBtn" routerLink="add">Agregar Receta</button>
                     </div>
                 </div>
             </div>
