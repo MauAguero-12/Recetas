@@ -5,8 +5,15 @@
     padding: 0;
 }
 
+/* Background */
+.recipeBackground{
+    background-color: #32936F;
+    border-radius: var(--bs-border-radius);
+    padding: 0% 5%;
+}
+
 /* Title */
-.titleDiv{
+.titleDiv {
     display: flex;
     justify-content: center;
 }
@@ -26,6 +33,14 @@
 }
 
 /* Ingredients */
+.ingredientLbl {
+    padding: 0;
+}
+
 .checkedLbl {
     text-decoration: line-through;
+}
+
+.ingredientInput {
+    display: none;
 }

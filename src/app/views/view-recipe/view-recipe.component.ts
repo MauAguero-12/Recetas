@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { faCircle } from '@fortawesome/free-solid-svg-icons';
 import { Recipe } from 'src/app/interfaces/recipe';
 import { RecipesService } from 'src/app/services/recipes.service';
 
@@ -27,12 +28,14 @@ export class ViewRecipeComponent implements OnInit {
     }
   }
 
-  //
+  // Checkboxes
   checkedLabels: boolean[] = [];
-
   updateLabel(i: number): void {
     this.checkedLabels[i] = !this.checkedLabels[i];
   }
+
+  // Icons
+  iconCircle = faCircle
 }
 
 

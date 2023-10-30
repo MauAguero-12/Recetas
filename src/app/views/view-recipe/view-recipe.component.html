@@ -1,7 +1,8 @@
-<div class="row">
+<div class="row my-4">
     <div class="col-1"></div>
-    <div class="col-10">
+    <div class="col-10 recipeBackground">
         <!-- Title -->
+
         <div class="titleDiv">
             <h1>{{recipe.title}}</h1>
         </div>
@@ -12,13 +13,19 @@
         </div>
 
         <!-- Description -->
-        <p>{{recipe.description}}</p>
+        <div class="mt-2">
+            <p>{{recipe.description}}</p>
+        </div>
+
 
         <!-- Ingredients -->
-        <div *ngFor="let ingredient of recipe.ingredients; let i = index">
+        <h4>Lista de Ingredientes:</h4>
+        <div class="row" *ngFor="let ingredient of recipe.ingredients; let i = index">
             <label class="ingredientLbl" [ngClass]="{'checkedLbl': checkedLabels[i]}">
-                <input [id]="'ingredient' + i" type="checkbox" (change)="updateLabel(i)">
-                {{ingredient}}
+                <input [id]="'ingredient' + i" class="ingredientInput" type="checkbox" (change)="updateLabel(i)">
+                <ul class="ingredientList">
+                    <li>{{ingredient}}</li>
+                </ul>
             </label>
         </div>
     </div>
