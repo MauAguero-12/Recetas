@@ -1,31 +1,44 @@
 <div class="mb-4">
+    <!-- Header -->
     <h2 class="header pt-2 px-4">Crea una nueva receta</h2>
 
     <form [formGroup]="recipeForm">
+        <!-- Title -->
         <div class="form-group pt-3 px-4">
             <label for="titleInput" class="form-label">Título: </label>
             <input type="text" class="form-control" id="titleInput" formControlName="title">
         </div>
+
+        <!-- Description -->
         <div class="form-group pt-3 px-4">
             <label for="descriptionInput" class="form-label">Descripción: </label>
             <input type="text" class="form-control" id="descriptionInput" formControlName="description">
         </div>
+
+        <!-- Image -->
         <div class="form-group pt-3 px-4">
             <label class="form-label">Imagen: </label>
             <app-image-input (newImageInput)="newImage($event)"></app-image-input>
         </div>
+
+        <!-- Ingredients -->
         <div class="pt-3 px-4" formArrayName="ingredients">
             <label class="form-label">Ingredientes: </label>
-            <div class="ingredientForm form-group row pb-2" *ngFor="let ingredient of getIngredientsForm().controls; let i = index">
+            <!-- For each ingredient -->
+            <div class="ingredientForm form-group row pb-2"
+                *ngFor="let ingredient of getIngredientsForm().controls; let i = index">
+                <!-- Ingredient Input -->
                 <div [ngClass]="{' firstIngredient': i == 0, 'anIngredient': i != 0}">
                     <input type="text" class="form-control" [id]="'ingredientInput' + i" [formControlName]="i">
                 </div>
+                <!-- Remove Ingredient -->
                 <div class="removeIngredientDiv ml-1" *ngIf="i != 0">
                     <fa-icon [icon]="iconMinus" class="removeIngredientIcon" (click)="removeIngredient(i)"></fa-icon>
                 </div>
             </div>
 
-            <div class="">
+            <!-- Add New Ingredient -->
+            <div>
                 <button id="addIngredientBtn" (click)="addIngredient()">+ añadir ingrediente</button>
             </div>
         </div>
@@ -42,5 +55,5 @@
         </div>
     </form>
 
-    
+
 </div>

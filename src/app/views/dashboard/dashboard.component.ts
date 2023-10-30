@@ -9,10 +9,10 @@ import { RecipesService } from 'src/app/services/recipes.service';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit, AfterViewInit {
-  // ATRIBUTES
+  // Atributes
   recipes: Recipe[] = []
 
-  // METHODS
+  // Basic Methods
   constructor(private router: Router, private recipeService: RecipesService) { }
 
   ngOnInit(): void {
@@ -24,9 +24,9 @@ export class DashboardComponent implements OnInit, AfterViewInit {
     // add click event to recipe cards
     let recipeCards = document.getElementsByClassName('recipeCards')
     let n = recipeCards.length
-    for (let i = 0; i < n; i++){
+    for (let i = 0; i < n; i++) {
       let card = recipeCards[i] as HTMLElement
-      if (card){
+      if (card) {
         card.onclick = () => {
           let recipeIndex = n - 1 - i
           this.recipeService.setSelectedRecipe(recipeIndex)
@@ -36,7 +36,7 @@ export class DashboardComponent implements OnInit, AfterViewInit {
     }
   }
 
-  // Get Recipe Methods
+  // Get Recipe
   getAllRecipes(): Recipe[] {
     let recipesList = this.recipes
     return recipesList

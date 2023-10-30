@@ -9,7 +9,11 @@ import { RecipesService } from 'src/app/services/recipes.service';
   styleUrls: ['./view-recipe.component.css']
 })
 export class ViewRecipeComponent implements OnInit {
+  // Atributes
   recipe: Recipe;
+  checkedLabels: boolean[] = [];
+
+  // Basic Methods
   constructor(private recipeService: RecipesService) {
     this.recipe = { title: 'Dummy', description: 'dummy', image: '', ingredients: ['dummy', 'dummy2'] }
   }
@@ -21,6 +25,7 @@ export class ViewRecipeComponent implements OnInit {
     }
   }
 
+  // New Recipe Selected
   updateSelectedRecipe(): void {
     let newRecipe = this.recipeService.getSelectedRecipe()
     if (newRecipe) {
@@ -29,7 +34,6 @@ export class ViewRecipeComponent implements OnInit {
   }
 
   // Checkboxes
-  checkedLabels: boolean[] = [];
   updateLabel(i: number): void {
     this.checkedLabels[i] = !this.checkedLabels[i];
   }

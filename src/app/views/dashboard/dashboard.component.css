@@ -1,3 +1,4 @@
+/* Rows & Columns */
 .row,
 .col-1,
 .col-2,
@@ -31,7 +32,7 @@
 }
 
 /* Add New Recipe Button */
-.addBtnDiv{
+.addBtnDiv {
     display: flex;
     justify-content: center;
 }

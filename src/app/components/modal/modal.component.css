@@ -11,7 +11,6 @@
     background-color: rgba(0, 0, 0, 0.4);
 }
 
-/*  */
 #modalBackground.active {
     opacity: 1;
     width: 100%;
@@ -32,13 +31,13 @@
 }
 
 /* Header */
-#modalHeader{
+#modalHeader {
     display: flex;
     justify-content: space-between;
 }
 
 
 /* Buttons */
-#modalButtons.hidden{
+#modalButtons.hidden {
     display: none;
 }

@@ -7,29 +7,33 @@ import { faArrowUpFromBracket, faX } from '@fortawesome/free-solid-svg-icons';
   styleUrls: ['./image-input.component.css']
 })
 export class ImageInputComponent {
+  // Atributes
   selectedImageURL: string = ''
+
+  // Outputs
   @Output() newImageInput = new EventEmitter<string>();
 
-  newImage(event: any){
-    if (event.target.files[0] && event.target.files[0].length != 0){
+  //Methods
+  newImage(event: any) {
+    if (event.target.files[0] && event.target.files[0].length != 0) {
       var reader = new FileReader()
       reader.readAsDataURL(event.target.files[0])
-      reader.onload = (event:any) => {
+      reader.onload = (event: any) => {
         this.selectedImageURL = event.target.result
         this.newImageInput.emit(this.selectedImageURL)
       }
     }
-    else{
+    else {
       this.resetImage()
     }
   }
 
-  resetImage(){
+  resetImage() {
     this.selectedImageURL = ''
     this.newImageInput.emit(this.selectedImageURL)
   }
 
-  getImage(){
+  getImage() {
     return this.selectedImageURL
   }
 

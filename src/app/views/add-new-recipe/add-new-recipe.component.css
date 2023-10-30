@@ -1,7 +1,9 @@
+/* Input Label */
 .form-label {
     width: 100%;
 }
 
+/* Basic Button */
 button {
     background-color: transparent;
     border: var(--bs-border-width) solid var(--bs-border-color);
@@ -24,6 +26,7 @@ button {
     transition: all 0.2s ease-in;
 }
 
+/* Rows & Columns */
 .row,
 .col-1,
 .col-11,
@@ -32,29 +35,30 @@ button {
     padding: 0;
 }
 
-.ingredientForm{
+/* Ingredients */
+.ingredientForm {
     display: flex;
     justify-content: space-between;
 }
 
-.firstIngredient{
+.firstIngredient {
     width: 100%;
     padding: 0;
 }
 
-.anIngredient{
+.anIngredient {
     width: 89%;
     padding: 0;
 }
 
-@media only screen and (max-width: 426px){
-    .anIngredient{
+@media only screen and (max-width: 426px) {
+    .anIngredient {
         width: 88%;
     }
 }
 
 /* Remove Ingredient */
-.removeIngredientDiv{
+.removeIngredientDiv {
     width: 10%;
     padding: 0;
 }

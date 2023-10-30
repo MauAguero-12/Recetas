@@ -1,3 +1,4 @@
+/* Rows & Columns */
 .row,
 .col-1,
 .col-10 {
@@ -6,7 +7,7 @@
 }
 
 /* Background */
-.recipeBackground{
+.recipeBackground {
     color: #EBEBEB;
     background-color: #32936F;
     border-radius: var(--bs-border-radius);
