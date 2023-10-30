@@ -10,7 +10,6 @@ export class ModalComponent {
   // Inputs
   @Input() headerText: string = 'Alert'
   @Input() bodyText: string = 'Message'
-  @Input() confirmButtons: string = 'false'
   @Input() visible: boolean = false
 
   // Outputs
@@ -22,11 +21,6 @@ export class ModalComponent {
 
     let modal = document.getElementById('modalBackground')
     modal?.classList.add('active')
-
-    if (this.confirmButtons == 'false') {
-      let modalButtons = document.getElementById('modalButtons')
-      modalButtons?.classList.add('hidden')
-    }
 
     // click on close icon
     let closeIcon = document.getElementById('modalCloseIcon')
@@ -41,6 +35,7 @@ export class ModalComponent {
     window.onclick = (event) => {
       if (event.target == modal) {
         modal?.classList.remove('active')
+        this.outputClosed()
       }
     }
   }

@@ -35,9 +35,3 @@
     display: flex;
     justify-content: space-between;
 }
-
-
-/* Buttons */
-#modalButtons.hidden {
-    display: none;
-}

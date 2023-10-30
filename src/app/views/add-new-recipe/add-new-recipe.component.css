@@ -101,3 +101,9 @@ button {
     transform: scale(1.1);
     transition: all 0.3s ease-in;
 }
+
+@media only screen and (max-width: 426px) {
+    .saveBtn {
+        width: 100%;
+    }
+}

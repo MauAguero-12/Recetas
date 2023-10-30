@@ -32,7 +32,7 @@
                     <input type="text" class="form-control" [id]="'ingredientInput' + i" [formControlName]="i">
                 </div>
                 <!-- Remove Ingredient -->
-                <div class="removeIngredientDiv ml-1" *ngIf="i != 0">
+                <div class="removeIngredientDiv" *ngIf="i != 0">
                     <fa-icon [icon]="iconMinus" class="removeIngredientIcon" (click)="removeIngredient(i)"></fa-icon>
                 </div>
             </div>
@@ -44,9 +44,8 @@
         </div>
 
         <!-- Save Button -->
-        <div class="row saveBtnRow pt-5">
+        <div class="row saveBtnRow pt-4 px-4">
             <button class="saveBtn" (click)="saveRecipe()">Guardar Receta</button>
-            <button class="saveBtn" routerLink="">Atrás</button>
         </div>
 
         <!-- Modal -->
@@ -54,6 +53,4 @@
             <app-modal [headerText]="headerText" [bodyText]="bodyText" (closed)="modalClosed()"></app-modal>
         </div>
     </form>
-
-
 </div>

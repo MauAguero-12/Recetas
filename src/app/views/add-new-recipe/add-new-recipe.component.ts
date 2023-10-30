@@ -78,6 +78,7 @@ export class AddNewRecipeComponent {
     else {
       this.headerText = 'Se ha presentado un error'
       this.bodyText = 'La información ingresada es incorrecta'
+      this.confirmButtons = 'true'
       this.showModal()
     }
   }
@@ -85,13 +86,14 @@ export class AddNewRecipeComponent {
   // Modal
   headerText: string = 'Add New Recipe'
   bodyText: string = '...'
+  confirmButtons: string = 'false'
   @ViewChild(ModalComponent) modalComp: ModalComponent = new ModalComponent();
   showModal() {
     this.modalComp.showModal()
   }
 
   modalClosed() {
-    console.log('X click')
+    console.log('Closed')
   }
 
   // Icons
