@@ -16,11 +16,11 @@
         </div>
         <div class="pt-3 px-4" formArrayName="ingredients">
             <label class="form-label">Ingredientes: </label>
-            <div class="form-group row pb-2" *ngFor="let ingredient of getIngredientsForm().controls; let i = index">
-                <div [ngClass]="{'col-12': i == 0, 'col-11': i != 0}">
+            <div class="ingredientForm form-group row pb-2" *ngFor="let ingredient of getIngredientsForm().controls; let i = index">
+                <div [ngClass]="{' firstIngredient': i == 0, 'anIngredient': i != 0}">
                     <input type="text" class="form-control" [id]="'ingredientInput' + i" [formControlName]="i">
                 </div>
-                <div class="col-1 ml-1" *ngIf="i != 0">
+                <div class="removeIngredientDiv ml-1" *ngIf="i != 0">
                     <fa-icon [icon]="iconX" class="removeIngredientIcon" (click)="removeIngredient(i)"></fa-icon>
                 </div>
             </div>

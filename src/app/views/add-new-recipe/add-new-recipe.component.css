@@ -32,6 +32,33 @@ button {
     padding: 0;
 }
 
+.ingredientForm{
+    display: flex;
+    justify-content: space-between;
+}
+
+.firstIngredient{
+    width: 100%;
+    padding: 0;
+}
+
+.anIngredient{
+    width: 89%;
+    padding: 0;
+}
+
+@media only screen and (max-width: 426px){
+    .anIngredient{
+        width: 88%;
+    }
+}
+
+/* Remove Ingredient */
+.removeIngredientDiv{
+    width: 10%;
+    padding: 0;
+}
+
 .removeIngredientIcon {
     display: flex;
     justify-content: center;
