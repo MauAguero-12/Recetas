@@ -1,14 +1,14 @@
-.form-label{
+.form-label {
     width: 100%;
 }
 
-button{
+button {
     background-color: transparent;
     border: var(--bs-border-width) solid var(--bs-border-color);
     border-radius: var(--bs-border-radius);
 }
 
-#addIngredientBtn{
+#addIngredientBtn {
     width: 100%;
     min-height: 1.5rem;
     padding: 6px 12px;
@@ -18,18 +18,21 @@ button{
     transition: all 0.2s ease-in;
 }
 
-#addIngredientBtn:hover{
+#addIngredientBtn:hover {
     color: white;
     background-color: #32936F;
     transition: all 0.2s ease-in;
 }
 
-.row,.col-1, .col-11{
+.row,
+.col-1,
+.col-11,
+.col-12 {
     margin: 0;
     padding: 0;
 }
 
-.removeIngredientIcon{
+.removeIngredientIcon {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -39,10 +42,9 @@ button{
     border: var(--bs-border-width) solid #BC4749;
     border-radius: var(--bs-border-radius);
     transition: all 0.2s ease-in;
-
 }
 
-.removeIngredientIcon:hover{
+.removeIngredientIcon:hover {
     color: white;
     background-color: #BC4749;
     border: var(--bs-border-width) solid var(--bs-border-color);
@@ -50,12 +52,12 @@ button{
 }
 
 /* Save Button */
-.saveBtnRow{
+.saveBtnRow {
     display: flex;
     justify-content: space-evenly;
 }
 
-.saveBtn{
+.saveBtn {
     color: #D1B490;
     background-color: #280A00;
     border: var(--bs-border-width) solid #32936F;
@@ -63,7 +65,8 @@ button{
     transition: all 0.3s ease-in;
     padding: 6px 12px;
 }
-.saveBtn:hover{
+
+.saveBtn:hover {
     transform: scale(1.1);
     transition: all 0.3s ease-in;
 }

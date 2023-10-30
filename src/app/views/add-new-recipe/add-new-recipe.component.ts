@@ -19,7 +19,7 @@ export class AddNewRecipeComponent {
       title: ['', Validators.required],
       description: ['', Validators.required],
       image: ['', Validators.required],
-      ingredients: this.fb.array([], [Validators.required, Validators.minLength(1)])
+      ingredients: this.fb.array([''], [Validators.required, Validators.minLength(1)])
     })
   }
 

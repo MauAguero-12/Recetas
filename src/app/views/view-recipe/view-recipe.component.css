@@ -7,6 +7,7 @@
 
 /* Background */
 .recipeBackground{
+    color: #EBEBEB;
     background-color: #32936F;
     border-radius: var(--bs-border-radius);
     padding: 0% 5%;
@@ -39,6 +40,7 @@
 
 .checkedLbl {
     text-decoration: line-through;
+    text-decoration-color: #1E2F23;
 }
 
 .ingredientInput {
