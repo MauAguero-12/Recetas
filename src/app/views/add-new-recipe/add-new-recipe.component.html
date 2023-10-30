@@ -1,4 +1,4 @@
-<div>
+<div class="mb-4">
     <h2 class="header pt-2 px-4">Crea una nueva receta</h2>
 
     <form [formGroup]="recipeForm">
@@ -21,7 +21,7 @@
                     <input type="text" class="form-control" [id]="'ingredientInput' + i" [formControlName]="i">
                 </div>
                 <div class="removeIngredientDiv ml-1" *ngIf="i != 0">
-                    <fa-icon [icon]="iconX" class="removeIngredientIcon" (click)="removeIngredient(i)"></fa-icon>
+                    <fa-icon [icon]="iconMinus" class="removeIngredientIcon" (click)="removeIngredient(i)"></fa-icon>
                 </div>
             </div>
 
