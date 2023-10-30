@@ -10,17 +10,14 @@ export class ModalComponent {
   // Inputs
   @Input() headerText: string = 'Alert'
   @Input() bodyText: string = 'Message'
-  @Input() visible: boolean = false
 
   // Outputs
   @Output() closed = new EventEmitter()
 
   // Methods
   showModal(): void {
-    this.visible = true
-
     let modal = document.getElementById('modalBackground')
-    modal?.classList.add('active')
+    modal?.classList.remove('active')
 
     // click on close icon
     let closeIcon = document.getElementById('modalCloseIcon')

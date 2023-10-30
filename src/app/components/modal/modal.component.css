@@ -1,6 +1,6 @@
 /* Modal Background */
 #modalBackground {
-    display: block;
+    display: none;
     opacity: 0;
     position: fixed;
     z-index: 9999;
@@ -12,6 +12,7 @@
 }
 
 #modalBackground.active {
+    display: block;
     opacity: 1;
     width: 100%;
     height: 100%;
