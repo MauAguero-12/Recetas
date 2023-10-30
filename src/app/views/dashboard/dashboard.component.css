@@ -2,13 +2,16 @@
 .row,
 .col-1,
 .col-2,
-.col-4,
+.col-3 .col-4,
 .col-6,
+.col-9,
 .col-10,
 .col-12,
 .forDiv {
     margin: 0;
-    padding: 0;
+    padding: 0 0 0 0;
+    padding-left: 0;
+    padding-right: 0;
     max-height: 100%;
 }
 
@@ -83,18 +86,12 @@
 
 /* Other Recipe Card */
 .recipeCol {
-    width: 33.3%;
+    width: 100%;
     padding: 0;
 }
 
-@media only screen and (max-width: 426px) {
-    .recipeCol {
-        width: 50%;
-    }
-}
-
 .recipeCard {
-    width: 80%;
+    width: 100%;
     margin: auto;
     min-height: auto;
     background-color: #EBEBEB;
@@ -109,14 +106,30 @@
     transition: transform 0.3s;
 }
 
-.recipeImageDiv {
-    height: auto;
+.recipeImageDiv{
+    padding: 0;
 }
-
 .recipeImage {
     padding: 0;
     width: 100%;
-    height: 175px;
+    height: 150px;
     object-fit: cover;
-    border: 5px solid #280A00;
+}
+
+@media only screen and (max-width: 426px) {
+    .recipeImageDiv {
+        width: 50%
+    }
+
+    .recipeImage {
+        height: 100px;
+    }
+
+    .recipeContentDiv {
+        width: 50%;
+    }
+
+    .recipeDescriptionDiv{
+        display: none;
+    }
 }

@@ -30,10 +30,17 @@
             </div>
 
             <!-- other recipes -->
-            <div class="recipeCol my-4" *ngFor="let recipe of getOtherRecipes(); let i = index">
-                <div *ngIf="i < recipes.length - 1" [id]="getCardId(i)" class="recipeCard recipeCards mt-3">
-                    <h2>{{recipe.title}}</h2>
-                    <img class="recipeImage" [src]="recipe.image">
+            <div class="recipeCol" *ngFor="let recipe of getOtherRecipes(); let i = index">
+                <div *ngIf="i < recipes.length - 1" [id]="getCardId(i)" class="recipeCard recipeCards row mb-3 py-2">
+                    <div class="recipeImageDiv col-3 px-2">
+                        <img class="recipeImage" [src]="recipe.image">
+                    </div>
+                    <div class="recipeContentDiv col-9 px-2">
+                        <h3>{{recipe.title}}</h3>
+                        <div class="recipeDescriptionDiv">
+                            <p>{{recipe.description}}</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

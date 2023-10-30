@@ -53,19 +53,17 @@ export class DashboardComponent implements OnInit, AfterViewInit {
     }
     return []
   }
+
   getOtherRecipes(): Recipe[] {
     let n = this.recipes.length
     let array: Recipe[] = []
     if (n > 0) {
       array = this.recipes.slice(0, -1)
-      while ((n - 1) % 3 != 0) {
-        let dummy: Recipe = { title: '', description: '', image: '', ingredients: [] }
-        array.unshift(dummy)
-        n++;
-      }
     }
     return array.reverse()
   }
+
+  
 
   // Cards
   getCardId(i: number): string {
