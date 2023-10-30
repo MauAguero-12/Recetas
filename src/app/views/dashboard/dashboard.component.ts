@@ -63,8 +63,6 @@ export class DashboardComponent implements OnInit, AfterViewInit {
     return array.reverse()
   }
 
-  
-
   // Cards
   getCardId(i: number): string {
     let idString = 'recipeCard'
