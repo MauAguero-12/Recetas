@@ -10,7 +10,7 @@ import { RecipesService } from 'src/app/services/recipes.service';
 export class ViewRecipeComponent implements OnInit {
   recipe: Recipe;
   constructor(private recipeService: RecipesService) {
-    this.recipe = { title: 'Dummy', description: 'dummy', image: 'dummy.jpg', ingredients: ['dummy', 'dummy2'] }
+    this.recipe = { title: 'Dummy', description: 'dummy', image: '', ingredients: ['dummy', 'dummy2'] }
   }
 
   ngOnInit(): void {
