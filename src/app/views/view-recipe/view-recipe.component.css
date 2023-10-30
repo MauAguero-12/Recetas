@@ -20,6 +20,8 @@
     .recipeImage {
         width: 100%;
         object-fit: cover;
+        border: 5px solid #280A00;
+        border-radius: var(--bs-border-radius);
     }
 }
 
