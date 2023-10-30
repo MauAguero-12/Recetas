@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import { faX } from '@fortawesome/free-solid-svg-icons';
+import { faArrowUpFromBracket, faX } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-image-input',
@@ -35,4 +35,5 @@ export class ImageInputComponent {
 
   // Icons
   iconX = faX
+  iconUpload = faArrowUpFromBracket
 }
