@@ -1,27 +1,41 @@
-.row, .col-2{
+.row,
+.col-2 {
     margin: 0;
     padding: 0;
 }
 
 /* Header */
-.header{
-    min-height: 2.5rem;
+.header {
+    height: 2.5rem;
+    color: #EBEBEB;
     background-color: #32936F;
     display: flex;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
 }
 
-.headerOption{
+
+.headerOption {
     width: auto;
     padding: 0;
 }
 
-.spacing{
+.spacing {
     width: 1rem;
     padding: 0;
 }
 
-p{
+@media only screen and (max-width: 426px) {
+    .header {
+        display: flex;
+        justify-content: space-evenly;
+    }
+
+    .spacing {
+        display: none;
+    }
+}
+
+h6 {
     cursor: pointer;
     margin: 0;
 }
