@@ -22,9 +22,16 @@
             </div>
 
             <!-- other recipes -->
-            <div class="filterDiv mb-3" *ngIf="recipes.length > 1">
+            <div class="filterDiv row mb-3" *ngIf="recipes.length > 1">
                 <label class="filterLbl">
-                    <input class="filterInput" (keyup)="updateFilter($event)">
+                    <div class="filterLblDiv">
+                        <div class="filterInputDiv">
+                            <input class="filterInput" (keyup)="updateFilter($event)">
+                        </div>
+                        <div class="iconSearchDiv">
+                            <fa-icon class="iconSearch" [icon]="iconSearch"></fa-icon>
+                        </div>
+                    </div>
                 </label>
             </div>
             <div class="recipeCol" *ngFor="let recipe of getFilteredRecipes(); let i = index">

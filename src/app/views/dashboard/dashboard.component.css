@@ -73,15 +73,38 @@
 
 .filterLbl {
     width: 100%;
-    background-color: transparent;
+    padding: 0;
+    background-color: #EBEBEB;
+    border: var(--bs-border-width) solid #582F0E;
+    border-radius: var(--bs-border-radius);
+}
+
+.filterLblDiv {
+    width: 100%;
+    display: flex;
+    padding: 6px 12px;
+}
+
+.filterInputDiv {
+    width: calc(100% - 16px);
 }
 
 .filterInput {
     width: 100%;
-    padding: 6px 12px;
-    border: var(--bs-border-width) solid #582F0E;
-    border-radius: var(--bs-border-radius);
+    background-color: transparent;
+    border: 0;
 }
+
+.filterInput:focus-visible {
+    outline: 0;
+}
+
+.iconSearchDiv {
+    width: auto;
+    float: right;
+}
+
+.iconSearch {}
 
 /* Other Recipe Card */
 .recipeCol {

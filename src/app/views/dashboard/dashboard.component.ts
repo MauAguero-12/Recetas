@@ -1,5 +1,6 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import { Recipe } from 'src/app/interfaces/recipe';
 import { RecipesService } from 'src/app/services/recipes.service';
 
@@ -95,4 +96,7 @@ export class DashboardComponent implements OnInit, AfterViewInit {
     }
     return ''
   }
+
+  // Icons
+  iconSearch = faMagnifyingGlass
 }
