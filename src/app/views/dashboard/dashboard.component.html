@@ -22,13 +22,12 @@
             </div>
 
             <!-- other recipes -->
-            <div>
+            <div *ngIf="recipes.length > 1">
                 <label>
                     <input (keyup)="updateFilter($event)">
                 </label>
             </div>
             <div class="recipeCol" *ngFor="let recipe of getFilteredRecipes(); let i = index">
-                <!-- *ngIf="i < recipes.length - 1" [id]="getCardId(i)" -->
                 <div class="recipeCard recipeCards row mb-3 p-2">
                     <div class="recipeImageDiv">
                         <img class="recipeImage" [src]="recipe.image">
