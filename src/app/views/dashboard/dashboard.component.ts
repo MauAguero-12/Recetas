@@ -11,6 +11,7 @@ import { RecipesService } from 'src/app/services/recipes.service';
 export class DashboardComponent implements OnInit, AfterViewInit {
   // Atributes
   recipes: Recipe[] = []
+  searchFilter: string = ''
 
   // Basic Methods
   constructor(private router: Router, private recipeService: RecipesService) { }
@@ -47,20 +48,43 @@ export class DashboardComponent implements OnInit, AfterViewInit {
     return reversedRecipes.reverse()
   }
 
-  getNewestRecipe(): Recipe[] {
+  getLastRecipe(): Recipe[] {
     if (this.recipes.length > 0) {
       return this.recipes.slice(-1)
     }
     return []
   }
 
-  getOtherRecipes(): Recipe[] {
+  getFilteredRecipes(): Recipe[] {
     let n = this.recipes.length
     let array: Recipe[] = []
-    if (n > 0) {
+    let arrayFiltered: Recipe[] = []
+    if (n > 1) {
+      // remove last recipe
       array = this.recipes.slice(0, -1)
+
+      // if theres a filter
+      if (this.searchFilter != '') {
+        let filter = this.searchFilter.toLowerCase()
+        // for each recipe apply filter
+        for (let i = 0; i < array.length; i++){
+          let recipe: Recipe = array[i]
+          let recipeTitle = recipe.title.toLowerCase()
+          if (recipeTitle.includes(filter)){
+            arrayFiltered.push(recipe)
+          }
+        }
+      } else{
+        arrayFiltered = array
+      }
     }
-    return array.reverse()
+    return arrayFiltered.reverse()
+  }
+
+  // Filter By Name
+  updateFilter(event: any) {
+    this.searchFilter = event.target.value
+    console.log(event.target.value)
   }
 
   // Cards
