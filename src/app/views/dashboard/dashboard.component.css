@@ -2,12 +2,12 @@
 .row,
 .col-1,
 .col-2,
-.col-3 .col-4,
+.col-3,
+.col-4,
 .col-6,
 .col-9,
 .col-10,
-.col-12,
-.forDiv {
+.col-12 {
     margin: 0;
     padding: 0 0 0 0;
     padding-left: 0;
@@ -35,6 +35,10 @@
 }
 
 /* Newest Recipe Card */
+.lastRecipeDiv {
+    padding: 0;
+}
+
 .recipeCardNewest {
     height: auto;
     color: #EBEBEB;
@@ -60,6 +64,19 @@
     object-fit: cover;
     border: 5px solid #280A00;
     border-radius: var(--bs-border-radius);
+}
+
+/* Filter */
+.filterDiv {
+    padding: 0;
+}
+
+.filterLbl {
+    width: 100%;
+}
+
+.filterInput {
+    width: 100%;
 }
 
 /* Other Recipe Card */

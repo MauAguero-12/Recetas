@@ -8,7 +8,7 @@
             </div>
 
             <!-- at least one recipe -->
-            <div class="forDiv my-4" *ngFor="let recipe of getLastRecipe(); let i = index">
+            <div class="lastRecipeDiv my-4" *ngFor="let recipe of getLastRecipe(); let i = index">
                 <!-- latest recipe -->
                 <div *ngIf="i == 0">
                     <div id="recipeCardNewest" class="recipeCardNewest recipeCards row p-4">
@@ -22,9 +22,9 @@
             </div>
 
             <!-- other recipes -->
-            <div *ngIf="recipes.length > 1">
-                <label>
-                    <input (keyup)="updateFilter($event)">
+            <div class="filterDiv mb-3" *ngIf="recipes.length > 1">
+                <label class="filterLbl">
+                    <input class="filterInput" (keyup)="updateFilter($event)">
                 </label>
             </div>
             <div class="recipeCol" *ngFor="let recipe of getFilteredRecipes(); let i = index">
