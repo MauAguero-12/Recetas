@@ -16,7 +16,7 @@ input {
 #imageInputBtn:focus,
 #imageInputBtn:focus-visible {
     color: black;
-    --bs-btn-focus-shadow-rgb: 0;
+    outline: 0;
 }
 
 #imageInputBtn:focus {
