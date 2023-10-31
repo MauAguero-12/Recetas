@@ -1,3 +1,11 @@
+/* Rows & Columns */
+.row,
+.col-1,
+.col-10 {
+    margin: 0;
+    padding: 0;
+}
+
 /* Image Input Button */
 input {
     display: none;
@@ -61,13 +69,6 @@ input {
 }
 
 /* Remove Image Button */
-.row,
-.col-1,
-.col-10 {
-    margin: 0;
-    padding: 0;
-}
-
 .imageDisplayRemoveDiv {
     display: flex;
     justify-content: right;

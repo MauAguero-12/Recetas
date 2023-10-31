@@ -1,11 +1,6 @@
 /* Rows & Columns */
 .row,
 .col-1,
-.col-2,
-.col-3,
-.col-4,
-.col-6,
-.col-9,
 .col-10,
 .col-12 {
     margin: 0;
