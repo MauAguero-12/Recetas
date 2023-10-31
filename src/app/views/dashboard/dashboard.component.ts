@@ -68,14 +68,14 @@ export class DashboardComponent implements OnInit, AfterViewInit {
       if (this.searchFilter != '') {
         let filter = this.searchFilter.toLowerCase()
         // for each recipe apply filter
-        for (let i = 0; i < array.length; i++){
+        for (let i = 0; i < array.length; i++) {
           let recipe: Recipe = array[i]
           let recipeTitle = recipe.title.toLowerCase()
-          if (recipeTitle.includes(filter)){
+          if (recipeTitle.includes(filter)) {
             arrayFiltered.push(recipe)
           }
         }
-      } else{
+      } else {
         arrayFiltered = array
       }
     }
