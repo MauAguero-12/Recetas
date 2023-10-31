@@ -13,8 +13,7 @@ input {
 }
 
 #imageInputBtn:hover,
-#imageInputBtn:focus,
-#imageInputBtn:focus-visible {
+#imageInputBtn:focus {
     color: black;
     outline: 0;
 }

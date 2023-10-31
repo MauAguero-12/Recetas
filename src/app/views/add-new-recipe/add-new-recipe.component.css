@@ -6,11 +6,7 @@
 
 /* Input Label */
 .form-label {
-    width: 100%;
-}
-
-.form-control:focus-visible {
-    outline: 0;
+    width: auto;
 }
 
 /* Basic Button */
