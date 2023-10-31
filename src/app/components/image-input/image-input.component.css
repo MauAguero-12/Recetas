@@ -5,26 +5,37 @@ input {
 
 #imageInputBtn {
     background-color: transparent;
-    border: none;
+    border: var(--bs-border-width) solid var(--bs-border-color);
+    border-radius: var(--bs-border-radius);
     width: 100%;
     padding: 0;
     cursor: default;
 }
 
 #imageInputBtn:hover,
-#imageInputBtn:focus {
+#imageInputBtn:focus,
+#imageInputBtn:focus-visible {
     color: black;
+    --bs-btn-focus-shadow-rgb: 0;
+}
+
+#imageInputBtn:focus {
+    border: var(--bs-border-width) solid #86B7fE;
+    box-shadow: 0 0 0 0.25rem rgba(13,110,253,.25);
 }
 
 .imageInputLbl {
     width: 100%;
     height: 100%;
-    border: var(--bs-border-width) solid var(--bs-border-color);
-    border-radius: var(--bs-border-radius);
+    
     cursor: pointer;
     display: flex;
     justify-content: center;
     padding: 6px 12px;
+}
+
+.imageInputLbl:focus {
+    border: 0;
 }
 
 .iconUpload {
