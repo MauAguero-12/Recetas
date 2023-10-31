@@ -37,11 +37,13 @@
 /* Ingredients */
 .ingredientLbl {
     padding: 0;
+    text-decoration-color: transparent;
 }
 
 .checkedLbl {
     text-decoration: line-through;
     text-decoration-color: #1E2F23;
+    transition: all 0.3s ease-in;
 }
 
 .ingredientInput {
