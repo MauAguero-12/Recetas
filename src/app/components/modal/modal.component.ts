@@ -16,8 +16,9 @@ export class ModalComponent {
 
   // Methods
   showModal(): void {
+    console.log('show modal')
     let modal = document.getElementById('modalBackground')
-    modal?.classList.remove('active')
+    modal?.classList.add('active')
 
     // click on close icon
     let closeIcon = document.getElementById('modalCloseIcon')

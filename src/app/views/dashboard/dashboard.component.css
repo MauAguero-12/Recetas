@@ -144,7 +144,7 @@
 
 @media only screen and (max-width: 426px) {
     .recipeImageDiv {
-        width: 49.5%
+        width: 49%
     }
 
     .recipeImage {
@@ -152,10 +152,18 @@
     }
 
     .recipeContentDiv {
-        width: 49.5%;
+        width: 49%;
+        display: flex;
+        justify-content: center;
+        text-align: center;
     }
 
     .recipeDescriptionDiv {
         display: none;
     }
+}
+
+
+.overflow{
+    text-overflow: ellipsis;
 }
