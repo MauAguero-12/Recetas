@@ -15,7 +15,7 @@ export class ViewRecipeComponent implements OnInit {
 
   // Basic Methods
   constructor(private recipeService: RecipesService) {
-    this.recipe = { title: 'Dummy', description: 'dummy', image: '', ingredients: ['dummy', 'dummy2'] }
+    this.recipe = { title: '', description: '', image: '', ingredients: ['', ''] }
   }
 
   ngOnInit(): void {

@@ -27,7 +27,8 @@ export class AddNewRecipeComponent {
   getIngredientsArray(): string[] {
     let ingredientsArray: string[] = []
     let userIngredientsArray: string[] = this.recipeForm.value.ingredients as string[]
-    userIngredientsArray.forEach((ingredient, index) => {
+    // remove empty ingredients
+    userIngredientsArray.forEach((ingredient) => {
       ingredient = ingredient.trim()
       if (ingredient != '') {
         ingredientsArray.push(ingredient)
@@ -35,6 +36,7 @@ export class AddNewRecipeComponent {
     })
     return ingredientsArray
   }
+
   getIngredientsForm(): FormArray {
     return this.recipeForm.controls['ingredients'] as FormArray
   }
