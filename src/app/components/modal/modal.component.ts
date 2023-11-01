@@ -16,7 +16,6 @@ export class ModalComponent {
 
   // Methods
   showModal(): void {
-    console.log('show modal')
     let modal = document.getElementById('modalBackground')
     modal?.classList.add('active')
 

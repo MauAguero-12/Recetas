@@ -85,7 +85,6 @@ export class DashboardComponent implements OnInit, AfterViewInit {
   // Filter By Name
   updateFilter(event: any) {
     this.searchFilter = event.target.value
-    console.log(event.target.value)
   }
 
   // Cards
