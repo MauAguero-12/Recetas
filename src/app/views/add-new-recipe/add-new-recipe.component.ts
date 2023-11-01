@@ -17,9 +17,9 @@ export class AddNewRecipeComponent {
   recipeForm;
   constructor(private router: Router, private recipeService: RecipesService, private fb: FormBuilder) {
     this.recipeForm = this.fb.group({
-      title: ['', Validators.required],
-      description: ['', Validators.required],
-      image: ['', Validators.required],
+      title: ['', [Validators.required]],
+      description: ['', [Validators.required]],
+      image: ['', [Validators.required]],
       ingredients: this.fb.array([''], [Validators.required, Validators.minLength(1)])
     })
   }
@@ -50,6 +50,18 @@ export class AddNewRecipeComponent {
     this.getIngredientsForm().removeAt(i)
   }
 
+  validForm(): boolean {
+    if (this.recipeForm.valid) {
+      // check for empty fields
+      let title = (this.recipeForm.get('title')?.value as string).trim()
+      let description = (this.recipeForm.get('description')?.value as string).trim()
+      if (title && description && this.getIngredientsArray().length) {
+        return true
+      }
+    }
+    return false
+  }
+
   // Image Input
   newImage(event: string) {
     this.recipeForm.patchValue({ image: event })
@@ -62,42 +74,38 @@ export class AddNewRecipeComponent {
 
   // Saving Recipe
   saveRecipe(): void {
-    if (this.recipeForm.valid) {
+    if (this.validForm()) {
       let title = this.recipeForm.get('title')?.value
       let description = this.recipeForm.get('description')?.value
       let image = this.recipeForm.get('image')?.value
       let ingredients: string[] = this.getIngredientsArray()
 
-      if (title && description && image && ingredients.length != 0) {
-        let recipe: Recipe = {
-          title: title, description: description, image: image, ingredients: ingredients
-        }
+      if (title && description && image && ingredients.length) {
+        let recipe: Recipe = { title: title, description: description, image: image, ingredients: ingredients }
         this.recipeService.addRecipe(recipe)
-        this.headerText = 'La receta fue guardada con éxito'
-        this.bodyText = 'Va a ser redirigido a la página principal'
-        this.validInputs = true
-        this.showModal()
       }
     }
-    else {
-      this.headerText = 'Se ha presentado un error'
-      this.bodyText = 'La información ingresada es incorrecta'
-      this.showModal()
-    }
+    this.showModal()
   }
 
   // Modal
-  headerText: string = 'Añadir nueva receta'
+  headerText: string = ''
   bodyText: string = ''
   validInputs: boolean = false
   @ViewChild(ModalComponent) modalComp: ModalComponent = new ModalComponent();
   showModal() {
+    if (this.validForm()) {
+      this.headerText = 'La receta fue guardada con éxito'
+      this.bodyText = 'Va a ser redirigido a la página principal'
+    } else {
+      this.headerText = 'Se ha presentado un error'
+      this.bodyText = 'La información ingresada es incorrecta'
+    }
     this.modalComp.showModal()
   }
 
-
   modalClosed() {
-    if (this.validInputs) {
+    if (this.validForm()) {
       this.router.navigateByUrl('')
     }
   }
