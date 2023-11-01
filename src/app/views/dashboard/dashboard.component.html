@@ -21,12 +21,12 @@
                 </div>
             </div>
 
-            <!-- other recipes -->
+            <!-- search filter -->
             <div class="filterDiv row mb-3" *ngIf="recipes.length > 1">
                 <label class="filterLbl">
                     <div class="filterLblDiv">
                         <div class="filterInputDiv">
-                            <input class="filterInput" (keyup)="updateFilter($event)">
+                            <input class="filterInput" placeholder="Buscar Receta" (keyup)="updateFilter($event)">
                         </div>
                         <div class="iconSearchDiv">
                             <fa-icon [icon]="iconSearch"></fa-icon>
@@ -34,6 +34,8 @@
                     </div>
                 </label>
             </div>
+
+            <!-- other recipes -->
             <div class="recipeCol" *ngFor="let recipe of getFilteredRecipes(); let i = index">
                 <div class="recipeCard recipeCards row mb-3 p-2">
                     <div class="recipeImageDiv">
