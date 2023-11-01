@@ -7,7 +7,7 @@ import { Recipe } from '../interfaces/recipe';
 export class RecipesService {
   constructor() { }
 
-  // Session Storage (BORRAR)
+  // Session Storage (CAMBIAR)
   useSessionStorage: boolean = false
   private count_session_recipes(): number {
     let i: number = 0
