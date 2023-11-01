@@ -30,7 +30,7 @@
 }
 
 /* Both Cards */
-.recipeCards{
+.recipeCards {
     cursor: pointer;
 }
 
@@ -163,14 +163,29 @@
         text-align: center;
     }
 
-    .recipeDescriptionDiv {
+    .recipeDescription {
         display: none;
     }
 }
 
-
+/* Overflow */
 .overflow {
-    white-space: nowrap;
-    overflow: hidden;
     text-overflow: ellipsis;
+}
+
+.overflow-title{
+    height: 30px;
+}
+
+.recipeTitle{
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.overflow-description {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 5;
+    overflow: hidden;
 }

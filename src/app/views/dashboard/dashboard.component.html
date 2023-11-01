@@ -14,7 +14,7 @@
                     <div id="recipeCardNewest" class="recipeCardNewest recipeCards row p-4">
                         <img class="recipeImageNewest" [src]="recipe.image">
                         <div class="col-12">
-                            <h2 class="overflow">{{recipe.title}}</h2>
+                            <h2 class="recipeTitle">{{recipe.title}}</h2>
                             <p>{{recipe.description}}</p>
                         </div>
                     </div>
@@ -42,9 +42,11 @@
                         <img class="recipeImage" [src]="recipe.image">
                     </div>
                     <div class="recipeContentDiv">
-                        <h3 class="overflow">{{recipe.title}}</h3>
-                        <div class="recipeDescriptionDiv">
-                            <p>{{recipe.description}}</p>
+                        <div class="overflow overflow-title">
+                            <h3 class="recipeTitle">{{recipe.title}}</h3>
+                        </div>
+                        <div class="overflow overflow-description">
+                            <p class="recipeDescription">{{recipe.description}}</p>
                         </div>
                     </div>
                 </div>
