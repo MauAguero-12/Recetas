@@ -29,6 +29,11 @@
     text-align: center;
 }
 
+/* Both Cards */
+.recipeCards{
+    cursor: pointer;
+}
+
 /* Newest Recipe Card */
 .lastRecipeDiv {
     padding: 0;
