@@ -91,7 +91,6 @@ export class AddNewRecipeComponent {
   // Modal
   headerText: string = ''
   bodyText: string = ''
-  validInputs: boolean = false
   @ViewChild(ModalComponent) modalComp: ModalComponent = new ModalComponent();
   showModal() {
     if (this.validForm()) {
