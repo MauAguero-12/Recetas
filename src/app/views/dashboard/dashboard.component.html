@@ -14,10 +14,12 @@
                     <div id="recipeCardNewest" class="recipeCardNewest recipeCards row p-4">
                         <img class="recipeImageNewest" [src]="recipe.image">
                         <div class="col-12">
-                            <div class="overflow overflow-title">
+                            <div class="overflow overflow-title mb-2">
                                 <h2 class="recipeTitle">{{recipe.title}}</h2>
                             </div>
-                            <p>{{recipe.description}}</p>
+                            <div class="overflow overflow-description">
+                                <p class="recipeDescriptionNew">{{recipe.description}}</p>
+                            </div>
                         </div>
                     </div>
                 </div>

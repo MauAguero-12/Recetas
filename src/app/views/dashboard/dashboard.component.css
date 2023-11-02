@@ -45,6 +45,7 @@
     background-color: #32936F;
     border-radius: var(--bs-border-radius);
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    text-align: justify;
     transition: transform 0.3s;
 }
 
@@ -64,6 +65,10 @@
     object-fit: cover;
     border: 5px solid #582F0E;
     border-radius: var(--bs-border-radius);
+}
+
+.recipeDescriptionNew{
+    margin: 0;
 }
 
 /* Filter */
@@ -118,6 +123,7 @@
     min-height: auto;
     display: flex;
     justify-content: space-between;
+    text-align: justify;
     background-color: #EBEBEB;
     border: 0;
     border-radius: var(--bs-border-radius);
@@ -151,7 +157,8 @@
 }
 
 .recipeDescription{
-    height: 96px;
+    height: 112.5px;
+    font-size: 15px;
     margin: 0;
 }
 
@@ -197,7 +204,7 @@
 .overflow-description {
     display: -webkit-box;
     -webkit-box-orient: vertical;
-    -webkit-line-clamp: 4;
+    -webkit-line-clamp: 5;
     overflow: hidden;
 }
 
