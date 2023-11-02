@@ -22,10 +22,10 @@ export class ModalComponent {
     let modal = document.getElementById('modalBackground')
     modal?.classList.add('active')
 
-    // click on close icon
-    let closeIcon = document.getElementById('modalCloseIcon')
-    if (closeIcon) {
-      closeIcon.onclick = () => {
+    // click on close button
+    let closeBtn = document.getElementById('modalCloseDiv')
+    if (closeBtn) {
+      closeBtn.onclick = () => {
         modal?.classList.remove('active')
         this.outputClosed()
       }
