@@ -1,15 +1,20 @@
 <div id="modalBackground">
     <div id="modalContent">
         <!-- Header -->
-        <div id="modalHeader">
+        <div id="modalHeader" class="pt-3 px-3">
             <h1>{{headerText}}</h1>
             <!-- Close Modal Button -->
             <fa-icon id="modalCloseIcon" [icon]="iconX"></fa-icon>
         </div>
 
         <!-- Body -->
-        <div id="modalBody">
+        <div id="modalBody" class="px-3">
             <p>{{bodyText}}</p>
+        </div>
+
+        <!-- Button -->
+        <div id="modalButton" class="px-3 pb-3">
+            <button id="modalButtonBtn" class="my-2 px-2">{{buttonText}}</button>
         </div>
     </div>
 </div>

@@ -22,9 +22,8 @@
 /* Modal Content */
 #modalContent {
     position: relative;
-    background-color: #fefefe;
+    background-color: white;
     border: 1px solid #888;
-    padding: 1rem;
     width: 80%;
     top: 50%;
     left: 50%;
@@ -36,4 +35,33 @@
 #modalHeader {
     display: flex;
     justify-content: space-between;
+}
+
+/* Body */
+#modalBody {
+    border-top: 1px solid #888;
+    border-bottom: 1px solid #888;
+}
+
+#modalBody>p {
+    margin: 0;
+}
+
+/* Button */
+#modalButton {
+    display: flex;
+    justify-content: center;
+}
+
+#modalButtonBtn {
+    color: white;
+    background-color: #32936F;
+    border: var(--bs-border-width) solid #32936F;
+    border-radius: var(--bs-border-radius);
+    transition: all 0.2s ease-in;
+}
+
+#modalButtonBtn:hover {
+    background-color: #136f63;
+    /* transform: scale(1.1); */
 }

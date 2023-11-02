@@ -8,8 +8,11 @@ import { faX } from '@fortawesome/free-solid-svg-icons';
 })
 export class ModalComponent {
   // Inputs
-  @Input() headerText: string = 'Alert'
-  @Input() bodyText: string = 'Message'
+  @Input() headerText: string = 'Alerta'
+  @Input() bodyText: string = ''
+  @Input() buttonText: string = 'Aceptar'
+  @Input() buttonTextColor: string = ''
+  @Input() buttonBgColor: string = ''
 
   // Outputs
   @Output() closed = new EventEmitter()
@@ -23,6 +26,23 @@ export class ModalComponent {
     let closeIcon = document.getElementById('modalCloseIcon')
     if (closeIcon) {
       closeIcon.onclick = () => {
+        modal?.classList.remove('active')
+        this.outputClosed()
+      }
+    }
+
+    // click on modal button
+    let modalBtn = document.getElementById('modalButtonBtn')
+    if (modalBtn) {
+      if (this.buttonTextColor) {
+        modalBtn.style.color = this.buttonTextColor
+      }
+
+      if (this.buttonBgColor) {
+        modalBtn.style.backgroundColor = this.buttonBgColor
+      }
+
+      modalBtn.onclick = () => {
         modal?.classList.remove('active')
         this.outputClosed()
       }
