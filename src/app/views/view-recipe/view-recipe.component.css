@@ -19,6 +19,7 @@
 .titleDiv {
     display: flex;
     justify-content: center;
+    text-align: justify;
 }
 
 /* Image */
@@ -33,6 +34,11 @@
         border: 5px solid #582F0E;
         border-radius: var(--bs-border-radius);
     }
+}
+
+/* Description */
+.descriptionDiv{
+    text-align: justify;
 }
 
 /* Ingredients */
