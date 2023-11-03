@@ -157,8 +157,8 @@
 }
 
 .recipeDescription{
-    height: 112.5px;
-    font-size: 15px;
+    height: 101.25px;
+    font-size: 13.5px;
     margin: 0;
 }
 
@@ -193,12 +193,16 @@
     height: fit-content;
 }
 
+.recipeTitleNew{
+    padding: 1rem 0;
+}
+
 .recipeTitle {
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
     margin: 0 0;
-    padding: 0 0 2px;
+    padding-bottom: 1rem;
 }
 
 .overflow-description {
