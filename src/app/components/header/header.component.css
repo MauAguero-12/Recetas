@@ -5,7 +5,7 @@
 
 /* Header */
 .header {
-    height: 3rem;
+    height: 5rem;
     color: #EBEBEB;
     background-color: #32936F;
     align-items: center;
@@ -16,6 +16,8 @@
     width: auto;
     padding: 0;
     text-decoration-color: transparent;
+    cursor: pointer;
+    display: flex;
 }
 
 .headerOption:hover {
@@ -23,27 +25,38 @@
     transition: all 0.2s ease-in;
 }
 
+.headerText {
+    margin: 0;
+}
+
+
+.headerText:hover {
+    margin: 0
+}
+
+.optionIcon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .spacing {
     width: 1.5rem;
     padding: 0;
-}
-
-h3 {
-    cursor: pointer;
-    margin: 0;
 }
 
 @media only screen and (max-width: 426px) {
     .header {
         display: flex;
         justify-content: space-evenly;
+        height: 4rem;
     }
 
     .spacing {
         display: none;
     }
 
-    h3 {
-        font-size: 1rem;
+    .headerText {
+        display: none;
     }
 }
