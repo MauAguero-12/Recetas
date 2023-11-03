@@ -60,6 +60,8 @@
 }
 
 #modalButtonBtn {
+    min-width: 12rem;
+    padding: 6px 12px;
     color: white;
     background-color: #32936F;
     border: var(--bs-border-width) solid #32936F;
@@ -68,5 +70,5 @@
 }
 
 #modalButtonBtn:hover {
-    background-color: #136f63;
+    transform: scale(1.05);
 }

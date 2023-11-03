@@ -19,17 +19,17 @@ button {
 #addIngredientBtn {
     width: 100%;
     min-height: 1.5rem;
+    min-width: 12rem;
     padding: 6px 12px;
-    color: #32936F;
-    border: var(--bs-border-width) solid #32936F;
+    color: #774936;
+    border: var(--bs-border-width) solid #774936;
     border-radius: var(--bs-border-radius);
     transition: all 0.2s ease-in;
 }
 
 #addIngredientBtn:hover {
     color: white;
-    background-color: #32936F;
-    transition: all 0.2s ease-in;
+    background-color: #774936;
 }
 
 #addIngredientBtn:focus {
@@ -91,10 +91,11 @@ button {
 }
 
 .saveBtn {
-    color: #D1B490;
-    background-color: #582F0E;
+    color: white;
+    background-color: #32936F;
     border: var(--bs-border-width) solid #32936F;
     width: 40%;
+    min-width: 12rem;
     transition: all 0.3s ease-in;
     padding: 6px 12px;
 }
@@ -104,8 +105,7 @@ button {
 }
 
 .saveBtn:hover {
-    transform: scale(1.1);
-    transition: all 0.3s ease-in;
+    transform: scale(1.05);
 }
 
 @media only screen and (max-width: 426px) {
