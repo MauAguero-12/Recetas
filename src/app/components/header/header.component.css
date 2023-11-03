@@ -18,11 +18,11 @@
     text-decoration-color: transparent;
     cursor: pointer;
     display: flex;
+    transition: all 0.2s ease-in;
 }
 
 .headerOption:hover {
     text-decoration: underline #1A281F;
-    transition: all 0.2s ease-in;
 }
 
 .headerText {

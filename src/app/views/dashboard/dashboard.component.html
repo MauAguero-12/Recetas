@@ -7,20 +7,16 @@
                 <h2 class="noRecipeText">De momento no tenemos recetas disponibles</h2>
             </div>
 
-            <!-- at least one recipe -->
-            <div class="lastRecipeDiv my-4" *ngFor="let recipe of getLastRecipe(); let i = index">
-                <!-- latest recipe -->
-                <div *ngIf="i == 0">
-                    <div id="recipeCardNewest" class="recipeCardNewest recipeCards row p-4">
-                        <img class="recipeImageNewest" [src]="recipe.image">
-                        <div class="recipeContent">
-                            <div class="overflow overflow-title recipeTitleNewDiv">
-                                <h2 class="recipeTitle recipeTitleNew" [title]="recipe.title">{{recipe.title}}</h2>
-                            </div>
-                            <div class="overflow overflow-description">
-                                <p class="recipeDescriptionNew">{{recipe.description}}</p>
-                            </div>
-                        </div>
+            <!-- newest recipe -->
+            <div id="recipeCardNew" class="newRecipeDiv my-4 recipeCards row p-4"
+                *ngFor="let recipe of getLastRecipe(); let i = index">
+                <img class="recipeImageNew" [src]="recipe.image">
+                <div class="recipeContentNew">
+                    <div class="overflow overflow-title recipeTitleNewDiv">
+                        <h2 class="recipeTitle recipeTitleNew" [title]="recipe.title">{{recipe.title}}</h2>
+                    </div>
+                    <div class="overflow overflow-description">
+                        <p class="recipeDescriptionNew">{{recipe.description}}</p>
                     </div>
                 </div>
             </div>

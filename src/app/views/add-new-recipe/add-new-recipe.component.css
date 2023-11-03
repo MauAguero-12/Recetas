@@ -81,7 +81,6 @@ button {
     color: white;
     background-color: #BC4749;
     border: var(--bs-border-width) solid var(--bs-border-color);
-    transition: all 0.3s ease-in;
 }
 
 /* Save Button */
