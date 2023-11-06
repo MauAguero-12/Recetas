@@ -11,8 +11,12 @@ import { RecipesService } from 'src/app/services/recipes.service';
 })
 export class DashboardComponent implements OnInit, AfterViewInit {
   // Atributes
-  recipes: Recipe[] = []
-  searchFilter: string = ''
+  recipes: Recipe[] = [];
+  recipesFiltered: Recipe[] = [];
+  searchFilter: string = '';
+  currentPage = 1;
+  recipesPerPage = 12;
+
 
   // Basic Methods
   constructor(private router: Router, private recipeService: RecipesService) { }
@@ -56,7 +60,7 @@ export class DashboardComponent implements OnInit, AfterViewInit {
     return []
   }
 
-  getFilteredRecipes(): Recipe[] {
+  getFilteredRecipes(): void {
     let n = this.recipes.length
     let array: Recipe[] = []
     let arrayFiltered: Recipe[] = []
@@ -79,7 +83,22 @@ export class DashboardComponent implements OnInit, AfterViewInit {
         arrayFiltered = array
       }
     }
-    return arrayFiltered.reverse()
+
+    // get current page
+    let nFiltered: number = arrayFiltered.length
+    let start: number = nFiltered - this.recipesPerPage * this.currentPage
+    let end: number = start + this.recipesPerPage
+    if (start < 0) {
+      start = 0
+    }
+
+    if (end >= nFiltered) {
+      arrayFiltered = arrayFiltered.slice(start)
+    } else {
+      arrayFiltered = arrayFiltered.slice(start, end)
+    }
+
+    this.recipesFiltered = arrayFiltered.reverse()
   }
 
   // Filter By Name
@@ -94,6 +113,29 @@ export class DashboardComponent implements OnInit, AfterViewInit {
       return idString + i
     }
     return ''
+  }
+
+  // Pages
+  get pagesCount() {
+    return Math.ceil(this.recipes.length / this.recipesPerPage)
+  }
+  previousPage(): void {
+    if (this.currentPage > 1) {
+      this.currentPage--
+    }
+  }
+
+  nextPage(): void {
+    let n: number = this.recipes.length
+    if (this.currentPage < this.pagesCount) {
+      this.currentPage++
+    }
+  }
+
+  goToPage(pageNumber: number): void {
+    if (pageNumber > 0 && pageNumber <= this.pagesCount){
+      this.currentPage = pageNumber
+    } 
   }
 
   // Icons

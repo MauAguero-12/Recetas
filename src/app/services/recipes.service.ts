@@ -8,7 +8,7 @@ export class RecipesService {
   constructor() { }
 
   // Session Storage (CAMBIAR)
-  useSessionStorage: boolean = false
+  useSessionStorage: boolean = true
   private count_session_recipes(): number {
     let i: number = 0
     let recipe: string | null = sessionStorage.getItem('recipe' + 0)

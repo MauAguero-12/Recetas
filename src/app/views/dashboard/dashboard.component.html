@@ -37,8 +37,8 @@
 
             <!-- other recipes -->
             <div class="recipesGrid">
-                <div class="recipeCard recipeCards row mb-3 p-2"
-                    *ngFor="let recipe of getFilteredRecipes(); let i = index">
+                {{getFilteredRecipes()}}
+                <div class="recipeCard recipeCards row mb-3 p-2" *ngFor="let recipe of recipesFiltered; let i = index">
                     <div class="recipeImageDiv">
                         <img class="recipeImage" [src]="recipe.image">
                     </div>
@@ -51,6 +51,28 @@
                         </div>
                     </div>
                 </div>
+            </div>
+
+            <div class="pageSection">
+                <button (click)="previousPage()">
+                    {{'Anterior'}}
+                </button>
+
+                <button (click)="goToPage(currentPage - 1)" *ngIf="currentPage - 1 > 0">
+                    {{currentPage - 1}}
+                </button>
+
+                <button>
+                    {{currentPage}}
+                </button>
+
+                <button (click)="goToPage(currentPage + 1)" *ngIf="currentPage + 1 <= pagesCount">
+                    {{currentPage + 1}}
+                </button>
+
+                <button (click)="nextPage()">
+                    {{'Siguiente'}}
+                </button>
             </div>
         </div>
     </div>
