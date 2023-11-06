@@ -1,4 +1,4 @@
-import { Injectable, OnInit } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Recipe } from '../interfaces/recipe';
 
 @Injectable({
@@ -7,22 +7,21 @@ import { Recipe } from '../interfaces/recipe';
 export class RecipesService {
   constructor() { }
 
-  // Session Storage (CAMBIAR)
-  useSessionStorage: boolean = true
-  private count_session_recipes(): number {
+  // Local Storage
+  private count_localstorage_recipes(): number {
     let i: number = 0
-    let recipe: string | null = sessionStorage.getItem('recipe' + 0)
+    let recipe: string | null = localStorage.getItem('recipe' + 0)
     while (recipe != null && recipe != '') {
       i++
-      recipe = sessionStorage.getItem('recipe' + i)
+      recipe = localStorage.getItem('recipe' + i)
     }
     return i
   }
-  private get_session_recipes(): Recipe[] {
+  private get_localstorage_recipes(): Recipe[] {
     let recipes_array: Recipe[] = []
     let i: number = 0
-    while (i < this.count_session_recipes()) {
-      let recipe: string | null = sessionStorage.getItem('recipe' + i)
+    while (i < this.count_localstorage_recipes()) {
+      let recipe: string | null = localStorage.getItem('recipe' + i)
       if (recipe != null && recipe != '') {
         let recipe_info: Recipe = JSON.parse(recipe)
         recipes_array.push(recipe_info)
@@ -31,14 +30,14 @@ export class RecipesService {
     }
     return recipes_array
   }
-  private add_session_recipe(user: Recipe) {
+  private add_localstorage_recipe(user: Recipe) {
     let userString: string = JSON.stringify(user)
-    let cardCount: number = this.count_session_recipes()
-    sessionStorage.setItem('recipe' + cardCount, userString)
+    let cardCount: number = this.count_localstorage_recipes()
+    localStorage.setItem('recipe' + cardCount, userString)
   }
 
   // Atributes
-  recipes: Recipe[] = this.get_session_recipes()
+  recipes: Recipe[] = this.get_localstorage_recipes()
   selectedRecipe: Recipe | null = null
 
   // Methods
@@ -48,9 +47,7 @@ export class RecipesService {
 
   addRecipe(recipe: Recipe) {
     this.recipes.push(recipe)
-    if (this.useSessionStorage) {
-      this.add_session_recipe(recipe)
-    }
+    this.add_localstorage_recipe(recipe)
   }
 
   setSelectedRecipe(recipe: Recipe): void {
