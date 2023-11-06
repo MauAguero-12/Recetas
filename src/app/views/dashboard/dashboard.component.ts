@@ -14,6 +14,7 @@ export class DashboardComponent implements OnInit, AfterViewInit {
   recipes: Recipe[] = [];
   recipesFiltered: Recipe[] = [];
   searchFilter: string = '';
+  // searchFilter: string[] = [];
   currentPage = 1;
   recipesPerPage = 12;
 
@@ -57,7 +58,10 @@ export class DashboardComponent implements OnInit, AfterViewInit {
       array = this.recipes.slice(0, -1)
 
       // if theres a filter
-      if (this.searchFilter != '') {
+      if (this.searchFilter.length > 0) {
+        // let tokens = this.searchFilter
+        // array in order of less to more matches with tokens (reversed later)
+        
         let filter = this.searchFilter.toLowerCase()
         // for each recipe apply filter
         for (let i = 0; i < array.length; i++) {
@@ -91,6 +95,9 @@ export class DashboardComponent implements OnInit, AfterViewInit {
 
   // Filter By Name
   updateFilter(event: any) {
+    // let tokens = event.target.value.split(/[\s\W]+/);
+    // this.searchFilter = tokens
+    // go to page 1
     this.searchFilter = event.target.value
   }
 
