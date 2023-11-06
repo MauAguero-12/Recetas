@@ -1,6 +1,14 @@
-<div class="row my-4">
-    <div class="col-1"></div>
-    <div class="col-10 recipeBackground">
+<div class="background">
+    <!-- <div class=""></div> -->
+    <!-- recipe not found error -->
+    <div class="errorDiv" *ngIf="!recipe">
+        <h2>
+            Error 404: No se encontró la receta que estabas buscando
+        </h2>
+    </div>
+
+    <!-- recipe found -->
+    <div class="recipeBackground" *ngIf="recipe">
         <!-- Title -->
         <div class="titleDiv">
             <h1>{{recipe.title}}</h1>

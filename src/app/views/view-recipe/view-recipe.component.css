@@ -7,12 +7,40 @@
 }
 
 /* Background */
+.background {
+    margin: 24px 0;
+    width: 100%;
+    min-height: calc(100vh - var(--pa-header-height) - 48px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* No Recipe Error */
+.errorDiv {
+    color: #774936;
+    width: 90%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.errorDiv>h2 {
+    height: 100%;
+    margin: 0;
+}
+
+/* Recipe Card */
 .recipeBackground {
     color: #EBEBEB;
     background-color: #32936F;
     border-radius: var(--bs-border-radius);
     padding: 0% 5%;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    width: 80%;
+    margin: auto;
 }
 
 /* Title */
@@ -37,7 +65,7 @@
 }
 
 /* Description */
-.descriptionDiv{
+.descriptionDiv {
     text-align: justify;
 }
 

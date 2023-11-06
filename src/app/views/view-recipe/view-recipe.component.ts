@@ -10,18 +10,21 @@ import { RecipesService } from 'src/app/services/recipes.service';
 })
 export class ViewRecipeComponent implements OnInit {
   // Atributes
-  recipe: Recipe;
+  recipe: Recipe | null = null;
   checkedLabels: boolean[] = [];
 
   // Basic Methods
   constructor(private recipeService: RecipesService) {
-    this.recipe = { title: '', description: '', image: '', ingredients: ['', ''] }
+    // this.recipe = { title: '', description: '', image: '', ingredients: ['', ''] }
   }
 
   ngOnInit(): void {
     this.updateSelectedRecipe()
-    for (let i = 0; i < this.recipe.ingredients.length; i++) {
-      this.checkedLabels.push(false)
+    if (this.recipe) {
+      // labels 
+      for (let i = 0; i < this.recipe.ingredients.length; i++) {
+        this.checkedLabels.push(false)
+      }
     }
   }
 
