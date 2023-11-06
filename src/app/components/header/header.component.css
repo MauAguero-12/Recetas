@@ -5,7 +5,7 @@
 
 /* Header */
 .header {
-    height: 5rem;
+    height: var(--pa-header-height);
     color: #EBEBEB;
     background-color: #32936F;
     align-items: center;
