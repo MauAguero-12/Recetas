@@ -15,7 +15,7 @@ export class DashboardComponent implements OnInit, AfterViewInit {
   recipesFiltered: Recipe[] = [];
   searchFilter: string = '';
   currentPage = 1;
-  recipesPerPage = 3;
+  recipesPerPage = 12;
 
 
   // Basic Methods
