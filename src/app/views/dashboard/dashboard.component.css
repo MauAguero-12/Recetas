@@ -233,3 +233,35 @@
         height: fit-content;
     }
 }
+
+/* Pages */
+.pagination {
+    display: flex;
+    justify-content: center;
+}
+
+.page-item {
+    cursor: pointer;
+}
+
+.page-link {
+    color: #774936;
+    background-color: transparent;
+    border-color: #774936;
+}
+
+.page-link:hover {
+    color: #774936;
+    background-color: transparent;
+}
+
+.active-page-link, .page-link:active {
+    color: #EBEBEB;
+    background-color: #774936;
+    transition: all 0.1s ease-in;
+}
+
+.active-page-link:hover {
+    color: #EBEBEB;
+    background-color: #774936;
+}

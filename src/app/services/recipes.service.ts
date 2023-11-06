@@ -39,7 +39,7 @@ export class RecipesService {
 
   // Atributes
   recipes: Recipe[] = this.get_session_recipes()
-  selectedRecipe: number = -1
+  selectedRecipe: Recipe | null = null
 
   // Methods
   getRecipes(): Recipe[] {
@@ -53,12 +53,14 @@ export class RecipesService {
     }
   }
 
-  setSelectedRecipe(i: number): void {
-    this.selectedRecipe = i
+  setSelectedRecipe(recipe: Recipe): void {
+    if (this.recipes.indexOf(recipe) != -1){
+      this.selectedRecipe = recipe
+    }
   }
   getSelectedRecipe(): Recipe | void {
-    if (this.selectedRecipe > -1 && this.selectedRecipe < this.recipes.length) {
-      return this.recipes[this.selectedRecipe]
+    if(this.selectedRecipe){
+      return this.selectedRecipe
     }
   }
 }

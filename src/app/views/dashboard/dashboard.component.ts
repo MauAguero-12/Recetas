@@ -15,7 +15,7 @@ export class DashboardComponent implements OnInit, AfterViewInit {
   recipesFiltered: Recipe[] = [];
   searchFilter: string = '';
   currentPage = 1;
-  recipesPerPage = 12;
+  recipesPerPage = 3;
 
 
   // Basic Methods
@@ -27,19 +27,7 @@ export class DashboardComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    // add click event to recipe cards
-    let recipeCards = document.getElementsByClassName('recipeCards')
-    let n = recipeCards.length
-    for (let i = 0; i < n; i++) {
-      let card = recipeCards[i] as HTMLElement
-      if (card) {
-        card.onclick = () => {
-          let recipeIndex = n - 1 - i
-          this.recipeService.setSelectedRecipe(recipeIndex)
-          this.router.navigateByUrl('view')
-        }
-      }
-    }
+    this.updatePageCardClicks()
   }
 
   // Get Recipe
@@ -115,27 +103,36 @@ export class DashboardComponent implements OnInit, AfterViewInit {
     return ''
   }
 
-  // Pages
+  updatePageCardClicks(): void {
+    // add click event to recipe cards
+    let recipeCards = document.getElementsByClassName('recipeCards')
+    for (let i = 0; i < recipeCards.length; i++) {
+      let card = recipeCards[i] as HTMLElement
+      if (card) {
+        card.onclick = () => {
+          let recipe: Recipe;
+          if (i != 0) {
+            recipe = this.recipesFiltered[i - 1]
+          } else {
+            let n = this.recipes.length
+            recipe = this.recipes[n - 1]
+          }
+          this.recipeService.setSelectedRecipe(recipe)
+          this.router.navigateByUrl('view')
+        }
+      }
+    }
+  }
+
+  // Pagination
   get pagesCount() {
     return Math.ceil(this.recipes.length / this.recipesPerPage)
   }
-  previousPage(): void {
-    if (this.currentPage > 1) {
-      this.currentPage--
-    }
-  }
-
-  nextPage(): void {
-    let n: number = this.recipes.length
-    if (this.currentPage < this.pagesCount) {
-      this.currentPage++
-    }
-  }
 
   goToPage(pageNumber: number): void {
-    if (pageNumber > 0 && pageNumber <= this.pagesCount){
+    if (pageNumber > 0 && pageNumber <= this.pagesCount) {
       this.currentPage = pageNumber
-    } 
+    }
   }
 
   // Icons

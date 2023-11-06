@@ -51,29 +51,31 @@
                         </div>
                     </div>
                 </div>
+                {{this.updatePageCardClicks()}}
             </div>
 
-            <div class="pageSection">
-                <button (click)="previousPage()">
-                    {{'Anterior'}}
-                </button>
+            <!-- Pagination -->
+            <ul class="pagination" *ngIf="recipes.length > recipesPerPage">
+                    <li class="page-item">
+                        <a class="page-link" (click)="goToPage(currentPage - 1)">Anterior</a>
+                    </li>
 
-                <button (click)="goToPage(currentPage - 1)" *ngIf="currentPage - 1 > 0">
-                    {{currentPage - 1}}
-                </button>
+                    <li *ngIf="currentPage - 1 > 0" class="page-item">
+                        <a class="page-link" (click)="goToPage(currentPage - 1)">{{currentPage - 1}}</a>
+                    </li>
 
-                <button>
-                    {{currentPage}}
-                </button>
+                    <li class="page-item">
+                        <a class="page-link active-page-link" (click)="goToPage(currentPage)">{{currentPage}}</a>
+                    </li>
 
-                <button (click)="goToPage(currentPage + 1)" *ngIf="currentPage + 1 <= pagesCount">
-                    {{currentPage + 1}}
-                </button>
+                    <li *ngIf="currentPage + 1 <= pagesCount" class="page-item">
+                        <a class="page-link" (click)="goToPage(currentPage + 1)">{{currentPage + 1}}</a>
+                    </li>
 
-                <button (click)="nextPage()">
-                    {{'Siguiente'}}
-                </button>
-            </div>
+                    <li class="page-item">
+                        <a class="page-link" (click)="goToPage(currentPage + 1)">Siguiente</a>
+                    </li>
+                </ul>
         </div>
     </div>
     <div class="col-1"></div>
