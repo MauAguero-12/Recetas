@@ -24,12 +24,20 @@
     position: relative;
     background-color: white;
     border: 1px solid #888;
-    max-width: 60%;
+    width: 50%;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     border-radius: var(--bs-border-radius);
 }
+
+@media only screen and (max-width: 426px) {
+    #modalContent {
+        width: 80%;
+    }
+}
+
+
 
 /* Header */
 #modalHeader {
@@ -38,8 +46,14 @@
     padding-bottom: 0.5rem;
 }
 
-#modalHeader>h1{
+#modalHeader>h1 {
     margin: 0;
+}
+
+/*  */
+.spacing {
+    min-width: 0.5rem;
+    max-width: 0.5rem;
 }
 
 /* Close Icon */
