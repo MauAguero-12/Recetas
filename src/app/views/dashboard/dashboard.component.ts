@@ -76,20 +76,7 @@ export class DashboardComponent implements OnInit, AfterViewInit {
       }
     }
 
-    // get current page
-    let nFiltered: number = arrayFiltered.length
-    let start: number = nFiltered - this.recipesPerPage * this.currentPage
-    let end: number = start + this.recipesPerPage
-    if (start < 0) {
-      start = 0
-    }
-
-    if (end >= nFiltered) {
-      arrayFiltered = arrayFiltered.slice(start)
-    } else {
-      arrayFiltered = arrayFiltered.slice(start, end)
-    }
-
+    // reverse to display newest first
     this.recipesFiltered = arrayFiltered.reverse()
   }
 
@@ -140,6 +127,24 @@ export class DashboardComponent implements OnInit, AfterViewInit {
     if (pageNumber > 0 && pageNumber <= this.pagesCount) {
       this.currentPage = pageNumber
     }
+  }
+
+  getCurrentPage(array: Recipe[]): Recipe[]{
+    // this.recipesFiltered
+    let nFiltered: number = array.length
+    let start: number = nFiltered - this.recipesPerPage * this.currentPage
+    let end: number = start + this.recipesPerPage
+    let currentPage: Recipe[] = []
+    if (start < 0) {
+      start = 0
+    }
+
+    if (end >= nFiltered) {
+      currentPage = array.slice(start)
+    } else {
+      currentPage = array.slice(start, end)
+    }
+    return currentPage
   }
 
   // Icons
