@@ -13,7 +13,8 @@ export class DashboardComponent implements OnInit, AfterViewInit {
   // Atributes
   recipes: Recipe[] = [];
   recipesFiltered: Recipe[] = [];
-  searchFilter: string = '';
+  searchFilter: Map<string, number> = new Map<string, number>();
+  // searchFilter: string = '';
   // searchFilter: string[] = [];
   currentPage = 1;
   recipesPerPage = 12;
@@ -52,41 +53,60 @@ export class DashboardComponent implements OnInit, AfterViewInit {
 
   getFilteredRecipes(): void {
     let n = this.recipes.length
-    let array: Recipe[] = []
-    let arrayFiltered: Recipe[] = []
+    let recipesArray: Recipe[] = []
+    let filteredArray: Recipe[] = []
     if (n > 1) {
       // remove last recipe
-      array = this.recipes.slice(0, -1)
+      recipesArray = this.recipes.slice(0, -1)
 
       // if theres a filter
-      if (this.searchFilter.length > 0) {
-        // let tokens = this.searchFilter
-        // array in order of less to more matches with tokens (reversed later)
-
-        let filter = this.searchFilter.toLowerCase()
+      if (this.searchFilter.size > 0) {
         // for each recipe apply filter
-        for (let i = 0; i < array.length; i++) {
-          let recipe: Recipe = array[i]
+        recipesArray.forEach(recipe => {
           let recipeTitle = recipe.title.toLowerCase()
-          if (recipeTitle.includes(filter)) {
-            arrayFiltered.push(recipe)
+          let allWords: boolean = true
+
+          //check for every word of the filter in the recipe
+          this.searchFilter.forEach((count, word) => {
+            allWords = allWords && (recipeTitle.includes(word))
+          });
+
+          if (allWords) {
+            filteredArray.push(recipe)
           }
-        }
+        });
       } else {
-        arrayFiltered = array
+        filteredArray = recipesArray
       }
     }
 
     // reverse to display newest first
-    this.recipesFiltered = arrayFiltered.reverse()
+    this.recipesFiltered = filteredArray.reverse()
   }
 
   // Filter By Name
   updateFilter(event: any) {
-    // let tokens = event.target.value.split(/[\s\W]+/);
-    // this.searchFilter = tokens
+    // remove previous filters
+    this.searchFilter.clear()
+
+    // Regex expression to get all words
+    let tokens = event.target.value.split(/[\s\W]+/) as string[];
+    tokens.forEach((element: string) => {
+      this.addWordToMap(element, this.searchFilter)
+    });
+
     // go to page 1
-    this.searchFilter = event.target.value
+    this.goToPage(1)
+  }
+
+  addWordToMap(word: string, map: Map<string, number>) {
+    let count = map.get(word) || 0
+    word = word.toLowerCase()
+    if (count) {
+      map.set(word, count + 1)
+    } else if (word.length) {
+      map.set(word, 1)
+    }
   }
 
   // Cards
@@ -110,7 +130,7 @@ export class DashboardComponent implements OnInit, AfterViewInit {
           if (i != 0) {
             let recipesPage: Recipe[] = this.getCurrentPage(this.recipesFiltered)
             recipe = recipesPage[i - 1]
-          // else newest recipe card
+            // else newest recipe card
           } else {
             let n = this.recipes.length
             recipe = this.recipes[n - 1]
