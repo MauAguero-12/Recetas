@@ -38,7 +38,8 @@
             <!-- other recipes -->
             <div class="recipesGrid">
                 {{getFilteredRecipes()}}
-                <div class="recipeCard recipeCards row mb-3 p-2" *ngFor="let recipe of getCurrentPage(recipesFiltered); let i = index">
+                <div class="recipeCard recipeCards row mb-3 p-2"
+                    *ngFor="let recipe of getCurrentPage(recipesFiltered); let i = index">
                     <div class="recipeImageDiv">
                         <img class="recipeImage" [src]="recipe.image">
                     </div>
@@ -56,26 +57,41 @@
 
             <!-- Pagination -->
             <ul class="pagination" *ngIf="recipes.length - 1 > recipesPerPage">
-                    <li class="page-item">
-                        <a class="page-link" (click)="goToPage(currentPage - 1)">Anterior</a>
-                    </li>
+                <!-- Previous -->
+                <li class="page-item">
+                    <a class="page-link" (click)="goToPage(currentPage - 1)">Anterior</a>
+                </li>
 
-                    <li *ngIf="currentPage - 1 > 0" class="page-item">
-                        <a class="page-link" (click)="goToPage(currentPage - 1)">{{currentPage - 1}}</a>
-                    </li>
+                <!-- -2 -->
+                <li *ngIf="currentPage - 2 > 0 && currentPage == pagesCount" class="page-item">
+                    <a class="page-link" (click)="goToPage(currentPage - 2)">{{currentPage - 2}}</a>
+                </li>
 
-                    <li class="page-item">
-                        <a class="page-link active-page-link" (click)="goToPage(currentPage)">{{currentPage}}</a>
-                    </li>
+                <!-- -1 -->
+                <li *ngIf="currentPage - 1 > 0" class="page-item">
+                    <a class="page-link" (click)="goToPage(currentPage - 1)">{{currentPage - 1}}</a>
+                </li>
 
-                    <li *ngIf="currentPage + 1 <= pagesCount" class="page-item">
-                        <a class="page-link" (click)="goToPage(currentPage + 1)">{{currentPage + 1}}</a>
-                    </li>
+                <!-- current -->
+                <li class="page-item">
+                    <a class="page-link active-page-link" (click)="goToPage(currentPage)">{{currentPage}}</a>
+                </li>
 
-                    <li class="page-item">
-                        <a class="page-link" (click)="goToPage(currentPage + 1)">Siguiente</a>
-                    </li>
-                </ul>
+                <!-- +1 -->
+                <li *ngIf="currentPage + 1 <= pagesCount" class="page-item">
+                    <a class="page-link" (click)="goToPage(currentPage + 1)">{{currentPage + 1}}</a>
+                </li>
+
+                <!-- +2 -->
+                <li *ngIf="currentPage + 2 <= pagesCount && currentPage == 1" class="page-item">
+                    <a class="page-link" (click)="goToPage(currentPage + 2)">{{currentPage + 2}}</a>
+                </li>
+
+                <!-- Next -->
+                <li class="page-item">
+                    <a class="page-link" (click)="goToPage(currentPage + 1)">Siguiente</a>
+                </li>
+            </ul>
         </div>
     </div>
     <div class="col-1"></div>

@@ -25,6 +25,7 @@ export class DashboardComponent implements OnInit, AfterViewInit {
   ngOnInit(): void {
     // get recipes from service
     this.recipes = this.recipeService.getRecipes()
+    this.getFilteredRecipes()
   }
 
   ngAfterViewInit(): void {
@@ -61,7 +62,7 @@ export class DashboardComponent implements OnInit, AfterViewInit {
       if (this.searchFilter.length > 0) {
         // let tokens = this.searchFilter
         // array in order of less to more matches with tokens (reversed later)
-        
+
         let filter = this.searchFilter.toLowerCase()
         // for each recipe apply filter
         for (let i = 0; i < array.length; i++) {
@@ -105,8 +106,11 @@ export class DashboardComponent implements OnInit, AfterViewInit {
       if (card) {
         card.onclick = () => {
           let recipe: Recipe;
+          // if smaller cards
           if (i != 0) {
-            recipe = this.recipesFiltered[i - 1]
+            let recipesPage: Recipe[] = this.getCurrentPage(this.recipesFiltered)
+            recipe = recipesPage[i - 1]
+          // else newest recipe card
           } else {
             let n = this.recipes.length
             recipe = this.recipes[n - 1]
@@ -120,7 +124,7 @@ export class DashboardComponent implements OnInit, AfterViewInit {
 
   // Pagination
   get pagesCount() {
-    return Math.ceil(this.recipes.length / this.recipesPerPage)
+    return Math.ceil(this.recipesFiltered.length / this.recipesPerPage)
   }
 
   goToPage(pageNumber: number): void {
@@ -129,10 +133,9 @@ export class DashboardComponent implements OnInit, AfterViewInit {
     }
   }
 
-  getCurrentPage(array: Recipe[]): Recipe[]{
-    // this.recipesFiltered
-    let nFiltered: number = array.length
-    let start: number = nFiltered - this.recipesPerPage * this.currentPage
+  getCurrentPage(sortedRecipes: Recipe[]): Recipe[] {
+    let nFiltered: number = sortedRecipes.length
+    let start: number = this.recipesPerPage * (this.currentPage - 1)
     let end: number = start + this.recipesPerPage
     let currentPage: Recipe[] = []
     if (start < 0) {
@@ -140,9 +143,9 @@ export class DashboardComponent implements OnInit, AfterViewInit {
     }
 
     if (end >= nFiltered) {
-      currentPage = array.slice(start)
+      currentPage = sortedRecipes.slice(start)
     } else {
-      currentPage = array.slice(start, end)
+      currentPage = sortedRecipes.slice(start, end)
     }
     return currentPage
   }
