@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { faBook, faHouseChimney, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { RecipesService } from 'src/app/services/recipes.service';
+import { ModalComponent } from '../modal/modal.component';
 
 @Component({
   selector: 'app-header',
@@ -11,17 +12,29 @@ export class HeaderComponent implements OnInit {
   constructor(private recipeService: RecipesService) { }
 
   ngOnInit(): void {
-    // remove recipes on click
+    // delete recipes on click
     let deleteRecipes = document.getElementById('deleteRecipes')
     if (deleteRecipes) {
       deleteRecipes.onclick = () => {
         this.recipeService.deleteRecipes()
-        console.log(this.recipeService.getRecipes())
+        // (show modal first)
+        // this.showModal()
       }
     }
-
-
   }
+
+  // Modal
+  // headerText = 'Está seguro que ?'
+  // bodyText = 'all of it?'
+  // @ViewChild(ModalComponent) modalComp!: ModalComponent;
+  // showModal() {
+  //   this.modalComp.showModal()
+  // }
+
+  // modalClosed(i: number) {
+  //   // delete recipes from the service
+  //   this.recipeService.deleteRecipes()
+  // }
 
   // Icons
   iconHouseChimney = faHouseChimney

@@ -11,11 +11,9 @@ export class ModalComponent {
   @Input() headerText: string = 'Alerta'
   @Input() bodyText: string = ''
   @Input() buttonText: string = 'Aceptar'
-  @Input() buttonTextColor: string = ''
-  @Input() buttonBgColor: string = ''
 
   // Outputs
-  @Output() closed = new EventEmitter()
+  @Output() closed = new EventEmitter<number>()
 
   // Methods
   showModal(): void {
@@ -27,38 +25,22 @@ export class ModalComponent {
     if (closeBtn) {
       closeBtn.onclick = () => {
         modal?.classList.remove('active')
-        this.outputClosed()
+        this.outputClosed(0)
       }
     }
 
     // click on modal button
     let modalBtn = document.getElementById('modalButtonBtn')
     if (modalBtn) {
-      if (this.buttonTextColor) {
-        modalBtn.style.color = this.buttonTextColor
-      }
-
-      if (this.buttonBgColor) {
-        modalBtn.style.backgroundColor = this.buttonBgColor
-      }
-
       modalBtn.onclick = () => {
         modal?.classList.remove('active')
-        this.outputClosed()
-      }
-    }
-
-    // click outside of modal
-    window.onclick = (event) => {
-      if (event.target == modal) {
-        modal?.classList.remove('active')
-        this.outputClosed()
+        this.outputClosed(1)
       }
     }
   }
 
-  outputClosed() {
-    this.closed.emit()
+  outputClosed(i: number) {
+    this.closed.emit(i)
   }
 
   // Icons

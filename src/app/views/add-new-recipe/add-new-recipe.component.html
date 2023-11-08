@@ -50,7 +50,7 @@
 
         <!-- Modal -->
         <div>
-            <app-modal [headerText]="headerText" [bodyText]="bodyText" (closed)="modalClosed()"></app-modal>
+            <app-modal id="newRModal" [headerText]="headerText" [bodyText]="bodyText" (closed)="modalClosed($event)"></app-modal>
         </div>
     </form>
 </div>

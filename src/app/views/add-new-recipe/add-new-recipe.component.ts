@@ -91,7 +91,7 @@ export class AddNewRecipeComponent {
   // Modal
   headerText: string = ''
   bodyText: string = ''
-  @ViewChild(ModalComponent) modalComp: ModalComponent = new ModalComponent();
+  @ViewChild(ModalComponent) modalComp!: ModalComponent;
   showModal() {
     if (this.validForm()) {
       this.headerText = 'La receta fue guardada con éxito'
@@ -103,7 +103,7 @@ export class AddNewRecipeComponent {
     this.modalComp.showModal()
   }
 
-  modalClosed() {
+  modalClosed(i: number) {
     if (this.validForm()) {
       this.router.navigateByUrl('')
     }
