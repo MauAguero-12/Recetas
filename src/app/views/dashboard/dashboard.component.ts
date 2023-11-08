@@ -23,7 +23,6 @@ export class DashboardComponent implements OnInit, AfterViewInit {
 
   ngOnInit(): void {
     // get recipes from service
-    // this.recipes = this.recipeService.getRecipes()
     this.getFilteredRecipes()
   }
 
@@ -32,7 +31,7 @@ export class DashboardComponent implements OnInit, AfterViewInit {
   }
 
   // Recipes
-  updateRecipes():void{
+  updateRecipes(): void {
     this.recipes = this.recipeService.getRecipes()
   }
 
@@ -66,11 +65,12 @@ export class DashboardComponent implements OnInit, AfterViewInit {
         // for each recipe apply filter
         recipesArray.forEach(recipe => {
           let recipeTitle = recipe.title.toLowerCase()
+          let recipeDescription = recipe.description.toLowerCase()
           let allWords: boolean = true
 
           //check for every word of the filter in the recipe
           this.searchFilter.forEach((count, word) => {
-            allWords = allWords && (recipeTitle.includes(word))
+            allWords = allWords && (recipeTitle.includes(word) || recipeDescription.includes(word))
           });
 
           if (allWords) {
