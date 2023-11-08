@@ -14,8 +14,6 @@ export class DashboardComponent implements OnInit, AfterViewInit {
   recipes: Recipe[] = [];
   recipesFiltered: Recipe[] = [];
   searchFilter: Map<string, number> = new Map<string, number>();
-  // searchFilter: string = '';
-  // searchFilter: string[] = [];
   currentPage = 1;
   recipesPerPage = 12;
 
@@ -25,7 +23,7 @@ export class DashboardComponent implements OnInit, AfterViewInit {
 
   ngOnInit(): void {
     // get recipes from service
-    this.recipes = this.recipeService.getRecipes()
+    // this.recipes = this.recipeService.getRecipes()
     this.getFilteredRecipes()
   }
 
@@ -33,7 +31,11 @@ export class DashboardComponent implements OnInit, AfterViewInit {
     this.updatePageCardClicks()
   }
 
-  // Get Recipe
+  // Recipes
+  updateRecipes():void{
+    this.recipes = this.recipeService.getRecipes()
+  }
+
   getAllRecipes(): Recipe[] {
     let recipesList = this.recipes
     return recipesList
@@ -126,12 +128,10 @@ export class DashboardComponent implements OnInit, AfterViewInit {
       if (card) {
         card.onclick = () => {
           let recipe: Recipe;
-          // if smaller cards
-          if (i != 0) {
+          if (i != 0) { // if smaller cards
             let recipesPage: Recipe[] = this.getCurrentPage(this.recipesFiltered)
             recipe = recipesPage[i - 1]
-            // else newest recipe card
-          } else {
+          } else { // else newest recipe card
             let n = this.recipes.length
             recipe = this.recipes[n - 1]
           }
