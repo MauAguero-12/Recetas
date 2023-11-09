@@ -54,7 +54,7 @@ export class AddNewRecipeComponent {
 
   // Validators
   // Title & Description
-  validateField(field: string) {
+  validateField(field: string): boolean {
     let input = document.getElementById(field + 'Input')
     let alert = document.getElementById('wrong-' + field)
     let fieldForm = (this.recipeForm.get(field)?.value as string).trim()
@@ -70,7 +70,7 @@ export class AddNewRecipeComponent {
   }
 
   // Image
-  validateImage() {
+  validateImage(): boolean {
     let alert = document.getElementById('wrong-image')
     let image = (this.recipeForm.get('image')?.value as string).trim()
     if (image) {
@@ -83,32 +83,32 @@ export class AddNewRecipeComponent {
   }
 
   // Ingredients
-  validateIngredients(){
+  validateIngredients(): boolean {
     let inputs = Array.from(document.getElementsByClassName('ingredientInput'))
     let alert = document.getElementById('wrong-ingredients')
-    if (this.getIngredientsArray().length){
+    if (this.getIngredientsArray().length) {
       inputs.forEach(input => {
         input.classList.remove('wrong-input')
       });
       alert?.classList.add('wrong-hidden')
-    } else{
+      return true
+    } else {
       inputs.forEach(input => {
         input.classList.add('wrong-input')
       });
       alert?.classList.remove('wrong-hidden')
+      return false
     }
   }
 
-
-  // check for empty fields
+  // check all fields
   validForm(): boolean {
-    // original code
-    if (this.recipeForm.valid) {
-      let title = (this.recipeForm.get('title')?.value as string).trim()
-      let description = (this.recipeForm.get('description')?.value as string).trim()
-      if (title && description && this.getIngredientsArray().length) {
-        return true
-      }
+    let validTitle: boolean = this.validateField('title')
+    let validDescription: boolean = this.validateField('description')
+    let validImage: boolean = this.validateImage()
+    let validIngredients: boolean = this.validateIngredients()
+    if (validTitle && validDescription && validImage && validIngredients) {
+      return true
     }
     return false
   }
