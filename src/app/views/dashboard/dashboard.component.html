@@ -60,8 +60,10 @@
 
             <!-- Pagination -->
             <ul class="pagination" *ngIf="recipes.length - 1 > recipesPerPage">
+                <!-- disable previous or next if necessary -->
+                {{disablePaginationButtons()}}
                 <!-- Previous -->
-                <li class="page-item">
+                <li id="paginationPrevious" class="page-item">
                     <a class="page-link" (click)="goToPage(currentPage - 1)">Anterior</a>
                 </li>
 
@@ -91,7 +93,7 @@
                 </li>
 
                 <!-- Next -->
-                <li class="page-item">
+                <li id="paginationNext" class="page-item">
                     <a class="page-link" (click)="goToPage(currentPage + 1)">Siguiente</a>
                 </li>
             </ul>

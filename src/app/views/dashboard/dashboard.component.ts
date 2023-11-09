@@ -168,6 +168,22 @@ export class DashboardComponent implements OnInit, AfterViewInit {
     return currentPage
   }
 
+  disablePaginationButtons() {
+    let previous = document.getElementById('paginationPrevious')
+    if (this.currentPage - 1 < 1) {
+      previous?.classList.add('disabled')
+    } else {
+      previous?.classList.remove('disabled')
+    }
+
+    let next = document.getElementById('paginationNext')
+    if (this.currentPage + 1 > this.pagesCount) {
+      next?.classList.add('disabled')
+    } else {
+      next?.classList.remove('disabled')
+    }
+  }
+
   // Icons
   iconSearch = faMagnifyingGlass
 }
