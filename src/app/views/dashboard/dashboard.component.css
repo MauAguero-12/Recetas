@@ -216,9 +216,7 @@
 }
 
 .disabled>a{
-    color: #343A40;
-    border-color: #343A40;
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: #cccccc;
 }
 
 .page-link {
