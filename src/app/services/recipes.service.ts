@@ -16,7 +16,7 @@ export class RecipesService {
 
   addRecipe(recipe: Recipe) {
     this.recipes.push(recipe)
-    this.add_localstorage_recipe(recipe)
+    // this.add_localstorage_recipe(recipe)
   }
 
   setSelectedRecipe(recipe: Recipe): void {
@@ -61,9 +61,9 @@ export class RecipesService {
     return recipes_array
   }
 
-  private add_localstorage_recipe(user: Recipe) {
-    let userString: string = JSON.stringify(user)
-    let cardCount: number = this.count_localstorage_recipes()
-    localStorage.setItem('recipe' + cardCount, userString)
+  private add_localstorage_recipe(recipe: Recipe) {
+    let recipeString: string = JSON.stringify(recipe)
+    let recipesCount: number = this.count_localstorage_recipes()
+    localStorage.setItem('recipe' + recipesCount, recipeString)
   }
 }

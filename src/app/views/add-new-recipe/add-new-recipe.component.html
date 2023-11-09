@@ -6,19 +6,22 @@
         <!-- Title -->
         <div class="form-group pt-3 px-4">
             <label for="titleInput" class="form-label">Título: </label>
-            <input type="text" class="form-control" id="titleInput" formControlName="title">
+            <input type="text" class="form-control" id="titleInput" formControlName="title" (keyup)="validateField('title')">
+            <p id="wrong-title" class="wrong-input-alert wrong-hidden">Este campo es obligatorio</p>
         </div>
 
         <!-- Description -->
         <div class="form-group pt-3 px-4">
             <label for="descriptionInput" class="form-label">Descripción: </label>
-            <input type="text" class="form-control" id="descriptionInput" formControlName="description">
+            <input type="text" class="form-control" id="descriptionInput" formControlName="description" (keyup)="validateField('description')">
+            <p id="wrong-description" class="wrong-input-alert wrong-hidden">Este campo es obligatorio</p>
         </div>
 
         <!-- Image -->
         <div class="form-group pt-3 px-4">
             <label class="form-label">Imagen: </label>
             <app-image-input (newImageInput)="newImage($event)"></app-image-input>
+            <p id="wrong-image" class="wrong-input-alert wrong-hidden">Este campo es obligatorio</p>
         </div>
 
         <!-- Ingredients -->
@@ -29,13 +32,15 @@
                 *ngFor="let ingredient of getIngredientsForm().controls; let i = index">
                 <!-- Ingredient Input -->
                 <div [ngClass]="{' firstIngredient': i == 0, 'anIngredient': i != 0}">
-                    <input type="text" class="form-control" [id]="'ingredientInput' + i" [formControlName]="i">
+                    <input type="text" class="form-control ingredientInput" [id]="'ingredientInput' + i" [formControlName]="i"
+                    (keyup)="validateIngredients()">
                 </div>
                 <!-- Remove Ingredient -->
                 <div class="removeIngredientDiv" *ngIf="i != 0">
                     <fa-icon [icon]="iconMinus" class="removeIngredientIcon" (click)="removeIngredient(i)"></fa-icon>
                 </div>
             </div>
+            <p id="wrong-ingredients" class="wrong-input-alert wrong-hidden">Este campo es obligatorio</p>
 
             <!-- Add New Ingredient -->
             <div>
@@ -50,7 +55,8 @@
 
         <!-- Modal -->
         <div>
-            <app-modal id="newRModal" [headerText]="headerText" [bodyText]="bodyText" (closed)="modalClosed($event)"></app-modal>
+            <app-modal id="newRModal" [headerText]="headerText" [bodyText]="bodyText"
+                (closed)="modalClosed($event)"></app-modal>
         </div>
     </form>
 </div>

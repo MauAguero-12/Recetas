@@ -44,15 +44,66 @@ export class AddNewRecipeComponent {
   addIngredient(): void {
     let newIngredient = this.fb.control('');
     this.getIngredientsForm().push(newIngredient);
+    this.validateIngredients()
   }
 
   removeIngredient(i: number): void {
     this.getIngredientsForm().removeAt(i)
+    this.validateIngredients()
   }
 
+  // Validators
+  // Title & Description
+  validateField(field: string) {
+    let input = document.getElementById(field + 'Input')
+    let alert = document.getElementById('wrong-' + field)
+    let fieldForm = (this.recipeForm.get(field)?.value as string).trim()
+    if (fieldForm) {
+      input?.classList.remove('wrong-input')
+      alert?.classList.add('wrong-hidden')
+      return true
+    } else {
+      input?.classList.add('wrong-input')
+      alert?.classList.remove('wrong-hidden')
+      return false
+    }
+  }
+
+  // Image
+  validateImage() {
+    let alert = document.getElementById('wrong-image')
+    let image = (this.recipeForm.get('image')?.value as string).trim()
+    if (image) {
+      alert?.classList.add('wrong-hidden')
+      return true
+    } else {
+      alert?.classList.remove('wrong-hidden')
+      return false
+    }
+  }
+
+  // Ingredients
+  validateIngredients(){
+    let inputs = Array.from(document.getElementsByClassName('ingredientInput'))
+    let alert = document.getElementById('wrong-ingredients')
+    if (this.getIngredientsArray().length){
+      inputs.forEach(input => {
+        input.classList.remove('wrong-input')
+      });
+      alert?.classList.add('wrong-hidden')
+    } else{
+      inputs.forEach(input => {
+        input.classList.add('wrong-input')
+      });
+      alert?.classList.remove('wrong-hidden')
+    }
+  }
+
+
+  // check for empty fields
   validForm(): boolean {
+    // original code
     if (this.recipeForm.valid) {
-      // check for empty fields
       let title = (this.recipeForm.get('title')?.value as string).trim()
       let description = (this.recipeForm.get('description')?.value as string).trim()
       if (title && description && this.getIngredientsArray().length) {
@@ -65,6 +116,7 @@ export class AddNewRecipeComponent {
   // Image Input
   newImage(event: string) {
     this.recipeForm.patchValue({ image: event })
+    this.validateImage()
   }
 
   @ViewChild(ImageInputComponent) imageInputComp: ImageInputComponent = new ImageInputComponent();

@@ -9,6 +9,19 @@
     width: auto;
 }
 
+/* Wrong Input Alert */
+.wrong-input{
+    border-color: #BC4749;
+}
+
+.wrong-input-alert{
+    color: #BC4749;
+}
+
+.wrong-hidden{
+    display: none;
+}
+
 /* Basic Button */
 button {
     background-color: transparent;
