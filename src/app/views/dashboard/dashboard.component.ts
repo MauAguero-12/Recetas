@@ -54,14 +54,11 @@ export class DashboardComponent implements OnInit, AfterViewInit {
 
   getFilteredRecipes(): void {
     let n = this.recipes.length
-    let recipesArray: Recipe[] = []
     let filteredArray: Recipe[] = []
     if (n > 1) {
-      // remove last recipe
-      recipesArray = this.recipes.slice(0, -1)
-
       // if theres a filter
       if (this.searchFilter.size > 0) {
+        let recipesArray: Recipe[] = this.recipes.slice()
         // for each recipe apply filter
         recipesArray.forEach(recipe => {
           let recipeTitle = recipe.title.toLowerCase()
@@ -78,7 +75,8 @@ export class DashboardComponent implements OnInit, AfterViewInit {
           }
         });
       } else {
-        filteredArray = recipesArray
+        // remove last recipe if no filters
+        filteredArray = this.recipes.slice(0, -1)
       }
     }
 
