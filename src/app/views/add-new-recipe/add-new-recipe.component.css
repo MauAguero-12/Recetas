@@ -72,7 +72,7 @@ button {
     padding: 0;
 }
 
-@media only screen and (max-width: 426px) {
+@media only screen and (max-width: 576px) {
     .anIngredient {
         width: 88%;
     }
@@ -127,7 +127,7 @@ button {
     transform: scale(1.05);
 }
 
-@media only screen and (max-width: 426px) {
+@media only screen and (max-width: 576px) {
     .saveBtn {
         width: 100%;
     }

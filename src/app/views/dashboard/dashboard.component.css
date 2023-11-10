@@ -243,19 +243,19 @@
 }
 
 /* Responsive */
-@media only screen and (max-width: 1021px) {
+@media only screen and (max-width: 992px) {
     .recipesGrid {
         grid-template-columns: repeat(3, minmax(205px, 1fr));
     }
 }
 
-@media only screen and (max-width: 763px) {
+@media only screen and (max-width: 768px) {
     .recipesGrid {
         grid-template-columns: repeat(2, minmax(205px, 1fr));
     }
 }
 
-@media only screen and (max-width: 505px) {
+@media only screen and (max-width: 576px) {
     .recipesGrid {
         grid-template-columns: minmax(205px, 1fr);
     }
