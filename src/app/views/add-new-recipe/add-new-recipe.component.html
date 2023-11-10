@@ -20,7 +20,7 @@
         <!-- Image -->
         <div class="form-group pt-3 px-4">
             <label class="form-label">Imagen: </label>
-            <app-image-input (newImageInput)="newImage($event)"></app-image-input>
+            <app-image-input id="image-comp" (newImageInput)="newImage($event)"></app-image-input>
             <p id="wrong-image" class="wrong-input-alert wrong-hidden">Este campo es obligatorio</p>
         </div>
 

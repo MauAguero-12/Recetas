@@ -71,12 +71,15 @@ export class AddNewRecipeComponent {
 
   // Image
   validateImage(): boolean {
+    let imageComponent = document.getElementById('image-comp')
     let alert = document.getElementById('wrong-image')
     let image = (this.recipeForm.get('image')?.value as string).trim()
     if (image) {
+      imageComponent?.classList.remove('wrong-image-comp')
       alert?.classList.add('wrong-hidden')
       return true
     } else {
+      imageComponent?.classList.add('wrong-image-comp')
       alert?.classList.remove('wrong-hidden')
       return false
     }

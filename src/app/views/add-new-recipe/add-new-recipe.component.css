@@ -10,16 +10,23 @@
 }
 
 /* Wrong Input Alert */
-.wrong-input{
+.wrong-input {
     border-color: #BC4749;
 }
 
-.wrong-input-alert{
+.wrong-input-alert {
     color: #BC4749;
 }
 
-.wrong-hidden{
+.wrong-hidden {
     display: none;
+}
+
+/*  */
+:host ::ng-deep .wrong-image-comp {
+    .imageInputDiv>#imageInputBtn {
+        border-color: #BC4749;
+    }
 }
 
 /* Basic Button */
