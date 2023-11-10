@@ -59,7 +59,7 @@
             </div>
 
             <!-- Pagination -->
-            <ul class="pagination" *ngIf="recipes.length - 1 > recipesPerPage">
+            <ul class="pagination" *ngIf="recipesFiltered.length > recipesPerPage">
                 <!-- disable previous or next if necessary -->
                 {{disablePaginationButtons()}}
                 <!-- Previous -->
