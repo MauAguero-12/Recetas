@@ -23,7 +23,7 @@ export class DashboardComponent implements OnInit, AfterViewInit {
 
   ngOnInit(): void {
     // get recipes from service
-    this.getFilteredRecipes()
+    this.filterRecipes()
   }
 
   ngAfterViewInit(): void {
@@ -52,7 +52,7 @@ export class DashboardComponent implements OnInit, AfterViewInit {
     return []
   }
 
-  getFilteredRecipes(): void {
+  filterRecipes(): void {
     let n = this.recipes.length
     let filteredArray: Recipe[] = []
     if (n > 1) {
@@ -80,7 +80,7 @@ export class DashboardComponent implements OnInit, AfterViewInit {
       }
     }
 
-    // reverse to display newest first
+    // reversed to display newest first
     this.recipesFiltered = filteredArray.reverse()
   }
 
