@@ -39,6 +39,9 @@
                 <div class="removeIngredientDiv" *ngIf="i != 0">
                     <fa-icon [icon]="iconMinus" class="removeIngredientIcon" (click)="removeIngredient(i)"></fa-icon>
                 </div>
+
+                <!-- if more than 1, check for validations -->
+                <div *ngIf="i > 0" style="display: none;">{{validateIngredients()}}</div>
             </div>
             <p id="wrong-ingredients" class="wrong-input-alert wrong-hidden">Este campo es obligatorio</p>
 
