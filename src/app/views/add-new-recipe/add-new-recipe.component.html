@@ -6,14 +6,16 @@
         <!-- Title -->
         <div class="form-group pt-3 px-4">
             <label for="titleInput" class="form-label">Título: </label>
-            <input type="text" class="form-control" id="titleInput" formControlName="title" (keyup)="validateField('title')">
+            <input type="text" class="form-control" id="titleInput" formControlName="title"
+                (ngModelChange)="validateField('title')">
             <p id="wrong-title" class="wrong-input-alert wrong-hidden">Este campo es obligatorio</p>
         </div>
 
         <!-- Description -->
         <div class="form-group pt-3 px-4">
             <label for="descriptionInput" class="form-label">Descripción: </label>
-            <input type="text" class="form-control" id="descriptionInput" formControlName="description" (keyup)="validateField('description')">
+            <input type="text" class="form-control" id="descriptionInput" formControlName="description"
+                (ngModelChange)="validateField('description')">
             <p id="wrong-description" class="wrong-input-alert wrong-hidden">Este campo es obligatorio</p>
         </div>
 
@@ -32,8 +34,8 @@
                 *ngFor="let ingredient of getIngredientsForm().controls; let i = index">
                 <!-- Ingredient Input -->
                 <div [ngClass]="{' firstIngredient': i == 0, 'anIngredient': i != 0}">
-                    <input type="text" class="form-control ingredientInput" [id]="'ingredientInput' + i" [formControlName]="i"
-                    (keyup)="validateIngredients()">
+                    <input type="text" class="form-control ingredientInput" [id]="'ingredientInput' + i"
+                        [formControlName]="i" (ngModelChange)="validateIngredients()">
                 </div>
                 <!-- Remove Ingredient -->
                 <div class="removeIngredientDiv" *ngIf="i != 0">

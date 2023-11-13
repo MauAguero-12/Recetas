@@ -118,7 +118,6 @@ export class AddNewRecipeComponent {
 
   // Image Input
   newImage(event: string) {
-    console.log(event)
     this.recipeForm.patchValue({ image: event })
     this.validateImage()
   }
