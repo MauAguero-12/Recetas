@@ -16,6 +16,7 @@ export class DashboardComponent {
   searchFilter: Map<string, number> = new Map<string, number>();
   currentPage = 1;
   recipesPerPage = 12;
+  filterTimer: any;
 
   // Basic Methods
   constructor(private router: Router, private recipeService: RecipesService) { }
@@ -45,7 +46,7 @@ export class DashboardComponent {
           let recipeDescription = recipe.description.toLowerCase()
           let allWords: boolean = true
 
-          //check for every word of the filter in the recipe
+          // check for every word of the filter in the recipe
           this.searchFilter.forEach((count, word) => {
             allWords = allWords && (recipeTitle.includes(word) || recipeDescription.includes(word))
           });
@@ -64,12 +65,20 @@ export class DashboardComponent {
     this.recipesFiltered = filteredArray.reverse()
   }
 
+  // Timer for Search Filter
+  resetFilterTimer(event: any) {
+    clearTimeout(this.filterTimer);
+    this.filterTimer = setTimeout(() => {
+      this.updateFilter(event);
+    }, 3000); // 3000ms = 3s
+  }
+
   // Filter By Name
   updateFilter(event: any) {
     // remove previous filters
     this.searchFilter.clear()
 
-    // Regex expression to get all words
+    // regex expression to get all words
     let tokens = event.target.value.split(/[\s\W]+/) as string[];
     tokens.forEach((element: string) => {
       this.addWordToMap(element, this.searchFilter)
