@@ -35,10 +35,16 @@
                     </div>
                 </label>
             </div>
+            <!-- apply filter -->
+            {{filterRecipes()}}
+
+            <!-- if no recipes for filter -->
+            <div class="noRecipesFilterDiv mb-3" *ngIf="recipesFiltered.length == 0">
+                <h2 class="noRecipeText">No se encontraron recetas</h2>
+            </div>
 
             <!-- other recipes -->
             <div class="recipesGrid">
-                {{filterRecipes()}}
                 <div class="recipeCard recipeCards row mb-3 p-2"
                     *ngFor="let recipe of getCurrentPage(recipesFiltered); let i = index">
                     <div class="recipeContentDiv">
@@ -49,11 +55,11 @@
                             <p class="recipeDescription">{{recipe.description}}</p>
                         </div>
                     </div>
-                    
+
                     <div class="recipeImageDiv">
                         <img class="recipeImage" [src]="recipe.image">
                     </div>
-                   
+
                 </div>
                 {{updatePageCardClicks()}}
             </div>

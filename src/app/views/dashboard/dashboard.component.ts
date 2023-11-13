@@ -95,18 +95,23 @@ export class DashboardComponent implements OnInit, AfterViewInit {
       this.addWordToMap(element, this.searchFilter)
     });
 
-    // go to page 1
+    // go to the first page after applying filter
     this.goToPage(1)
   }
 
+  // add each word to the search filter
   addWordToMap(word: string, map: Map<string, number>) {
     let count = map.get(word) || 0
     word = word.toLowerCase()
-    if (count) {
+    if (count) { // if the word is already in the map, add +1 to the count
       map.set(word, count + 1)
-    } else if (word.length) {
+    } else if (word.length) { // else add the word to the map
       map.set(word, 1)
     }
+  }
+
+  getFilteredRecipesLength(): number{
+    return this.recipesFiltered.length
   }
 
   // Cards

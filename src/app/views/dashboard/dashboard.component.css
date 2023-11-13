@@ -107,7 +107,22 @@
     width: auto;
     float: right;
     color: #774936;
-    /* cursor: text; */
+}
+
+/* Filter No Results */
+.noRecipesFilterDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 0;
+    /* min-height: calc(100vh - var(--pa-header-height)); */
+}
+
+.noRecipeText {
+    color: #774936;
+    text-align: center;
+    margin: 0;
 }
 
 
