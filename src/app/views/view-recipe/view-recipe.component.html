@@ -10,23 +10,23 @@
     <!-- recipe found -->
     <div class="recipeBackground" *ngIf="recipe">
         <!-- Title -->
-        <div class="titleDiv">
-            <h1>{{recipe.title}}</h1>
+        <div class="titleDiv my-3">
+            <h1 class="title">{{recipe.title}}</h1>
         </div>
 
         <!-- Image -->
-        <div class="imageDiv" *ngIf="recipe.image != ''">
+        <div class="imageDiv mb-3" *ngIf="recipe.image != ''">
             <img class="recipeImage" [src]="recipe.image">
         </div>
 
         <!-- Description -->
-        <div class="descriptionDiv mt-2">
+        <div class="descriptionDiv mb-3">
             <p>{{recipe.description}}</p>
         </div>
 
 
         <!-- Ingredients -->
-        <h4>Lista de Ingredientes:</h4>
+        <h4 class="mb-3">Lista de Ingredientes:</h4>
         <div class="row" *ngFor="let ingredient of recipe.ingredients; let i = index">
             <label class="ingredientLbl" [ngClass]="{'checkedLbl': checkedIngredients[i]}">
                 <input [id]="'ingredient' + i" class="ingredientInput" type="checkbox" (change)="updateIngredient(i)">

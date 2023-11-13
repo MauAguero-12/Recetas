@@ -8,7 +8,7 @@
 
 /* Background */
 .background {
-    margin: 24px 0;
+    margin: 1rem 0;
     width: 100%;
     min-height: calc(100vh - var(--pa-header-height) - 48px);
     display: flex;
@@ -48,6 +48,10 @@
     display: flex;
     justify-content: center;
     text-align: justify;
+}
+
+.title{
+    margin: 0;
 }
 
 /* Image */

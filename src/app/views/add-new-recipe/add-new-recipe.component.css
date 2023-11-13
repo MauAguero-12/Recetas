@@ -4,9 +4,15 @@
     padding: 0;
 }
 
+/* Title */
+.header{
+    margin-bottom: 0;
+}
+
 /* Input Label */
 .form-label {
     width: auto;
+    margin-bottom: 1rem;
 }
 
 /* Wrong Input Alert */
@@ -16,10 +22,15 @@
 
 .wrong-input-alert {
     color: #BC4749;
+    margin: 1rem 0 0;
 }
 
 .wrong-hidden {
     display: none;
+}
+
+#wrong-ingredients{
+    margin: 0 0 1rem;
 }
 
 /*  */
