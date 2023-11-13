@@ -39,7 +39,7 @@
             {{filterRecipes()}}
 
             <!-- if no recipes for filter -->
-            <div class="noRecipesFilterDiv mb-3" *ngIf="recipesFiltered.length == 0">
+            <div class="noRecipesFilterDiv mb-3" *ngIf="recipes.length > 2 && recipesFiltered.length == 0">
                 <h2 class="noRecipeText">No se encontraron recetas</h2>
             </div>
 
