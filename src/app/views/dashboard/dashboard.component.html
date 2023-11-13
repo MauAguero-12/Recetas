@@ -27,7 +27,7 @@
                 <label class="filterLbl">
                     <div class="filterLblDiv">
                         <div class="filterInputDiv">
-                            <input class="filterInput" placeholder="Buscar Receta" (keyup)="updateFilter($event)">
+                            <input class="filterInput" placeholder="Buscar Receta..." (keyup)="updateFilter($event)">
                         </div>
                         <div class="iconSearchDiv">
                             <fa-icon [icon]="iconSearch"></fa-icon>
@@ -59,15 +59,16 @@
                     <div class="recipeImageDiv">
                         <img class="recipeImage" [src]="recipe.image">
                     </div>
-
                 </div>
-                {{updatePageCardClicks()}}
             </div>
+            <!-- add onclick to each card -->
+            {{updatePageCardClicks()}}
 
             <!-- Pagination -->
             <ul class="pagination" *ngIf="recipesFiltered.length > recipesPerPage">
                 <!-- disable previous or next if necessary -->
                 {{disablePaginationButtons()}}
+
                 <!-- Previous -->
                 <li id="paginationPrevious" class="page-item">
                     <a class="page-link" (click)="goToPage(currentPage - 1)">Anterior</a>

@@ -116,7 +116,6 @@
     align-items: center;
     flex-direction: column;
     padding: 0;
-    /* min-height: calc(100vh - var(--pa-header-height)); */
 }
 
 .noRecipeText {
@@ -232,7 +231,7 @@
     cursor: default;
 }
 
-.disabled>a{
+.disabled>a {
     background-color: #cccccc;
 }
 

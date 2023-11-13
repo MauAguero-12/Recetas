@@ -2,7 +2,6 @@ import { Component, ViewChild } from '@angular/core';
 import { FormArray, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { faMinus } from '@fortawesome/free-solid-svg-icons';
-import { ImageInputComponent } from 'src/app/components/image-input/image-input.component';
 import { ModalComponent } from 'src/app/components/modal/modal.component';
 import { Recipe } from 'src/app/interfaces/recipe';
 import { RecipesService } from 'src/app/services/recipes.service';
@@ -120,11 +119,6 @@ export class AddNewRecipeComponent {
   newImage(event: string) {
     this.recipeForm.patchValue({ image: event })
     this.validateImage()
-  }
-
-  @ViewChild(ImageInputComponent) imageInputComp: ImageInputComponent = new ImageInputComponent();
-  getImage(): string {
-    return this.imageInputComp.getImage()
   }
 
   // Saving Recipe

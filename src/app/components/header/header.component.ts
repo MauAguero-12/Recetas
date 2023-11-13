@@ -23,9 +23,9 @@ export class HeaderComponent implements OnInit {
     }
   }
 
-  // Modal
-  // headerText = 'Está seguro que ?'
-  // bodyText = 'all of it?'
+  // Modal (Comented because it is not yet implemented)
+  // headerText = 'Está seguro que quiere eliminar todas las recetas?'
+  // bodyText = 'Una vez se eliminen, no habrá forma de recuperarlas.'
   // @ViewChild(ModalComponent) modalComp!: ModalComponent;
   // showModal() {
   //   this.modalComp.showModal()

@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import { Recipe } from 'src/app/interfaces/recipe';
@@ -9,7 +9,7 @@ import { RecipesService } from 'src/app/services/recipes.service';
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })
-export class DashboardComponent implements OnInit, AfterViewInit {
+export class DashboardComponent {
   // Atributes
   recipes: Recipe[] = [];
   recipesFiltered: Recipe[] = [];
@@ -17,32 +17,12 @@ export class DashboardComponent implements OnInit, AfterViewInit {
   currentPage = 1;
   recipesPerPage = 12;
 
-
   // Basic Methods
   constructor(private router: Router, private recipeService: RecipesService) { }
-
-  ngOnInit(): void {
-    // get recipes from service
-    this.filterRecipes()
-  }
-
-  ngAfterViewInit(): void {
-    this.updatePageCardClicks()
-  }
 
   // Recipes
   updateRecipes(): void {
     this.recipes = this.recipeService.getRecipes()
-  }
-
-  getAllRecipes(): Recipe[] {
-    let recipesList = this.recipes
-    return recipesList
-  }
-
-  getAllRecipesReverse(): Recipe[] {
-    let reversedRecipes = this.recipes.slice()
-    return reversedRecipes.reverse()
   }
 
   getLastRecipe(): Recipe[] {
@@ -110,19 +90,7 @@ export class DashboardComponent implements OnInit, AfterViewInit {
     }
   }
 
-  getFilteredRecipesLength(): number{
-    return this.recipesFiltered.length
-  }
-
   // Cards
-  getCardId(i: number): string {
-    let idString = 'recipeCard'
-    if (i < this.recipes.length - 1) {
-      return idString + i
-    }
-    return ''
-  }
-
   updatePageCardClicks(): void {
     // add click event to recipe cards
     let recipeCards = document.getElementsByClassName('recipeCards')

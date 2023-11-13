@@ -37,8 +37,6 @@
     }
 }
 
-
-
 /* Header */
 #modalHeader {
     display: flex;
@@ -50,7 +48,7 @@
     margin: 0;
 }
 
-/*  */
+/* Spacing */
 .spacing {
     min-width: 0.5rem;
     max-width: 0.5rem;

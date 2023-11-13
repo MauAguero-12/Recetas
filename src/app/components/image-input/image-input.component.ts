@@ -36,10 +36,6 @@ export class ImageInputComponent {
     this.newImageInput.emit(this.selectedImageURL)
   }
 
-  getImage() {
-    return this.selectedImageURL
-  }
-
   // Icons
   iconX = faX
   iconUpload = faArrowUpFromBracket

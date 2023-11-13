@@ -28,8 +28,8 @@
         <!-- Ingredients -->
         <h4>Lista de Ingredientes:</h4>
         <div class="row" *ngFor="let ingredient of recipe.ingredients; let i = index">
-            <label class="ingredientLbl" [ngClass]="{'checkedLbl': checkedLabels[i]}">
-                <input [id]="'ingredient' + i" class="ingredientInput" type="checkbox" (change)="updateLabel(i)">
+            <label class="ingredientLbl" [ngClass]="{'checkedLbl': checkedIngredients[i]}">
+                <input [id]="'ingredient' + i" class="ingredientInput" type="checkbox" (change)="updateIngredient(i)">
                 <ul class="ingredientList">
                     <li>{{ingredient}}</li>
                 </ul>

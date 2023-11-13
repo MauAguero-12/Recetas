@@ -11,7 +11,7 @@ import { RecipesService } from 'src/app/services/recipes.service';
 export class ViewRecipeComponent implements OnInit {
   // Atributes
   recipe: Recipe | null = null;
-  checkedLabels: boolean[] = [];
+  checkedIngredients: boolean[] = [];
 
   // Basic Methods
   constructor(private recipeService: RecipesService) {
@@ -22,7 +22,7 @@ export class ViewRecipeComponent implements OnInit {
     if (this.recipe) {
       // labels 
       for (let i = 0; i < this.recipe.ingredients.length; i++) {
-        this.checkedLabels.push(false)
+        this.checkedIngredients.push(false)
       }
     }
   }
@@ -36,8 +36,8 @@ export class ViewRecipeComponent implements OnInit {
   }
 
   // Checkboxes
-  updateLabel(i: number): void {
-    this.checkedLabels[i] = !this.checkedLabels[i];
+  updateIngredient(i: number): void {
+    this.checkedIngredients[i] = !this.checkedIngredients[i];
   }
 
   // Icons
