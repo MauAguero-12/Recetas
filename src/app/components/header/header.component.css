@@ -29,7 +29,6 @@
 
 .headerText {
     margin: 0 0 0 5px;
-    /* margin-left: 5px; */
     font-size: 1.275rem;
 }
 
@@ -53,11 +52,7 @@
         height: 4rem;
     }
 
-    .spacing {
-        display: none;
-    }
-
-    .headerText {
+    .spacing, .headerText {
         display: none;
     }
 }
