@@ -39,30 +39,58 @@ export class DashboardComponent {
     if (n > 1) {
       // if theres a filter
       if (this.searchFilter.size > 0) {
-        let recipesArray: Recipe[] = this.recipes.slice()
+        //arrays for sorting
+        let recipes_title_count: Recipe[] = []
+        // let recipes_title_count: Recipe[] = []
+        let recipes_description_count: Recipe[] = []
+        // let recipes_description_count: Recipe[] = []
+
+        let recipesArray: Recipe[] = this.recipes.slice().reverse()
         // for each recipe apply filter
         recipesArray.forEach(recipe => {
           let recipeTitle = recipe.title.toLowerCase()
           let recipeDescription = recipe.description.toLowerCase()
-          let allWords: boolean = true
+          // let allWords: boolean = true
+          
+          //variables for sorting
+          let inTitle = false
+          // let countTitle = 0
+
+          let inDescription = false
+          // let countDescription = 0
 
           // check for every word of the filter in the recipe
           this.searchFilter.forEach((count, word) => {
-            allWords = allWords && (recipeTitle.includes(word) || recipeDescription.includes(word))
+            // allWords = allWords && (recipeTitle.includes(word) || recipeDescription.includes(word))
+            if (recipeTitle.includes(word)){
+              inTitle = true
+              // countTitle
+            }
+            if (recipeDescription.includes(word)){
+              inDescription = true
+            }
           });
 
-          if (allWords) {
-            filteredArray.push(recipe)
+          if (inTitle){
+            recipes_title_count.push(recipe)
           }
+          else if (inDescription){
+            recipes_description_count.push(recipe)
+          }
+          // if (allWords) {
+          //   filteredArray.push(recipe)
+          // }
         });
+        filteredArray = recipes_title_count.concat(recipes_description_count)
       } else {
         // remove last recipe if no filters
         filteredArray = this.recipes.slice(0, -1)
+        filteredArray.reverse()
       }
     }
 
     // reversed to display newest first
-    this.recipesFiltered = filteredArray.reverse()
+    this.recipesFiltered = filteredArray
   }
 
   // Timer for Search Filter
