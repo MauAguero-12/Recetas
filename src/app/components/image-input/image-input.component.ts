@@ -26,6 +26,9 @@ export class ImageInputComponent {
     else {
       this.resetImage()
     }
+
+    //remove input
+    event.target.value = null
   }
 
   resetImage() {
