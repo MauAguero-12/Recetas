@@ -41,7 +41,7 @@
 #modalHeader {
     display: flex;
     justify-content: space-between;
-    padding-bottom: 0.5rem;
+    padding-bottom: 1rem;
 }
 
 #modalHeader>h1 {
@@ -62,7 +62,7 @@
 
 /* Body */
 #modalBody {
-    padding: 0.5rem 0;
+    padding: 1rem 0;
     border-top: 1px solid var(--bs-border-color);
     border-bottom: 1px solid var(--bs-border-color);
 }
@@ -75,7 +75,7 @@
 #modalButton {
     display: flex;
     justify-content: center;
-    padding-top: 0.5rem;
+    padding-top: 1rem;
 }
 
 #modalButtonBtn {
