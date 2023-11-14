@@ -16,7 +16,7 @@ export class RecipesService {
 
   addRecipe(recipe: Recipe) {
     this.recipes.push(recipe)
-    // this.add_localstorage_recipe(recipe)
+    this.add_localstorage_recipe(recipe)
   }
 
   setSelectedRecipe(recipe: Recipe): void {

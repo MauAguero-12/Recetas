@@ -59,16 +59,16 @@ export class DashboardComponent {
   }
 
   filterRecipes(): void {
-      let n = this.recipes.length
+    console.clear()
+    let n = this.recipes.length
     let filteredArray: Recipe[] = []
-    if(n > 1) {
+    if (n > 1) {
       // if theres a filter
       if (this.searchFilterMap.size > 0) {
         //arrays for sorting
         let perfect_match_title: Recipe[] = []
         let perfect_match_desc: Recipe[] = []
-        let recipes_title_count: Recipe[] = []
-        let recipes_description_count: Recipe[] = []
+        let recipes_match_any: Recipe[] = []
 
         let recipesArray: Recipe[] = this.recipes.slice().reverse()
         // for each recipe apply filter
@@ -79,14 +79,26 @@ export class DashboardComponent {
           } else if (this.checkPerfectMatch(this.searchFilter, recipe.description)) {
             perfect_match_desc.push(recipe)
           }
-
           // check for every word of the filter in the recipe
-          // this.searchFilterMap.forEach((count, word) => {
+          else {
+            let allWords = true
+            this.searchFilterMap.forEach((count, word) => {
+              allWords = allWords && (this.getWords(recipe.title.toLowerCase()).includes(word) || this.getWords(recipe.description.toLowerCase()).includes(word))
+            });
+            if (allWords) {
+              recipes_match_any.push(recipe)
+            }
+          }
 
-          // });
+
         });
+        console.log('PMT', perfect_match_title)
+        console.log('PMD', perfect_match_desc)
+        console.log('AM', recipes_match_any)
+
         filteredArray = perfect_match_title
         filteredArray = filteredArray.concat(perfect_match_desc)
+        filteredArray = filteredArray.concat(recipes_match_any)
       } else {
         // remove last recipe if no filters
         filteredArray = this.recipes.slice(0, -1)
@@ -121,30 +133,36 @@ export class DashboardComponent {
 
     let index = -2 //-2 indicates that no word has been checked yet
     word_array.forEach((word) => {
-      if (str_array.includes(word) && index != -1) {
-        if (index == -2) { //first word
-          index = str_array.indexOf(word)
-        } else {
-          if (index + 1 == str_array.indexOf(word)) {
-            index += 1
+      if (word) {
+        if (str_array.includes(word) && index != -1) {
+          if (index == -2) { //first word
+            index = str_array.indexOf(word)
           } else {
-            index = -1
+            if (word == str_array[index+1]) {
+              index += 1
+            } else {
+              index = -1
+            }
           }
+        } else {
+          index = -1
         }
-      } else {
-        index = -1
       }
     });
 
-    if (index > -1){
+    if (index > -1) {
       return true
     }
     return false
   }
 
+  //check for count
+
+  //check for words in string (word order or word count not taken into consideration)
 
 
-  
+
+
   // Cards
   updatePageCardClicks(): void {
     // add click event to recipe cards
