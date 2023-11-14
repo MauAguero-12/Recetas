@@ -41,45 +41,40 @@ export class DashboardComponent {
       if (this.searchFilter.size > 0) {
         //arrays for sorting
         let recipes_title_count: Recipe[] = []
-        // let recipes_title_count: Recipe[] = []
         let recipes_description_count: Recipe[] = []
-        // let recipes_description_count: Recipe[] = []
 
         let recipesArray: Recipe[] = this.recipes.slice().reverse()
         // for each recipe apply filter
         recipesArray.forEach(recipe => {
-          let recipeTitle = recipe.title.toLowerCase()
-          let recipeDescription = recipe.description.toLowerCase()
-          // let allWords: boolean = true
-          
-          //variables for sorting
-          let inTitle = false
-          // let countTitle = 0
+          let recipeTitle = this.getWords(recipe.title.toLowerCase())
+          let recipeDescription = this.getWords(recipe.description.toLowerCase())
 
-          let inDescription = false
-          // let countDescription = 0
+          //variables for sorting
+          let inTitle = true
+          let inDescription = true
 
           // check for every word of the filter in the recipe
           this.searchFilter.forEach((count, word) => {
-            // allWords = allWords && (recipeTitle.includes(word) || recipeDescription.includes(word))
-            if (recipeTitle.includes(word)){
-              inTitle = true
-              // countTitle
+            if (recipeTitle.includes(word)) {
+              inTitle = inTitle && true
+            } else{
+              inTitle = false
+              if (recipeDescription.includes(word)) {
+                inDescription = inDescription && true
+              } else{
+                inDescription = false
+              }
             }
-            if (recipeDescription.includes(word)){
-              inDescription = true
-            }
+
+            
           });
 
-          if (inTitle){
+          if (inTitle) {
             recipes_title_count.push(recipe)
           }
-          else if (inDescription){
+          else if (inDescription) {
             recipes_description_count.push(recipe)
           }
-          // if (allWords) {
-          //   filteredArray.push(recipe)
-          // }
         });
         filteredArray = recipes_title_count.concat(recipes_description_count)
       } else {
@@ -98,7 +93,8 @@ export class DashboardComponent {
     clearTimeout(this.filterTimer);
     this.filterTimer = setTimeout(() => {
       this.updateFilter(event);
-    }, 3000); // 3000ms = 3s
+    }, 500); // 500ms = 0.5s
+    // }, 3000); // 3000ms = 3s
   }
 
   // Filter By Name
@@ -106,14 +102,19 @@ export class DashboardComponent {
     // remove previous filters
     this.searchFilter.clear()
 
-    // regex expression to get all words
-    let tokens = event.target.value.split(/[\s\W]+/) as string[];
-    tokens.forEach((element: string) => {
-      this.addWordToMap(element, this.searchFilter)
+    
+    let words = this.getWords(event.target.value);
+    words.forEach((word: string) => {
+      this.addWordToMap(word, this.searchFilter)
     });
 
     // go to the first page after applying filter
     this.goToPage(1)
+  }
+
+  // get all words with regex expression
+  getWords(str: string): string[]{
+    return str.split(/[\s\W]+/)
   }
 
   // add each word to the search filter
