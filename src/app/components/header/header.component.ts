@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { faBook, faHouseChimney, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { faBook, faHouseChimney, faMoon, faSun, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { RecipesService } from 'src/app/services/recipes.service';
-import { ModalComponent } from '../modal/modal.component';
+import { ThemeService } from 'src/app/services/theme.service';
 
 @Component({
   selector: 'app-header',
@@ -9,10 +9,10 @@ import { ModalComponent } from '../modal/modal.component';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  constructor(private recipeService: RecipesService) { }
+  constructor(private recipeService: RecipesService, private themeService: ThemeService) { }
 
   ngOnInit(): void {
-    // delete recipes on click
+    // onclick event to delete recipes
     let deleteRecipes = document.getElementById('deleteRecipes')
     if (deleteRecipes) {
       deleteRecipes.onclick = () => {
@@ -21,6 +21,26 @@ export class HeaderComponent implements OnInit {
         // this.showModal()
       }
     }
+  }
+
+  // Theme Checkbox
+  inputChecked = false
+  changeTheme() {
+    this.inputChecked = !this.inputChecked
+    if (this.inputChecked) {
+      this.themeService.setTheme('theme-dark')
+    } else {
+      this.themeService.setTheme('theme-default')
+    }
+
+    console.log()
+  }
+
+  getThemeIcon(){
+    if (this.themeService.getTheme() === 'theme-dark'){
+      return faMoon
+    }
+    return faSun
   }
 
   // Modal (Comented because it is not yet implemented)

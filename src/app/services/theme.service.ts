@@ -6,40 +6,30 @@ import { Injectable } from '@angular/core';
 export class ThemeService {
   private currentTheme: string = 'theme-default';
 
-  getTheme(): string {
-    return this.currentTheme;
+  getTheme(): string{
+    return this.currentTheme
+  }
+
+  // get theme from localStorage
+  getThemeLocalStorage(): void {
+    this.currentTheme = localStorage.getItem('theme') || this.currentTheme
+    this.setTheme(this.currentTheme)
   }
 
   setTheme(theme: string): void {
-    this.currentTheme = theme;
-    this.applyTheme();
-  }
+    this.currentTheme = theme
+    localStorage.setItem('theme', theme)
 
-  private applyTheme(): void {
-    const rootElement = document.documentElement;
-
+    const rootElement = document.documentElement
     switch (this.currentTheme) {
       case 'theme-default':
-        rootElement.style.setProperty('--pa-text-color-alternative', '#EBEBEB');
+        rootElement.style.setProperty('--pa-light-color', '#EBEBEB')
+        rootElement.style.setProperty('--pa-dark-color', 'black')
         break
       case 'theme-dark':
-        rootElement.style.setProperty('--pa-text-color-alternative', 'black');
+        rootElement.style.setProperty('--pa-light-color', 'black')
+        rootElement.style.setProperty('--pa-dark-color', '#EBEBEB')
         break
     }
-
-
-
-
-    // // Remove existing theme
-    // document.body.classList.remove('theme-default', 'theme-dark');
-
-    // // Add current theme
-    // document.body.classList.add(this.currentTheme);
-
-    // // Update stylesheet link
-    // const stylesheetLink = document.querySelector('link[rel="stylesheet"]');
-    // if (stylesheetLink) {
-    //   stylesheetLink.setAttribute('href', `./styles/${this.currentTheme}.css`);
-    // }
   }
 }

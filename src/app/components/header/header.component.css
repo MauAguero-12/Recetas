@@ -6,7 +6,7 @@
 /* Header */
 .header {
     height: var(--pa-header-height);
-    color: #EBEBEB;
+    color: var(--pa-light-color);
     background-color: #32936F;
     align-items: center;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
@@ -42,6 +42,15 @@
 .spacing {
     width: 1.25rem;
     padding: 0;
+}
+
+/* Theme Toggle */
+#theme-toggle{
+    display: none;
+}
+
+#theme-toggle-lbl{
+    cursor: pointer;
 }
 
 /* Responsive */

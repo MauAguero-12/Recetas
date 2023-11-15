@@ -13,6 +13,13 @@
         <fa-icon class="optionIcon" [icon]="iconTrash"></fa-icon>
         <h4 class="headerText">Eliminar recetas</h4>
     </div>
+    <div class="spacing"></div>
+    <div class="headerOption">
+        <input type="checkbox" id="theme-toggle" (change)="changeTheme()">
+        <label id="theme-toggle-lbl" for="theme-toggle">
+            <fa-icon class="optionIcon" [icon]="getThemeIcon()"></fa-icon>
+        </label>
+    </div>
 </div>
 
 <!-- Modal -->
