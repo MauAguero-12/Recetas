@@ -22,18 +22,26 @@
                 </div>
             </div>
 
-            <!-- search filter -->
             <div class="filterDiv row mb-3" *ngIf="recipes.length > 2">
+                <!-- search filter -->
                 <label class="filterLbl">
                     <div class="filterLblDiv">
                         <div class="filterInputDiv">
-                            <input class="filterInput" placeholder="Buscar Receta..." (keyup)="resetFilterTimer($event)">
+                            <input class="filterInput" placeholder="Buscar Receta..."
+                                (keyup)="resetFilterTimer($event)">
                         </div>
                         <div class="iconSearchDiv">
                             <fa-icon [icon]="iconSearch"></fa-icon>
                         </div>
                     </div>
                 </label>
+
+                <!-- sorting -->
+                <select class="sortSlct" (change)="sortRecipes($event)">
+                    <option class="sortOpt" value="Newest">Reciente a antiguo</option>
+                    <option class="sortOpt" value="Oldest">Antiguo a reciente</option>
+                    <option class="sortOpt" value="Alphabetic">Orden alfabético</option>
+                </select>
             </div>
             <!-- apply filter -->
             {{filterRecipes()}}

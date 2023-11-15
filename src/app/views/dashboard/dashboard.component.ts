@@ -15,6 +15,7 @@ export class DashboardComponent {
   recipesFiltered: Recipe[] = []; // recipes after a filter was applied
   searchFilter: string = '' // user's input
   searchFilterMap: Map<string, number> = new Map<string, number>(); // counts each instance of each unique word in the filter
+  sortingOrder: string = 'Newest' // sorting order (Newest, Oldest, or Alphabetic)
   currentPage = 1;
   recipesPerPage = 12;
   filterTimer: any;
@@ -32,6 +33,20 @@ export class DashboardComponent {
       return this.recipes.slice(-1)
     }
     return []
+  }
+
+  getSortedRecipes(): Recipe[] {
+    switch (this.sortingOrder) {
+      case 'Oldest':
+        console.log('Old')
+        return this.recipes.slice()
+      case 'Alphabetic':
+        console.log('Abc')
+        return this.recipes.slice().reverse()
+      default:
+        console.log('New')
+        return this.recipes.slice().reverse()
+    }
   }
 
   // FILTER RECIPE
@@ -60,6 +75,8 @@ export class DashboardComponent {
 
   filterRecipes(): void {
     let n = this.recipes.length
+    let sortedRecipes: Recipe[] = this.getSortedRecipes()
+    // let sortedRecipes: Recipe[] = []
     let filteredArray: Recipe[] = []
     if (n > 1) {
       // if theres a filter
@@ -71,7 +88,7 @@ export class DashboardComponent {
         let partial_match_score: number[] = []
 
         // apply filter to all recipes
-        let recipesArray: Recipe[] = this.recipes.slice().reverse()
+        let recipesArray: Recipe[] = sortedRecipes
         recipesArray.forEach(recipe => {
           // check for perfect match in title
           if (this.checkPerfectMatch(this.searchFilter, recipe.title)) {
@@ -115,13 +132,14 @@ export class DashboardComponent {
         filteredArray = filteredArray.concat(perfect_match_desc)
         filteredArray = filteredArray.concat(partial_match)
       } else {
-        // remove last recipe if no filters
-        filteredArray = this.recipes.slice(0, -1)
-        filteredArray.reverse()
+        // if no filter, just sort recipes
+        filteredArray = sortedRecipes
+        
+        //remove newest recipe
+        filteredArray = filteredArray.filter(item => item !== this.getLastRecipe()[0]);
       }
     }
 
-    // reversed to display newest first
     this.recipesFiltered = filteredArray
   }
 
@@ -216,6 +234,11 @@ export class DashboardComponent {
     }
 
     return scores
+  }
+
+  // SORTING
+  sortRecipes(event: any) {
+    this.sortingOrder = event.target.value
   }
 
   // Cards

@@ -72,10 +72,12 @@
 /* Filter */
 .filterDiv {
     padding: 0;
+    display: flex;
+    justify-content: space-between;
 }
 
 .filterLbl {
-    width: 100%;
+    width: 74.5%;
     padding: 0;
     background-color: #EBEBEB;
     border: var(--bs-border-width) solid #774936;
@@ -107,6 +109,19 @@
     width: auto;
     float: right;
     color: #774936;
+}
+
+/* Sorting */
+.sortSlct {
+    width: 24.5%;
+    padding: 6px 12px;
+    border-color: #774936;
+    border-radius: var(--bs-border-radius);
+    background-color: transparent;
+}
+
+.sortOpt {
+    background-color: #EBEBEB;
 }
 
 /* Filter No Results */
@@ -260,18 +275,44 @@
 
 /* Responsive */
 @media only screen and (max-width: 992px) {
+    .filterLbl {
+        width: 69.5%;
+    }
+
+    .sortSlct {
+        width: 29.5%;
+    }
+
     .recipesGrid {
         grid-template-columns: repeat(3, minmax(205px, 1fr));
     }
 }
 
 @media only screen and (max-width: 768px) {
+    .filterLbl {
+        width: 64.5%;
+    }
+
+    .sortSlct {
+        width: 34.5%;
+    }
+
     .recipesGrid {
         grid-template-columns: repeat(2, minmax(205px, 1fr));
     }
 }
 
 @media only screen and (max-width: 576px) {
+
+    .filterLbl {
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+
+    .sortSlct {
+        width: 100%;
+    }
+
     .recipesGrid {
         grid-template-columns: minmax(205px, 1fr);
     }
