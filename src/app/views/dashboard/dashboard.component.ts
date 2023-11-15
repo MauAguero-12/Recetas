@@ -42,10 +42,10 @@ export class DashboardComponent {
         return this.recipes.slice()
       case 'Alphabetic':
         console.log('Abc')
-        return this.recipes.slice().reverse()
+        return this.recipes.slice().sort((a, b) => a.title.localeCompare(b.title, undefined, { sensitivity: 'base'}));
       default:
         console.log('New')
-        return this.recipes.slice().reverse()
+        return this.recipes.slice(0, -1).reverse()
     }
   }
 
@@ -136,7 +136,7 @@ export class DashboardComponent {
         filteredArray = sortedRecipes
         
         //remove newest recipe
-        filteredArray = filteredArray.filter(item => item !== this.getLastRecipe()[0]);
+        // filteredArray = filteredArray.filter(item => item !== this.getLastRecipe()[0]);
       }
     }
 
