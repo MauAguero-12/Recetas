@@ -21,6 +21,7 @@
     cursor: pointer;
     display: flex;
     transition: all 0.2s ease-in;
+    transition: color var(--pa-theme-transition);
 }
 
 .headerOption:hover {

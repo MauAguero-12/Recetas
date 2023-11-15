@@ -8,7 +8,8 @@
 }
 
 #background {
-    background-color: #EBEBEB;
+    background-color: var(--pa-light-color);
+    transition: background-color var(--pa-theme-transition);
     min-height: calc(100vh - var(--pa-header-height));
 }
 
@@ -40,12 +41,13 @@
 
 #recipeCardNew {
     height: auto;
-    color: #EBEBEB;
+    color: var(--pa-light-color);
     background-color: #32936F;
     border-radius: var(--bs-border-radius);
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     text-align: justify;
     transition: transform 0.3s;
+    transition: color var(--pa-theme-transition);
 }
 
 #recipeCardNew:hover {
@@ -79,7 +81,7 @@
 .filterLbl {
     width: 74.5%;
     padding: 0;
-    background-color: #EBEBEB;
+    background-color: transparent;
     border: var(--bs-border-width) solid #774936;
     border-radius: var(--bs-border-radius);
 }
@@ -115,13 +117,14 @@
 .sortSlct {
     width: 24.5%;
     padding: 6px 12px;
+    color: #774936;
     border-color: #774936;
     border-radius: var(--bs-border-radius);
     background-color: transparent;
 }
 
 .sortOpt {
-    background-color: #EBEBEB;
+    background-color: var(--pa-light-color);
 }
 
 /* Filter No Results */
@@ -156,11 +159,14 @@
     display: flex;
     justify-content: center;
     text-align: justify;
-    background-color: #EBEBEB;
+    color: var(--pa-dark-color);
+    background-color: var(--pa-light-color);
     border: 0;
     border-radius: var(--bs-border-radius);
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     transition: transform 0.3s;
+    transition: color var(--pa-theme-transition);
+    transition: background-color var(--pa-theme-transition);
 }
 
 .recipeCard:hover {
@@ -263,13 +269,14 @@
 
 .active-page-link,
 .page-link:active {
-    color: #EBEBEB;
+    color: var(--pa-light-color);
     background-color: #774936;
     transition: all 0.1s ease-in;
+    transition: color var(--pa-theme-transition);
 }
 
 .active-page-link:hover {
-    color: #EBEBEB;
+    color: var(--pa-light-color);
     background-color: #774936;
 }
 

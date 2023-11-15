@@ -31,5 +31,6 @@ export class ThemeService {
         rootElement.style.setProperty('--pa-dark-color', '#EBEBEB')
         break
     }
+    rootElement.style.setProperty('--pa-theme-transition', '2s')
   }
 }
