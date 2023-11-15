@@ -59,46 +59,61 @@ export class DashboardComponent {
   }
 
   filterRecipes(): void {
-    console.clear()
     let n = this.recipes.length
     let filteredArray: Recipe[] = []
     if (n > 1) {
       // if theres a filter
       if (this.searchFilterMap.size > 0) {
-        //arrays for sorting
+        // arrays for sorting
         let perfect_match_title: Recipe[] = []
         let perfect_match_desc: Recipe[] = []
-        let recipes_match_any: Recipe[] = []
+        let partial_match: Recipe[] = []
+        let partial_match_score: number[] = []
 
+        // apply filter to all recipes
         let recipesArray: Recipe[] = this.recipes.slice().reverse()
-        // for each recipe apply filter
         recipesArray.forEach(recipe => {
-          // check for perfect match
+          // check for perfect match in title
           if (this.checkPerfectMatch(this.searchFilter, recipe.title)) {
             perfect_match_title.push(recipe)
-          } else if (this.checkPerfectMatch(this.searchFilter, recipe.description)) {
+          }
+
+          // check for perfect match in description
+          else if (this.checkPerfectMatch(this.searchFilter, recipe.description)) {
             perfect_match_desc.push(recipe)
           }
-          // check for every word of the filter in the recipe
+
+          // if not a perfect match, calculate score for recipe based on search filter 
           else {
             let allWords = true
-            this.searchFilterMap.forEach((count, word) => {
-              allWords = allWords && (this.getWords(recipe.title.toLowerCase()).includes(word) || this.getWords(recipe.description.toLowerCase()).includes(word))
+            let score = 0
+            this.searchFilterMap.forEach((wordCount, word) => {
+              let title = this.getWords(recipe.title.toLowerCase())
+              let desc = this.getWords(recipe.description.toLowerCase())
+
+              let titleCount = this.countOccurrences(title, word)
+              if (titleCount > wordCount) {
+                titleCount = wordCount
+              }
+
+              let descCount = this.countOccurrences(desc, word)
+              if (descCount > wordCount) {
+                descCount = wordCount
+              }
+              score += titleCount * 3 + descCount
+
+              allWords = allWords && (titleCount + descCount > 0)
             });
             if (allWords) {
-              recipes_match_any.push(recipe)
+              partial_match = this.insertSortRecipe(recipe, score, partial_match, partial_match_score)
+              partial_match_score = this.insertSortScore(score, partial_match_score)
             }
           }
-
-
         });
-        console.log('PMT', perfect_match_title)
-        console.log('PMD', perfect_match_desc)
-        console.log('AM', recipes_match_any)
 
         filteredArray = perfect_match_title
         filteredArray = filteredArray.concat(perfect_match_desc)
-        filteredArray = filteredArray.concat(recipes_match_any)
+        filteredArray = filteredArray.concat(partial_match)
       } else {
         // remove last recipe if no filters
         filteredArray = this.recipes.slice(0, -1)
@@ -131,29 +146,72 @@ export class DashboardComponent {
     let word_array: string[] = this.getWords(words.toLowerCase())
     let str_array: string[] = this.getWords(str.toLowerCase())
 
-    let index = -2 //-2 indicates that no word has been checked yet
-    word_array.forEach((word) => {
-      if (word) {
-        if (str_array.includes(word) && index != -1) {
-          if (index == -2) { //first word
-            index = str_array.indexOf(word)
-          } else {
-            if (word == str_array[index+1]) {
-              index += 1
-            } else {
-              index = -1
-            }
-          }
-        } else {
-          index = -1
-        }
-      }
-    });
-
-    if (index > -1) {
-      return true
+    if (word_array.length > str_array.length) {
+      return false;
     }
-    return false
+  
+    for (let i = 0; i <= str_array.length - word_array.length; i++) {
+      // check every subarray
+      let sub_array = str_array.slice(i, i + word_array.length);
+      if (this.isPerfectMatch(sub_array, word_array)) {
+        return true;
+      }
+    }
+  
+    return false;
+  }
+  
+  isPerfectMatch(arr1: string[], arr2: string[]): boolean {
+    return arr1.every((value, index) => value === arr2[index]);
+  }
+
+  // count the amount of times a string is in an array 
+  countOccurrences(arr: string[], target: string): number {
+    return arr.reduce((count, item) => (item === target ? count + 1 : count), 0);
+  }
+
+  //insert sort recipes
+  insertSortRecipe(recipe: Recipe, score: number, recipesArr: Recipe[], scores: number[]): Recipe[] {
+    let i = 0
+    let inserted = false
+    for (; i < recipesArr.length; i++) {
+      if (scores[i] < score) {
+        let before = recipesArr.slice(0, i)
+        let after = recipesArr.slice(i)
+        before.push(recipe)
+        recipesArr = before.concat(after)
+        inserted = true
+        break
+      }
+    }
+
+    if (!inserted) {
+      recipesArr.push(recipe)
+    }
+
+    return recipesArr
+  }
+
+  //insert sort scores
+  insertSortScore(score: number, scores: number[]): number[] {
+    let i = 0
+    let inserted = false
+    for (; i < scores.length; i++) {
+      if (scores[i] < score) {
+        let before = scores.slice(0, i)
+        let after = scores.slice(i)
+        before.push(score)
+        scores = before.concat(after)
+        inserted = true
+        break
+      }
+    }
+
+    if (!inserted) {
+      scores.push(score)
+    }
+
+    return scores
   }
 
   //check for count
