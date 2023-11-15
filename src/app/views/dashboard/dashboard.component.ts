@@ -11,10 +11,10 @@ import { RecipesService } from 'src/app/services/recipes.service';
 })
 export class DashboardComponent {
   // Atributes
-  recipes: Recipe[] = [];
-  recipesFiltered: Recipe[] = [];
-  searchFilter: string = ''
-  searchFilterMap: Map<string, number> = new Map<string, number>();
+  recipes: Recipe[] = []; // all recipes from service
+  recipesFiltered: Recipe[] = []; // recipes after a filter was applied
+  searchFilter: string = '' // user's input
+  searchFilterMap: Map<string, number> = new Map<string, number>(); // counts each instance of each unique word in the filter
   currentPage = 1;
   recipesPerPage = 12;
   filterTimer: any;
@@ -35,7 +35,7 @@ export class DashboardComponent {
   }
 
   // FILTER RECIPE
-  // Timer for Search Filter to update
+  // Timer for Search Filter update
   resetFilterTimer(event: any) {
     clearTimeout(this.filterTimer);
     this.filterTimer = setTimeout(() => {
@@ -149,7 +149,7 @@ export class DashboardComponent {
     if (word_array.length > str_array.length) {
       return false;
     }
-  
+
     for (let i = 0; i <= str_array.length - word_array.length; i++) {
       // check every subarray
       let sub_array = str_array.slice(i, i + word_array.length);
@@ -157,10 +157,10 @@ export class DashboardComponent {
         return true;
       }
     }
-  
+
     return false;
   }
-  
+
   isPerfectMatch(arr1: string[], arr2: string[]): boolean {
     return arr1.every((value, index) => value === arr2[index]);
   }
@@ -170,21 +170,23 @@ export class DashboardComponent {
     return arr.reduce((count, item) => (item === target ? count + 1 : count), 0);
   }
 
-  //insert sort recipes
+  //insert sort recipes (using scores array for sorting)
   insertSortRecipe(recipe: Recipe, score: number, recipesArr: Recipe[], scores: number[]): Recipe[] {
-    let i = 0
     let inserted = false
-    for (; i < recipesArr.length; i++) {
+    for (let i = 0; i < recipesArr.length; i++) {
+      // insert if current score is less than new score
       if (scores[i] < score) {
         let before = recipesArr.slice(0, i)
-        let after = recipesArr.slice(i)
         before.push(recipe)
+        let after = recipesArr.slice(i)
+
         recipesArr = before.concat(after)
         inserted = true
         break
       }
     }
 
+    // insert at the end if not inserted in for loop
     if (!inserted) {
       recipesArr.push(recipe)
     }
@@ -192,34 +194,29 @@ export class DashboardComponent {
     return recipesArr
   }
 
-  //insert sort scores
+  //insert sort scores of recipes
   insertSortScore(score: number, scores: number[]): number[] {
-    let i = 0
     let inserted = false
-    for (; i < scores.length; i++) {
+    for (let i = 0; i < scores.length; i++) {
+      // insert if current score is less than new score
       if (scores[i] < score) {
         let before = scores.slice(0, i)
-        let after = scores.slice(i)
         before.push(score)
+        let after = scores.slice(i)
+
         scores = before.concat(after)
         inserted = true
         break
       }
     }
 
+    // insert at the end if not inserted in for loop
     if (!inserted) {
       scores.push(score)
     }
 
     return scores
   }
-
-  //check for count
-
-  //check for words in string (word order or word count not taken into consideration)
-
-
-
 
   // Cards
   updatePageCardClicks(): void {
