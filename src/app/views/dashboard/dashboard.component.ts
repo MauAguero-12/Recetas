@@ -38,13 +38,10 @@ export class DashboardComponent {
   getSortedRecipes(): Recipe[] {
     switch (this.sortingOrder) {
       case 'Oldest':
-        console.log('Old')
         return this.recipes.slice()
       case 'Alphabetic':
-        console.log('Abc')
         return this.recipes.slice().sort((a, b) => a.title.localeCompare(b.title, undefined, { sensitivity: 'base'}));
       default:
-        console.log('New')
         return this.recipes.slice(0, -1).reverse()
     }
   }
