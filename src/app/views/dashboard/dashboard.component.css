@@ -124,6 +124,7 @@
     color: var(--pa-brown);
     border-color: var(--pa-brown);
     border-radius: var(--bs-border-radius);
+    outline: none;
     background-color: transparent;
     transition: color var(--pa-theme-transition), border-color var(--pa-theme-transition);
 }
