@@ -8,23 +8,26 @@
 
 /* Background */
 .background {
-    margin: 1rem 0;
+    padding: 1rem 0;
     width: 100%;
-    min-height: calc(100vh - var(--pa-header-height) - 48px);
+    min-height: calc(100vh - var(--pa-header-height));
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: var(--pa-light-color);
+    transition: background-color var(--pa-theme-transition);
 }
 
 /* No Recipe Error */
 .errorDiv {
-    color: #774936;
+    color: var(--pa-brown);
     width: 90%;
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
+    transition: color var(--pa-theme-transition);
 }
 
 .errorDiv>h2 {
@@ -34,13 +37,14 @@
 
 /* Recipe Card */
 .recipeBackground {
-    color: #EBEBEB;
+    color: var(--pa-light-color);
     background-color: #32936F;
     border-radius: var(--bs-border-radius);
     padding: 0% 5%;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     width: 80%;
     margin: auto;
+    transition: color var(--pa-theme-transition);
 }
 
 /* Title */
@@ -81,8 +85,8 @@
 
 .checkedLbl {
     text-decoration: line-through;
-    text-decoration-color: #1E2F23;
-    transition: all 0.3s ease-in;
+    text-decoration-color: var(--pa-dark-color);
+    transition: text-decoration-color var(--pa-theme-transition);
 }
 
 .ingredientInput {
