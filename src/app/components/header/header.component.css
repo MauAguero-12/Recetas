@@ -24,7 +24,7 @@
 }
 
 .headerOption:hover {
-    text-decoration: underline #1A281F;
+    text-decoration: underline var(--pa-light-color);
 }
 
 .headerText {

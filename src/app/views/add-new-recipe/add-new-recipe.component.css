@@ -4,15 +4,31 @@
     padding: 0;
 }
 
+/* Background */
+.background{
+    background-color: var(--pa-light-color);
+    transition: background-color var(--pa-theme-transition);
+}
+
 /* Title */
 .header{
     margin-bottom: 0;
+    color: var(--pa-dark-color);
+    transition: color var(--pa-theme-transition);
 }
 
-/* Input Label */
+/* Input */
 .form-label {
     width: auto;
     margin-bottom: 1rem;
+    color: var(--pa-dark-color);
+    transition: color var(--pa-theme-transition);
+}
+
+.form-control{
+    color: var(--pa-dark-color);
+    background-color: transparent;
+    transition: color var(--pa-theme-transition), background-color var(--pa-theme-transition);
 }
 
 /* Wrong Input Alert */
@@ -22,7 +38,7 @@
 
 .wrong-input-alert {
     color: #BC4749;
-    margin: 1rem 0 0;
+    margin: 1rem 0 0.5rem;
 }
 
 .wrong-hidden {
@@ -33,7 +49,14 @@
     margin: 0 0 1rem;
 }
 
-/*  */
+/* Image Input */
+:host ::ng-deep {
+    .imageInputDiv>#imageInputBtn {
+        color: var(--pa-dark-color);
+        transition: color var(--pa-theme-transition);
+    }
+}
+
 :host ::ng-deep .wrong-image-comp {
     .imageInputDiv>#imageInputBtn {
         border-color: #BC4749;
@@ -52,15 +75,15 @@ button {
     min-height: 1.5rem;
     min-width: 12rem;
     padding: 6px 12px;
-    color: #774936;
-    border: var(--bs-border-width) solid #774936;
+    color: var(--pa-brown);
+    border: var(--bs-border-width) solid var(--pa-brown);
     border-radius: var(--bs-border-radius);
-    transition: all 0.2s ease-in;
+    transition: color var(--pa-theme-transition), border-color var(--pa-theme-transition), background-color var(--pa-theme-transition);
 }
 
 #addIngredientBtn:hover {
-    color: white;
-    background-color: #774936;
+    color:var(--pa-light-color);
+    background-color: var(--pa-brown);
 }
 
 #addIngredientBtn:focus {
