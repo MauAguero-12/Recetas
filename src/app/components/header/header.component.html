@@ -15,10 +15,10 @@
     </div>
     <div class="spacing"></div>
     <div class="headerOption">
-        <input type="checkbox" id="theme-toggle" [(ngModel)]="inputChecked" (change)="changeTheme()">
-        <!-- <label id="theme-toggle-lbl" for="theme-toggle">
-            <fa-icon class="optionIcon" [icon]="getThemeIcon()"></fa-icon>
-        </label> -->
+        <label class="theme-toggle-lbl">
+            <input type="checkbox" id="theme-toggle" [(ngModel)]="inputChecked" (change)="changeTheme()">
+            <span class="slider"></span>
+        </label>
     </div>
 </div>
 
