@@ -21,23 +21,29 @@ export class HeaderComponent implements OnInit {
         // this.showModal()
       }
     }
+
+    // input checked
+    this.inputChecked = this.checkboxChecked()
   }
 
   // Theme Checkbox
   inputChecked = false
+
+  checkboxChecked(): boolean {
+    console.log(this.themeService.getTheme() === 'theme-dark')
+    return this.themeService.getTheme() === 'theme-dark'
+  }
+
   changeTheme() {
-    this.inputChecked = !this.inputChecked
     if (this.inputChecked) {
       this.themeService.setTheme('theme-dark')
     } else {
       this.themeService.setTheme('theme-default')
     }
-
-    console.log()
   }
 
-  getThemeIcon(){
-    if (this.themeService.getTheme() === 'theme-dark'){
+  getThemeIcon() {
+    if (this.themeService.getTheme() === 'theme-dark') {
       return faMoon
     }
     return faSun

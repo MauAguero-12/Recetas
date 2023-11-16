@@ -24,9 +24,10 @@
 }
 
 .noRecipeText {
-    color: #774936;
+    color: var(--pa-brown);
     text-align: center;
     margin: 0;
+    transition: color var(--pa-theme-transition);
 }
 
 /* Both Cards */
@@ -44,10 +45,9 @@
     color: var(--pa-light-color);
     background-color: #32936F;
     border-radius: var(--bs-border-radius);
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    box-shadow: var(--pa-shadow);
     text-align: justify;
-    transition: transform 0.3s;
-    transition: color var(--pa-theme-transition);
+    transition: transform 0.3s, color var(--pa-theme-transition), box-shadow var(--pa-theme-transition);
 }
 
 #recipeCardNew:hover {
@@ -82,8 +82,9 @@
     width: 74.5%;
     padding: 0;
     background-color: transparent;
-    border: var(--bs-border-width) solid #774936;
+    border: var(--bs-border-width) solid var(--pa-brown);
     border-radius: var(--bs-border-radius);
+    transition: border-color var(--pa-theme-transition);
 }
 
 .filterLblDiv {
@@ -99,8 +100,10 @@
 
 .filterInput {
     width: 100%;
+    color: var(--pa-dark-color);
     background-color: transparent;
     border: 0;
+    transition: color var(--pa-theme-transition);
 }
 
 .filterInput:focus-visible {
@@ -110,17 +113,19 @@
 .iconSearchDiv {
     width: auto;
     float: right;
-    color: #774936;
+    color: var(--pa-brown);
+    transition: color var(--pa-theme-transition);
 }
 
 /* Sorting */
 .sortSlct {
     width: 24.5%;
     padding: 6px 12px;
-    color: #774936;
-    border-color: #774936;
+    color: var(--pa-brown);
+    border-color: var(--pa-brown);
     border-radius: var(--bs-border-radius);
     background-color: transparent;
+    transition: color var(--pa-theme-transition), border-color var(--pa-theme-transition);
 }
 
 .sortOpt {
@@ -137,9 +142,10 @@
 }
 
 .noRecipeText {
-    color: #774936;
+    color: var(--pa-brown);
     text-align: center;
     margin: 0;
+    transition: color var(--pa-theme-transition);
 }
 
 
@@ -163,10 +169,9 @@
     background-color: var(--pa-light-color);
     border: 0;
     border-radius: var(--bs-border-radius);
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    transition: transform 0.3s;
-    transition: color var(--pa-theme-transition);
-    transition: background-color var(--pa-theme-transition);
+    box-shadow: var(--pa-shadow);
+    transition: transform 0.3s, color var(--pa-theme-transition), background-color var(--pa-theme-transition),
+        box-shadow var(--pa-theme-transition);
 }
 
 .recipeCard:hover {
@@ -253,31 +258,20 @@
 }
 
 .disabled>a {
-    background-color: #cccccc;
+    filter: brightness(70%);
 }
 
 .page-link {
-    color: #774936;
-    background-color: transparent;
-    border-color: #774936;
-}
-
-.page-link:hover {
-    color: #774936;
-    background-color: transparent;
+    color: var(--pa-brown);
+    background-color: var(--pa-light-color);
+    border-color: var(--pa-brown);
+    transition: color var(--pa-theme-transition), border-color var(--pa-theme-transition), background-color var(--pa-theme-transition);
 }
 
 .active-page-link,
-.page-link:active {
+.page-link:hover {
     color: var(--pa-light-color);
-    background-color: #774936;
-    transition: all 0.1s ease-in;
-    transition: color var(--pa-theme-transition);
-}
-
-.active-page-link:hover {
-    color: var(--pa-light-color);
-    background-color: #774936;
+    background-color: var(--pa-brown);
 }
 
 /* Responsive */
