@@ -15,7 +15,7 @@ export class DashboardComponent {
   recipesFiltered: Recipe[] = []; // recipes after a filter was applied
   searchFilter: string = '' // user's input
   searchFilterMap: Map<string, number> = new Map<string, number>(); // counts each instance of each unique word in the filter
-  sortingOrder: string = 'Newest' // sorting order (Newest, Oldest, or Alphabetic)
+  sortingOrder: string = '' // sorting order (Newest, Oldest, or Alphabetic)
   currentPage = 1;
   recipesPerPage = 12;
   filterTimer: any;
@@ -37,10 +37,12 @@ export class DashboardComponent {
 
   getSortedRecipes(): Recipe[] {
     switch (this.sortingOrder) {
+      case 'Newest':
+        return this.recipes.slice().reverse()
       case 'Oldest':
         return this.recipes.slice()
       case 'Alphabetic':
-        return this.recipes.slice().sort((a, b) => a.title.localeCompare(b.title, undefined, { sensitivity: 'base'}));
+        return this.recipes.slice().sort((a, b) => a.title.localeCompare(b.title, undefined, { sensitivity: 'base' }));
       default:
         return this.recipes.slice(0, -1).reverse()
     }
@@ -131,7 +133,7 @@ export class DashboardComponent {
       } else {
         // if no filter, just sort recipes
         filteredArray = sortedRecipes
-        
+
         //remove newest recipe
         // filteredArray = filteredArray.filter(item => item !== this.getLastRecipe()[0]);
       }
