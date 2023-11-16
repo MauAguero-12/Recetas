@@ -15,7 +15,7 @@ export class DashboardComponent {
   recipesFiltered: Recipe[] = []; // recipes after a filter was applied
   searchFilter: string = '' // user's input
   searchFilterMap: Map<string, number> = new Map<string, number>(); // counts each instance of each unique word in the filter
-  sortingOrder: string = '' // sorting order (Newest, Oldest, or Alphabetic)
+  sortingOrder: string = localStorage.getItem('sort') || '' // sorting order (Newest, Oldest, or Alphabetic)
   currentPage = 1;
   recipesPerPage = 12;
   filterTimer: any;
@@ -36,6 +36,8 @@ export class DashboardComponent {
   }
 
   getSortedRecipes(): Recipe[] {
+    // save sort order in localstorage
+    localStorage.setItem('sort', this.sortingOrder)
     switch (this.sortingOrder) {
       case 'Newest':
         return this.recipes.slice().reverse()
@@ -44,7 +46,13 @@ export class DashboardComponent {
       case 'Alphabetic':
         return this.recipes.slice().sort((a, b) => a.title.localeCompare(b.title, undefined, { sensitivity: 'base' }));
       default:
-        return this.recipes.slice(0, -1).reverse()
+        localStorage.removeItem('sort')
+
+        // remove newest recipe if default sorting
+        if (!this.searchFilter.length) {
+          return this.recipes.slice(0, -1).reverse()
+        }
+        return this.recipes.slice().reverse()
     }
   }
 
@@ -68,10 +76,13 @@ export class DashboardComponent {
       this.addWordToMap(word, this.searchFilterMap)
     });
 
-    // go to the first page after applying filter
+    // go to the first page after updating filter
     this.goToPage(1)
+
+    this.filterRecipes()
   }
 
+  // apply search filter
   filterRecipes(): void {
     let n = this.recipes.length
     let sortedRecipes: Recipe[] = this.getSortedRecipes()
@@ -80,15 +91,16 @@ export class DashboardComponent {
     if (n > 1) {
       // if theres a filter
       if (this.searchFilterMap.size > 0) {
-        // arrays for sorting
+        // arrays for perfect matches
         let perfect_match_title: Recipe[] = []
         let perfect_match_desc: Recipe[] = []
+
+        // arrays for other recipes (these recipes are sorted based on the filter)
         let partial_match: Recipe[] = []
         let partial_match_score: number[] = []
 
         // apply filter to all recipes
-        let recipesArray: Recipe[] = sortedRecipes
-        recipesArray.forEach(recipe => {
+        sortedRecipes.forEach(recipe => {
           // check for perfect match in title
           if (this.checkPerfectMatch(this.searchFilter, recipe.title)) {
             perfect_match_title.push(recipe)
@@ -103,23 +115,27 @@ export class DashboardComponent {
           else {
             let allWords = true
             let score = 0
+            // for each filter word
             this.searchFilterMap.forEach((wordCount, word) => {
-              let title = this.getWords(recipe.title.toLowerCase())
-              let desc = this.getWords(recipe.description.toLowerCase())
-
-              let titleCount = this.countOccurrences(title, word)
+              //count occurrences of word in title
+              let titleCount = this.countOccurrences(word, recipe.title)
               if (titleCount > wordCount) {
                 titleCount = wordCount
               }
 
-              let descCount = this.countOccurrences(desc, word)
+              //count occurrences of word in description
+              let descCount = this.countOccurrences(word, recipe.description)
               if (descCount > wordCount) {
                 descCount = wordCount
               }
+
+              // ocurrence in title has a score of 3 and in description a score of 1
               score += titleCount * 3 + descCount
 
               allWords = allWords && (titleCount + descCount > 0)
             });
+
+            // if recipe doesn't have all of the words in the filter, it is not included
             if (allWords) {
               partial_match = this.insertSortRecipe(recipe, score, partial_match, partial_match_score)
               partial_match_score = this.insertSortScore(score, partial_match_score)
@@ -133,12 +149,8 @@ export class DashboardComponent {
       } else {
         // if no filter, just sort recipes
         filteredArray = sortedRecipes
-
-        //remove newest recipe
-        // filteredArray = filteredArray.filter(item => item !== this.getLastRecipe()[0]);
       }
     }
-
     this.recipesFiltered = filteredArray
   }
 
@@ -183,8 +195,11 @@ export class DashboardComponent {
   }
 
   // count the amount of times a string is in an array 
-  countOccurrences(arr: string[], target: string): number {
-    return arr.reduce((count, item) => (item === target ? count + 1 : count), 0);
+  // countOccurrences(arr: string[], target: string): number {
+  countOccurrences(word: string, str: string): number {
+    word = word.toLowerCase()
+    let str_array = this.getWords(str.toLowerCase())
+    return str_array.reduce((count, item) => (item === word ? count + 1 : count), 0);
   }
 
   //insert sort recipes (using scores array for sorting)
@@ -233,11 +248,6 @@ export class DashboardComponent {
     }
 
     return scores
-  }
-
-  // SORTING
-  sortRecipes(event: any) {
-    this.sortingOrder = event.target.value
   }
 
   // Cards

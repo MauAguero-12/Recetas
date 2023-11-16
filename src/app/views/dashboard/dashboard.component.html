@@ -37,8 +37,8 @@
                 </label>
 
                 <!-- sorting -->
-                <select class="sortSlct" (change)="sortRecipes($event)">
-                    <option class="sortOpt" value="Default" selected>Por defecto</option>
+                <select class="sortSlct" [(ngModel)]="sortingOrder">
+                    <option class="sortOpt" value="" selected>Por defecto</option>
                     <option class="sortOpt" value="Newest">Reciente a antiguo</option>
                     <option class="sortOpt" value="Oldest">Antiguo a reciente</option>
                     <option class="sortOpt" value="Alphabetic">Orden alfabético</option>
@@ -48,7 +48,7 @@
             {{filterRecipes()}}
 
             <!-- if no recipes for filter -->
-            <div class="noRecipesFilterDiv mb-3" *ngIf="recipes.length > 2 && recipesFiltered.length == 0">
+            <div class="noRecipesFilterDiv py-4 mb-3" *ngIf="recipes.length > 2 && recipesFiltered.length == 0">
                 <h2 class="noRecipeText">No se encontraron recetas</h2>
             </div>
 
