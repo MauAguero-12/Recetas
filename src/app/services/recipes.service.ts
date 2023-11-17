@@ -10,7 +10,6 @@ export class RecipesService {
 
   // Methods
   getRecipes(): Recipe[] {
-    this.recipes = this.get_localstorage_recipes()
     return this.recipes
   }
 

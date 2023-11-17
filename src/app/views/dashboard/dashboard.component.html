@@ -37,7 +37,7 @@
                 </label>
 
                 <!-- sorting -->
-                <select class="sortSlct" [(ngModel)]="sortingOrder">
+                <select class="sortSlct" [(ngModel)]="sortingOrder" (change)="goToPage(1)">
                     <option class="sortOpt" value="" selected>Por defecto</option>
                     <option class="sortOpt" value="Newest">Reciente a antiguo</option>
                     <option class="sortOpt" value="Oldest">Antiguo a reciente</option>
