@@ -90,6 +90,6 @@ input {
 }
 
 #imageDisplayRemoveIcon:hover {
-    color: white;
+    color: var(--pa-theme-white);
     background-color: #BC4749;
 }
