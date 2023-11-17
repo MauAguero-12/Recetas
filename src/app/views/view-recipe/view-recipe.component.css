@@ -14,7 +14,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: var(--pa-light-color);
+    background-color: var(--pa-white);
     transition: background-color var(--pa-theme-transition);
 }
 
@@ -37,7 +37,7 @@
 
 /* Recipe Card */
 .recipeBackground {
-    color: var(--pa-light-color);
+    color: var(--pa-white);
     background-color: #32936F;
     border-radius: var(--bs-border-radius);
     padding: 0% 5%;
@@ -85,7 +85,7 @@
 
 .checkedLbl {
     text-decoration: line-through;
-    text-decoration-color: var(--pa-dark-color);
+    text-decoration-color: var(--pa-black);
     transition: text-decoration-color var(--pa-theme-transition);
 }
 

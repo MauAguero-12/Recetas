@@ -6,7 +6,7 @@
 /* Header */
 .header {
     height: var(--pa-header-height);
-    color: var(--pa-light-color);
+    color: var(--pa-white);
     background-color: #32936F;
     align-items: center;
     box-shadow: var(--pa-shadow);
@@ -25,7 +25,7 @@
 }
 
 .headerOption:hover {
-    text-decoration: underline var(--pa-light-color);
+    text-decoration: underline var(--pa-white);
 }
 
 .headerText {
@@ -72,7 +72,7 @@
 }
 
 #theme-toggle:checked+.slider {
-    background-color: var(--pa-light-color);
+    background-color: var(--pa-white);
 }
 
 .slider:before { 
@@ -81,7 +81,7 @@
     height: 20px;
     width: 20px;
     left: 4px;
-    background-color: var(--pa-dark-color);
+    background-color: var(--pa-black);
     border-radius: 50%;
     transition: var(--pa-theme-transition);
 }

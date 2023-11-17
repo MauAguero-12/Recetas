@@ -8,7 +8,7 @@
 }
 
 #background {
-    background-color: var(--pa-light-color);
+    background-color: var(--pa-white);
     transition: background-color var(--pa-theme-transition);
     min-height: calc(100vh - var(--pa-header-height));
 }
@@ -42,7 +42,7 @@
 
 #recipeCardNew {
     height: auto;
-    color: var(--pa-light-color);
+    color: var(--pa-white);
     background-color: #32936F;
     border-radius: var(--bs-border-radius);
     box-shadow: var(--pa-shadow);
@@ -100,7 +100,7 @@
 
 .filterInput {
     width: 100%;
-    color: var(--pa-dark-color);
+    color: var(--pa-black);
     background-color: transparent;
     border: 0;
     transition: color var(--pa-theme-transition);
@@ -130,7 +130,7 @@
 }
 
 .sortOpt {
-    background-color: var(--pa-light-color);
+    background-color: var(--pa-white);
 }
 
 /* Filter No Results */
@@ -166,8 +166,8 @@
     display: flex;
     justify-content: center;
     text-align: justify;
-    color: var(--pa-dark-color);
-    background-color: var(--pa-light-color);
+    color: var(--pa-black);
+    background-color: var(--pa-white);
     border: 0;
     border-radius: var(--bs-border-radius);
     box-shadow: var(--pa-shadow);
@@ -264,14 +264,14 @@
 
 .page-link {
     color: var(--pa-brown);
-    background-color: var(--pa-light-color);
+    background-color: var(--pa-white);
     border-color: var(--pa-brown);
     transition: color var(--pa-theme-transition), border-color var(--pa-theme-transition), background-color var(--pa-theme-transition);
 }
 
 .active-page-link,
 .page-link:hover {
-    color: var(--pa-light-color);
+    color: var(--pa-white);
     background-color: var(--pa-brown);
 }
 
