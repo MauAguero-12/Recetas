@@ -7,9 +7,9 @@
 .header {
     height: var(--pa-header-height);
     color: var(--pa-white);
-    background-color: #32936F;
+    background-color: var(--pa-light-green);
     align-items: center;
-    box-shadow: var(--pa-shadow);
+    box-shadow: var(--pa-theme-shadow);
     transition: box-shadow var(--pa-theme-transition);
 }
 
@@ -72,7 +72,7 @@
 }
 
 #theme-toggle:checked+.slider {
-    background-color: var(--pa-white);
+    background-color: var(--pa-theme-white);
 }
 
 .slider:before { 
@@ -81,7 +81,7 @@
     height: 20px;
     width: 20px;
     left: 4px;
-    background-color: var(--pa-black);
+    background-color: var(--pa-theme-black);
     border-radius: 50%;
     transition: var(--pa-theme-transition);
 }

@@ -4,5 +4,9 @@
 }
 
 :root {
+    --pa-white: #EBEBEB;
+    --pa-light-green: #32936F;
+    --pa-brown: #774936;
+
     --pa-header-height: 4.5rem;
 }

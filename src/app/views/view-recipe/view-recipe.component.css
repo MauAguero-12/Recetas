@@ -14,13 +14,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: var(--pa-white);
+    background-color: var(--pa-theme-white);
     transition: background-color var(--pa-theme-transition);
 }
 
 /* No Recipe Error */
 .errorDiv {
-    color: var(--pa-brown);
+    color: var(--pa-theme-brown);
     width: 90%;
     height: 100%;
     display: flex;
@@ -37,11 +37,11 @@
 
 /* Recipe Card */
 .recipeBackground {
-    color: var(--pa-white);
-    background-color: #32936F;
+    color: var(--pa-theme-white);
+    background-color: var(--pa-light-green);
     border-radius: var(--bs-border-radius);
     padding: 0% 5%;
-    box-shadow: var(--pa-shadow);
+    box-shadow: var(--pa-theme-shadow);
     width: 80%;
     margin: auto;
     transition: color var(--pa-theme-transition), box-shadow var(--pa-theme-transition);
@@ -67,7 +67,7 @@
     .recipeImage {
         width: 100%;
         object-fit: cover;
-        border: 5px solid #774936;
+        border: 5px solid var(--pa-brown);
         border-radius: var(--bs-border-radius);
     }
 }
@@ -85,7 +85,7 @@
 
 .checkedLbl {
     text-decoration: line-through;
-    text-decoration-color: var(--pa-black);
+    text-decoration-color: var(--pa-theme-black);
     transition: text-decoration-color var(--pa-theme-transition);
 }
 
