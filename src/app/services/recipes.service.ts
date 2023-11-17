@@ -7,10 +7,10 @@ import { Recipe } from '../interfaces/recipe';
 export class RecipesService {
   // Atributes
   recipes: Recipe[] = this.get_localstorage_recipes()
-  selectedRecipe: Recipe | null = null
 
   // Methods
   getRecipes(): Recipe[] {
+    this.recipes = this.get_localstorage_recipes()
     return this.recipes
   }
 
@@ -21,19 +21,23 @@ export class RecipesService {
 
   setSelectedRecipe(recipe: Recipe): void {
     if (this.recipes.indexOf(recipe) != -1) {
-      this.selectedRecipe = recipe
+      localStorage.setItem('currentRecipe', JSON.stringify(recipe))
     }
   }
+
   getSelectedRecipe(): Recipe | void {
-    if (this.selectedRecipe) {
-      return this.selectedRecipe
+    let recipe_str: string | null = localStorage.getItem('currentRecipe')
+    if (recipe_str != null && recipe_str != '') {
+      let recipe: Recipe = JSON.parse(recipe_str)
+      return recipe
     }
   }
 
   deleteRecipes(): void {
     this.recipes = []
-    this.selectedRecipe = null
-    // localStorage.clear()
+
+    // currently commented so the recipes aren't completely lost after deleting
+    // this.clear_localstorage_recipes()
   }
 
   // Local Storage
@@ -49,13 +53,11 @@ export class RecipesService {
 
   private get_localstorage_recipes(): Recipe[] {
     let recipes_array: Recipe[] = []
-    let i: number = 0
-    while (i < this.count_localstorage_recipes()) {
+    for (let i = 0; i < this.count_localstorage_recipes(); i++) {
       let recipe: string | null = localStorage.getItem('recipe' + i)
       if (recipe != null && recipe != '') {
         let recipe_info: Recipe = JSON.parse(recipe)
         recipes_array.push(recipe_info)
-        i++
       }
     }
     return recipes_array
@@ -65,5 +67,12 @@ export class RecipesService {
     let recipeString: string = JSON.stringify(recipe)
     let recipesCount: number = this.count_localstorage_recipes()
     localStorage.setItem('recipe' + recipesCount, recipeString)
+  }
+
+  private clear_localstorage_recipes() {
+    localStorage.removeItem('currentRecipe')
+    for (let i = 0; i < this.count_localstorage_recipes(); i++) {
+      localStorage.removeItem('recipe' + i)
+    }
   }
 }
