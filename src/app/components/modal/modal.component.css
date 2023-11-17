@@ -23,7 +23,7 @@
 #modalContent {
     position: relative;
     background-color: var(--pa-theme-white);
-    border: 1px solid #888;
+    border: var(--bs-border-width) solid var(--bs-border-color);
     width: 50%;
     top: 50%;
     left: 50%;
@@ -71,8 +71,8 @@
 /* Body */
 #modalBody {
     padding: 1rem 0;
-    border-top: 1px solid var(--bs-border-color);
-    border-bottom: 1px solid var(--bs-border-color);
+    border-top: var(--bs-border-width) solid var(--bs-border-color);
+    border-bottom: var(--bs-border-width) solid var(--bs-border-color);
 }
 
 #modalBody>p {
@@ -89,7 +89,7 @@
 #modalButtonBtn {
     min-width: 12rem;
     padding: 6px 12px;
-    color: var(--pa-theme-white);
+    color: var(--pa-white);
     background-color: var(--pa-light-green);
     border: var(--bs-border-width) solid var(--pa-light-green);
     border-radius: var(--bs-border-radius);

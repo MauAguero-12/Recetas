@@ -37,14 +37,14 @@
 
 /* Recipe Card */
 .recipeBackground {
-    color: var(--pa-theme-white);
+    color: var(--pa-white);
     background-color: var(--pa-light-green);
     border-radius: var(--bs-border-radius);
     padding: 0% 5%;
     box-shadow: var(--pa-theme-shadow);
     width: 80%;
     margin: auto;
-    transition: color var(--pa-theme-transition), box-shadow var(--pa-theme-transition);
+    transition: box-shadow var(--pa-theme-transition);
 }
 
 /* Title */
@@ -85,7 +85,7 @@
 
 .checkedLbl {
     text-decoration: line-through;
-    text-decoration-color: var(--pa-theme-black);
+    text-decoration-color: var(--pa-black);
     transition: text-decoration-color var(--pa-theme-transition);
 }
 
