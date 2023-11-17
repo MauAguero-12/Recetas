@@ -8,7 +8,7 @@
     top: 0;
     width: 0%;
     height: 0%;
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: rgba(0, 0, 0, 0.7);
 }
 
 #modalBackground.active {
@@ -22,7 +22,7 @@
 /* Modal Content */
 #modalContent {
     position: relative;
-    background-color: white;
+    background-color: var(--pa-white);
     border: 1px solid #888;
     width: 50%;
     top: 50%;
@@ -35,6 +35,10 @@
     #modalContent {
         width: 80%;
     }
+}
+
+.text{
+    color: var(--pa-black);
 }
 
 /* Header */
@@ -60,6 +64,10 @@
     cursor: pointer;
 }
 
+#modalCloseIcon{
+    color: var(--pa-black);
+}
+
 /* Body */
 #modalBody {
     padding: 1rem 0;
@@ -81,7 +89,7 @@
 #modalButtonBtn {
     min-width: 12rem;
     padding: 6px 12px;
-    color: white;
+    color: var(--pa-white);
     background-color: #32936F;
     border: var(--bs-border-width) solid #32936F;
     border-radius: var(--bs-border-radius);

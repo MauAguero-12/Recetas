@@ -22,7 +22,7 @@ input {
 
 #imageInputBtn:hover,
 #imageInputBtn:focus {
-    color: black;
+    color: var(--pa-black);
     outline: 0;
 }
 
