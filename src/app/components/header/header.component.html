@@ -17,7 +17,9 @@
     <div class="headerOption">
         <label class="theme-toggle-lbl">
             <input type="checkbox" id="theme-toggle" [(ngModel)]="inputChecked" (change)="changeTheme()">
-            <span class="slider"></span>
+            <span class="slider">
+                <fa-icon id="toggle-icon" class="optionIcon" [icon]="getToggleIcon()"></fa-icon>
+            </span>
         </label>
     </div>
 </div>

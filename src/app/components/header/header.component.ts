@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { faBook, faHouseChimney, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { faBook, faHouseChimney, faMoon, faSun, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { RecipesService } from 'src/app/services/recipes.service';
 import { ThemeService } from 'src/app/services/theme.service';
 
@@ -40,6 +40,13 @@ export class HeaderComponent implements OnInit {
     } else {
       this.themeService.setTheme('theme-default')
     }
+  }
+
+  getToggleIcon(){
+    if (this.inputChecked){
+      return faMoon
+    }
+    return faSun
   }
 
   // Modal (Comented because it is not yet implemented)
