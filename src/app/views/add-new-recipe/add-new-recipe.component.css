@@ -32,6 +32,12 @@
     -webkit-text-fill-color: var(--pa-theme-black) !important;
     transition: all var(--pa-theme-transition);
 }
+.form-control,
+.form-control:hover,
+.form-control:focus, 
+.form-control:active{
+    border-color: var(--bs-border-color);
+}
 
 .form-control:-webkit-autofill,
 .form-control:-webkit-autofill:hover, 
@@ -39,10 +45,10 @@
 .form-control:-webkit-autofill:active{
     -webkit-box-shadow: 0 0 0 30px var(--pa-theme-white) inset !important;
     -webkit-text-fill-color: var(--pa-theme-black) !important;
-    -webkit-border-before-color: #86b7fe !important;
-    -webkit-border-after-color: #86b7fe !important;
-    -webkit-border-start-color: #86b7fe !important;
-    -webkit-border-end-color: #86b7fe !important;
+    -webkit-border-before-color: var(--bs-border-color) !important;
+    -webkit-border-after-color: var(--bs-border-color) !important;
+    -webkit-border-start-color: var(--bs-border-color) !important;
+    -webkit-border-end-color: var(--bs-border-color) !important;
     background-color: var(--pa-theme-white);
 }
 
