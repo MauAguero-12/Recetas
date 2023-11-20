@@ -92,3 +92,29 @@ input {
     color: var(--pa-theme-white);
     background-color: #BC4749;
 }
+
+
+
+:host-context() #imageInputBtn{
+    color: var(--pa-theme-black);
+    transition: color var(--pa-theme-transition);
+}
+
+:host-context(.wrong-image-comp) #imageInputBtn{
+    border-color: #BC4749;
+}
+
+/*
+:host ::ng-deep {
+    .imageInputDiv>#imageInputBtn {
+        color: var(--pa-theme-black);
+        transition: color var(--pa-theme-transition);
+    }
+}
+
+:host ::ng-deep .wrong-image-comp {
+    .imageInputDiv>#imageInputBtn {
+        border-color: #BC4749;
+    }
+}
+*/

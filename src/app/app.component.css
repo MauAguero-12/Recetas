@@ -1,0 +1,5 @@
+.app{
+    background-color: var(--pa-theme-white);
+    min-height: 100vh;
+    transition: all var(--pa-theme-transition);
+}

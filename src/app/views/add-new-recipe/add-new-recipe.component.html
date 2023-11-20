@@ -3,7 +3,7 @@
 
     <form [formGroup]="recipeForm">
         <!-- Title -->
-        <div class="form-group pb-3 px-4">
+        <div class="form-group pb-4 px-4">
             <label for="titleInput" class="form-label">Título: </label>
             <input type="text" class="form-control" id="titleInput" formControlName="title"
                 (ngModelChange)="validateField('title')">
@@ -11,7 +11,7 @@
         </div>
 
         <!-- Description -->
-        <div class="form-group pb-3 px-4">
+        <div class="form-group pb-4 px-4">
             <label for="descriptionInput" class="form-label">Descripción: </label>
             <input type="text" class="form-control" id="descriptionInput" formControlName="description"
                 (ngModelChange)="validateField('description')">
@@ -19,14 +19,14 @@
         </div>
 
         <!-- Image -->
-        <div class="form-group pb-3 px-4">
+        <div class="form-group pb-4 px-4">
             <label class="form-label">Imagen: </label>
             <app-image-input id="image-comp" (newImageInput)="newImage($event)"></app-image-input>
             <p id="wrong-image" class="wrong-input-alert wrong-hidden">Este campo es obligatorio</p>
         </div>
 
         <!-- Ingredients -->
-        <div class="pb-3 px-4" formArrayName="ingredients">
+        <div class="pb-4 px-4" formArrayName="ingredients">
             <label class="form-label">Ingredientes: </label>
             <!-- For each ingredient -->
             <div class="ingredientForm form-group row pb-3"

@@ -125,11 +125,13 @@
     border-color: var(--pa-theme-brown);
     border-radius: var(--bs-border-radius);
     outline: none;
+    cursor: pointer;
     background-color: transparent;
     transition: color var(--pa-theme-transition), border-color var(--pa-theme-transition);
 }
 
 .sortOpt {
+    cursor: pointer;
     background-color: var(--pa-theme-white);
 }
 
