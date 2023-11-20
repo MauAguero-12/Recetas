@@ -28,7 +28,6 @@ export class HeaderComponent implements OnInit {
   inputChecked = false
 
   checkboxChecked(): boolean {
-    console.log(this.themeService.getTheme() === 'theme-dark')
     return this.themeService.getTheme() === 'theme-dark'
   }
 
