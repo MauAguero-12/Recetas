@@ -27,8 +27,23 @@
 
 .form-control {
     color: var(--pa-theme-black);
-    background-color: transparent;
-    transition: color var(--pa-theme-transition), background-color var(--pa-theme-transition);
+    background-color: var(--pa-theme-white);
+    box-shadow: 0 0 0 30px var(--pa-theme-white) inset !important;
+    -webkit-text-fill-color: var(--pa-theme-black) !important;
+    transition: all var(--pa-theme-transition);
+}
+
+.form-control:-webkit-autofill,
+.form-control:-webkit-autofill:hover, 
+.form-control:-webkit-autofill:focus, 
+.form-control:-webkit-autofill:active{
+    -webkit-box-shadow: 0 0 0 30px var(--pa-theme-white) inset !important;
+    -webkit-text-fill-color: var(--pa-theme-black) !important;
+    -webkit-border-before-color: #86b7fe !important;
+    -webkit-border-after-color: #86b7fe !important;
+    -webkit-border-start-color: #86b7fe !important;
+    -webkit-border-end-color: #86b7fe !important;
+    background-color: var(--pa-theme-white);
 }
 
 /* Wrong Input Alert */
@@ -132,9 +147,8 @@ button {
 }
 
 .removeIngredientIcon:hover {
-    color: white;
+    color: var(--pa-theme-white);
     background-color: #BC4749;
-    border: var(--bs-border-width) solid var(--bs-border-color);
 }
 
 /* Save Button */
