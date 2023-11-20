@@ -34,9 +34,7 @@ export class RecipesService {
 
   deleteRecipes(): void {
     this.recipes = []
-
-    // currently commented so the recipes aren't completely lost after deleting
-    // this.clear_localstorage_recipes()
+    this.clear_localstorage_recipes()
   }
 
   // Local Storage

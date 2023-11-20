@@ -62,8 +62,7 @@ export class DashboardComponent {
     clearTimeout(this.filterTimer);
     this.filterTimer = setTimeout(() => {
       this.updateFilter(event);
-    }, 500); // 500ms = 0.5s
-    // }, 3000); // 3000ms = 3s
+    }, 3000); // 3000ms = 3s
   }
 
   updateFilter(event: any) {
@@ -194,8 +193,7 @@ export class DashboardComponent {
     return arr1.every((value, index) => value === arr2[index]);
   }
 
-  // count the amount of times a string is in an array 
-  // countOccurrences(arr: string[], target: string): number {
+  // count the amount of times a string is in an array
   countOccurrences(word: string, str: string): number {
     word = word.toLowerCase()
     let str_array = this.getWords(str.toLowerCase())

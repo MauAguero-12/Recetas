@@ -37,7 +37,7 @@
     }
 }
 
-.text{
+.text {
     color: var(--pa-theme-black);
 }
 
@@ -64,7 +64,7 @@
     cursor: pointer;
 }
 
-#modalCloseIcon{
+#modalCloseIcon {
     color: var(--pa-theme-black);
 }
 

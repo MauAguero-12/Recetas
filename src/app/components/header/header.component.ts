@@ -17,8 +17,6 @@ export class HeaderComponent implements OnInit {
     if (deleteRecipes) {
       deleteRecipes.onclick = () => {
         this.recipeService.deleteRecipes()
-        // (show modal first)
-        // this.showModal()
       }
     }
 
@@ -48,19 +46,6 @@ export class HeaderComponent implements OnInit {
     }
     return faSun
   }
-
-  // Modal (Comented because it is not yet implemented)
-  // headerText = 'Está seguro que quiere eliminar todas las recetas?'
-  // bodyText = 'Una vez se eliminen, no habrá forma de recuperarlas.'
-  // @ViewChild(ModalComponent) modalComp!: ModalComponent;
-  // showModal() {
-  //   this.modalComp.showModal()
-  // }
-
-  // modalClosed(i: number) {
-  //   // delete recipes from the service
-  //   this.recipeService.deleteRecipes()
-  // }
 
   // Icons
   iconHouseChimney = faHouseChimney
